@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('成为vip')" />
+    <th:block th:include="include :: datetimepicker-css" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-vip-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">VIP等级：</label>
+                <div class="col-sm-8">
+                    <select name="vipLevel" class="form-control m-b" th:with="type=${@dict.getType('job_vip_level')}" id="vipLevel" required>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">支付方式：</label>
+                <div class="col-sm-8">
+                    <h3>微信扫码支付</h3>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
+    <script type="text/javascript">
+        var prefix = ctx + "weixinpay"
+        $("#form-vip-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            var options = $('#vipLevel option:selected');
+            var totalFee = options.val();
+            var body = options.text();
+            $.modal.close();
+            if ($.validate.form()) {
+                // $.modal.open(prefix + "/qcPay1", { "body": body, "totalFee": totalFee});
+                $.modal.openTab("支付", prefix + "/qcPay1?body=" + body + "&totalFee=" + totalFee);
+                window.parent.$.modal.closeLoading();
+            }
+        }
+
+    </script>
+</body>
+</html>

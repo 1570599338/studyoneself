@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('新增企业')" />
+</head>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-enterprise-add">
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">企业名称：</label>
+                <div class="col-sm-8">
+                    <input name="name" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">企业规模：</label>
+                <div class="col-sm-8">
+                    <select name="scale" class="form-control m-b" th:with="type=${@dict.getType('job_enterprise_scale')}" required>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">企业性质：</label>
+                <div class="col-sm-8">
+                    <select name="category" class="form-control m-b" th:with="type=${@dict.getType('job_enterprise_category')}" required>
+                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">企业地址：</label>
+                <div class="col-sm-8">
+                    <input name="address" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label is-required">联系方式：</label>
+                <div class="col-sm-8">
+                    <input name="phone" class="form-control" type="text" required>
+                </div>
+            </div>
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">企业信息：</label>
+                <div class="col-sm-8">
+                    <textarea name="information" class="form-control" ></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script type="text/javascript">
+        var prefix = ctx + "job/enterprise"
+        $("#form-enterprise-add").validate({
+            focusCleanup: true
+        });
+
+        function submitHandler() {
+            if ($.validate.form()) {
+                $.operate.save(prefix + "/add", $('#form-enterprise-add').serialize());
+            }
+        }
+    </script>
+</body>
+</html>

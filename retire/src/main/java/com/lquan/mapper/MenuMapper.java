@@ -1,6 +1,8 @@
 package com.lquan.mapper;
 
 import com.lquan.domain.Menu;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,7 @@ import java.util.List;
  * @author lquan
  * @date 2022-01-25 18:19:09
  */
+@Mapper
 public interface MenuMapper{
     /**
      * 查询Menu
