@@ -1,15 +1,16 @@
 package com.lquan.service.impl;
 
+import com.lquan.annotation.DataScope;
+import com.lquan.bean.Ztree;
+import com.lquan.common.constant.UserConstants;
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.common.utils.StringUtils;
+import com.lquan.domain.Dept;
+import com.lquan.domain.Role;
+import com.lquan.exception.BusinessException;
+import com.lquan.mapper.DeptMapper;
 import com.lquan.service.IDeptService;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.exception.BusinessException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.framework.aspectj.lang.annotation.DataScope;
-import com.ruoyi.framework.web.domain.Ztree;
-import com.ruoyi.project.system.dept.domain.Dept;
-import com.ruoyi.project.system.dept.mapper.DeptMapper;
-import com.ruoyi.project.system.role.domain.Role;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +26,7 @@ import java.util.List;
 @Service
 public class DeptServiceImpl implements IDeptService
 {
-    @Autowired
+    @Autowired(required = false)
     private DeptMapper deptMapper;
 
     /**
@@ -35,7 +36,6 @@ public class DeptServiceImpl implements IDeptService
      * @return 部门信息集合
      */
     @Override
-    @DataScope(deptAlias = "d")
     public List<Dept> selectDeptList(Dept dept)
     {
         return deptMapper.selectDeptList(dept);
@@ -48,7 +48,6 @@ public class DeptServiceImpl implements IDeptService
      * @return 所有部门信息
      */
     @Override
-    @DataScope(deptAlias = "d")
     public List<Ztree> selectDeptTree(Dept dept)
     {
         List<Dept> deptList = deptMapper.selectDeptList(dept);

@@ -19,9 +19,8 @@ import java.util.List;
  * @author ruoyi
  */
 @Service
-public class ConfigServiceImpl implements IConfigService
-{
-    @Autowired
+public class ConfigServiceImpl implements IConfigService {
+    @Autowired(required = false)
     private ConfigMapper configMapper;
 
     /**

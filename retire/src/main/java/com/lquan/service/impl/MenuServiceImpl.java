@@ -1,18 +1,17 @@
 package com.lquan.service.impl;
 
+import com.lquan.bean.Ztree;
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.domain.Menu;
+import com.lquan.domain.Role;
+import com.lquan.domain.User;
 import com.lquan.mapper.MenuMapper;
 import com.lquan.mapper.RoleMenuMapper;
 import com.lquan.service.IMenuService;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.TreeUtils;
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.framework.web.domain.Ztree;
-import com.ruoyi.project.system.menu.domain.Menu;
-import com.ruoyi.project.system.menu.mapper.MenuMapper;
-import com.ruoyi.project.system.role.domain.Role;
-import com.ruoyi.project.system.role.mapper.RoleMenuMapper;
-import com.ruoyi.project.system.user.domain.User;
+import com.lquan.common.constant.UserConstants;
+import com.lquan.common.utils.StringUtils;
+import com.lquan.common.utils.TreeUtils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,10 +28,10 @@ public class MenuServiceImpl implements IMenuService
 {
     public static final String PREMISSION_STRING = "perms[\"{0}\"]";
 
-    @Autowired
+    @Autowired(required = false)
     private MenuMapper menuMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleMenuMapper roleMenuMapper;
 
     /**

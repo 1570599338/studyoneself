@@ -1,10 +1,18 @@
 package com.lquan.service.impl;
 
 import com.lquan.annotation.DataScope;
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.common.text.Convert;
+import com.lquan.common.utils.spring.SpringUtils;
 import com.lquan.domain.Role;
+import com.lquan.domain.RoleDept;
+import com.lquan.domain.RoleMenu;
+import com.lquan.domain.UserRole;
+import com.lquan.exception.BusinessException;
 import com.lquan.mapper.RoleDeptMapper;
 import com.lquan.mapper.RoleMapper;
 import com.lquan.mapper.RoleMenuMapper;
+import com.lquan.mapper.UserRoleMapper;
 import com.lquan.service.IRoleService;
 import com.lquan.common.constant.UserConstants;
 import com.lquan.common.utils.StringUtils;
@@ -22,16 +30,16 @@ import java.util.*;
 @Service
 public class RoleServiceImpl implements IRoleService
 {
-    @Autowired
+    @Autowired(required = false)
     private RoleMapper roleMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleMenuMapper roleMenuMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private UserRoleMapper userRoleMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleDeptMapper roleDeptMapper;
 
     /**

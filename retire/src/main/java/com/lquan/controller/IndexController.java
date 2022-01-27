@@ -5,6 +5,7 @@ import com.lquan.common.security.ShiroUtils;
 import com.lquan.domain.Menu;
 import com.lquan.domain.User;
 import com.lquan.mapper.RoleMapper;
+import com.lquan.service.IMenuService;
 import com.lquan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

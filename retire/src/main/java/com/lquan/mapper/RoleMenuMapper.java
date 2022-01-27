@@ -11,8 +11,7 @@ import java.util.List;
  * @author ruoyi
  */
 @Mapper
-public interface RoleMenuMapper
-{
+public interface RoleMenuMapper {
     /**
      * 通过角色ID删除角色和菜单关联
      * 

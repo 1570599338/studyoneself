@@ -1,10 +1,10 @@
 package com.lquan.service.impl;
 
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.common.text.Convert;
+import com.lquan.domain.Notice;
+import com.lquan.mapper.NoticeMapper;
 import com.lquan.service.INoticeService;
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.common.utils.text.Convert;
-import com.ruoyi.project.system.notice.domain.Notice;
-import com.ruoyi.project.system.notice.mapper.NoticeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 public class NoticeServiceImpl implements INoticeService
 {
-    @Autowired
+    @Autowired(required = false)
     private NoticeMapper noticeMapper;
 
     /**
@@ -28,7 +28,7 @@ public class NoticeServiceImpl implements INoticeService
      * @param noticeId 公告ID
      * @return 公告信息
      */
-    @Override
+    @Autowired(required = false)
     public Notice selectNoticeById(Long noticeId)
     {
         return noticeMapper.selectNoticeById(noticeId);

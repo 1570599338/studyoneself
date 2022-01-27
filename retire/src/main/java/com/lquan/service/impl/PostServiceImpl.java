@@ -1,14 +1,15 @@
 package com.lquan.service.impl;
 
+import com.lquan.common.constant.UserConstants;
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.common.text.Convert;
+import com.lquan.common.utils.StringUtils;
+import com.lquan.domain.Post;
+import com.lquan.exception.BusinessException;
+import com.lquan.mapper.PostMapper;
+import com.lquan.mapper.UserPostMapper;
 import com.lquan.service.IPostService;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.exception.BusinessException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.common.utils.text.Convert;
-import com.ruoyi.project.system.post.domain.Post;
-import com.ruoyi.project.system.post.mapper.PostMapper;
-import com.ruoyi.project.system.user.mapper.UserPostMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,10 @@ import java.util.List;
 @Service
 public class PostServiceImpl implements IPostService
 {
-    @Autowired
+    @Autowired(required = false)
     private PostMapper postMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private UserPostMapper userPostMapper;
 
     /**

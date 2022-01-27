@@ -28,10 +28,10 @@ import java.util.List;
 @Service
 public class DictTypeServiceImpl implements IDictTypeService
 {
-    @Autowired
+    @Autowired(required = false)
     private DictTypeMapper dictTypeMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private DictDataMapper dictDataMapper;
 
     /**

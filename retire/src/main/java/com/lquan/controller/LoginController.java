@@ -1,11 +1,11 @@
 package com.lquan.controller;
 
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.mapper.UserMapper;
+
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.constant.Constants;
+import com.lquan.common.utils.ServletUtils;
+import com.lquan.common.utils.StringUtils;
+import com.lquan.domain.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;

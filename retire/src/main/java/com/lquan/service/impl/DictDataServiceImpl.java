@@ -18,7 +18,7 @@ import java.util.List;
 @Service
 public class DictDataServiceImpl implements IDictDataService
 {
-    @Autowired
+    @Autowired(required = false)
     private DictDataMapper dictDataMapper;
 
     /**
