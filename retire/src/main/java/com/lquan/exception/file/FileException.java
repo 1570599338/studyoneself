@@ -1,6 +1,7 @@
 package com.lquan.exception.file;
 
-import com.ruoyi.common.exception.base.BaseException;
+
+import com.lquan.exception.base.BaseException;
 
 /**
  * 文件信息异常类

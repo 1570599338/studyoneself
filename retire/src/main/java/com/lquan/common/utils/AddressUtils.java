@@ -1,15 +1,15 @@
 package com.lquan.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ruoyi.common.utils.http.HttpUtils;
-import com.ruoyi.framework.config.RuoYiConfig;
+import com.lquan.common.utils.http.HttpUtils;
+import com.lquan.config.RuoYiConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * 获取地址类
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class AddressUtils
 {

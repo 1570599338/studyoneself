@@ -1,12 +1,13 @@
 package com.lquan.controller;
 
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.framework.web.controller.BaseController;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.framework.web.page.TableDataInfo;
-import com.ruoyi.project.system.notice.domain.Notice;
-import com.ruoyi.project.system.notice.service.INoticeService;
+import com.lquan.annotation.Log;
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.page.TableDataInfo;
+import com.lquan.domain.DictData;
+import com.lquan.domain.Notice;
+import com.lquan.enums.BusinessType;
+import com.lquan.service.IDictDataService;
+import com.lquan.service.INoticeService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ import java.util.List;
 /**
  * 公告 信息操作处理
  * 
- * @author ruoyi
+ * @author lquan
  */
 @Controller
 @RequestMapping("/system/notice")

@@ -1,7 +1,7 @@
 package com.lquan.common.security;
 
-import com.ruoyi.common.constant.PermissionConstants;
-import com.ruoyi.common.utils.MessageUtils;
+import com.lquan.common.constant.PermissionConstants;
+import com.lquan.common.utils.MessageUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**

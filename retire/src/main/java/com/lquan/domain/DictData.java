@@ -1,8 +1,9 @@
 package com.lquan.domain;
 
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.framework.aspectj.lang.annotation.Excel;
-import com.ruoyi.framework.aspectj.lang.annotation.Excel.ColumnType;
+
+import com.lquan.annotation.Excel;
+import com.lquan.annotation.Excel.ColumnType;
+import com.lquan.common.constant.UserConstants;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

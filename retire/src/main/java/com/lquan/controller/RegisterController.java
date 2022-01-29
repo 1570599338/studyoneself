@@ -1,12 +1,15 @@
 package com.lquan.controller;
 
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.project.system.role.service.IRoleService;
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.service.IUserService;
+import com.lquan.common.constant.UserConstants;
+import com.lquan.annotation.Log;
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.page.TableDataInfo;
+import com.lquan.domain.DictData;
+import com.lquan.domain.User;
+import com.lquan.enums.BusinessType;
+import com.lquan.service.IDictDataService;
+import com.lquan.service.IRoleService;
+import com.lquan.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

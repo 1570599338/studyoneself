@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * 部门管理 服务实现
  * 
- * @author ruoyi
+ * @author lquan
  */
 @Service
 public class DeptServiceImpl implements IDeptService

@@ -1,6 +1,6 @@
 package com.lquan.common.text;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.lquan.common.utils.StringUtils;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 /**
  * 字符集工具类
  * 
- * @author ruoyi
+ * @author lquan
  *
  */
 public class CharsetKit

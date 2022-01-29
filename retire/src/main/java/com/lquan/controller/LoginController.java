@@ -6,6 +6,7 @@ import com.lquan.common.constant.Constants;
 import com.lquan.common.utils.ServletUtils;
 import com.lquan.common.utils.StringUtils;
 import com.lquan.domain.User;
+import com.lquan.mapper.UserMapper;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -82,7 +83,7 @@ public class LoginController extends BaseController
         return "error/unauth";
     }
 
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
     public User getRandSysUser() {

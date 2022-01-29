@@ -1,6 +1,6 @@
 package com.lquan.common.utils;
 
-import com.ruoyi.common.utils.text.Convert;
+import com.lquan.common.text.Convert;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;

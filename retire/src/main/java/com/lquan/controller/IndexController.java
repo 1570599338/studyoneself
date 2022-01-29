@@ -2,6 +2,7 @@ package com.lquan.controller;
 
 
 import com.lquan.common.security.ShiroUtils;
+import com.lquan.config.RuoYiConfig;
 import com.lquan.domain.Menu;
 import com.lquan.domain.User;
 import com.lquan.mapper.RoleMapper;
@@ -28,10 +29,10 @@ public class IndexController extends BaseController
     @Autowired
     private IUserService userService;
 
-    @Autowired
+    @Autowired(required = false)
     private RuoYiConfig ruoYiConfig;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleMapper roleMapper;
 
     // 系统首页

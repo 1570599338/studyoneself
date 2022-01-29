@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 /**
  * 部门表 sys_dept
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class Dept extends BaseEntity
 {

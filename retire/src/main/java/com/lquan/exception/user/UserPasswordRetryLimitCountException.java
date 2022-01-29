@@ -3,7 +3,7 @@ package com.lquan.exception.user;
 /**
  * 用户错误记数异常类
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class UserPasswordRetryLimitCountException extends UserException
 {

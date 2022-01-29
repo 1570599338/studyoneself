@@ -3,7 +3,7 @@ package com.lquan.enums;
 /**
  * 业务操作类型
  * 
- * @author ruoyi
+ * @author lquan
  *
  */
 public enum BusinessType

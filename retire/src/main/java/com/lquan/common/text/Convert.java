@@ -1,6 +1,6 @@
 package com.lquan.common.text;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.lquan.common.utils.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * 类型转换器
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class Convert
 {

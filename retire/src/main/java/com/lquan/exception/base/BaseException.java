@@ -1,6 +1,6 @@
 package com.lquan.exception.base;
 
-import com.ruoyi.common.utils.MessageUtils;
+import com.lquan.common.utils.MessageUtils;
 import org.springframework.util.StringUtils;
 
 /**

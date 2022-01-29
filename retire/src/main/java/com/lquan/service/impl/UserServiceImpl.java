@@ -32,25 +32,25 @@ public class UserServiceImpl implements IUserService
 {
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    @Autowired
+    @Autowired(required = false)
     private UserMapper userMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private RoleMapper roleMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private PostMapper postMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private UserPostMapper userPostMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private UserRoleMapper userRoleMapper;
 
-    @Autowired
+    @Autowired(required = false)
     private IConfigService configService;
 
-    @Autowired
+    @Autowired(required = false)
     private PasswordService passwordService;
 
     /**
@@ -183,7 +183,8 @@ public class UserServiceImpl implements IUserService
     public int insertUser(User user)
     {
         user.randomSalt();
-        user.setPassword(passwordService.encryptPassword(user.getLoginName(), Constants.PASSWORD, user.getSalt()));
+       // user.setPassword(passwordService.encryptPassword(user.getLoginName(), Constants.PASSWORD, user.getSalt()));
+        user.setPassword(user.getPassword());
         if (ShiroUtils.getSysUser() != null) {
             user.setCreateBy(ShiroUtils.getLoginName());
         } else {
@@ -243,7 +244,8 @@ public class UserServiceImpl implements IUserService
     public int resetUserPwd(User user)
     {
         user.randomSalt();
-        user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
+       // user.setPassword(passwordService.encryptPassword(user.getLoginName(), user.getPassword(), user.getSalt()));
+        user.setPassword(user.getPassword());
         return updateUserInfo(user);
     }
 

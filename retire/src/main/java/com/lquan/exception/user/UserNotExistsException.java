@@ -3,7 +3,7 @@ package com.lquan.exception.user;
 /**
  * 用户不存在异常类
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class UserNotExistsException extends UserException
 {

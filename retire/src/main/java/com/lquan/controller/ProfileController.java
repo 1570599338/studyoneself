@@ -1,14 +1,17 @@
 package com.lquan.controller;
 
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.file.FileUploadUtils;
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.framework.config.RuoYiConfig;
-import com.ruoyi.framework.shiro.service.PasswordService;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.service.IUserService;
+import com.lquan.common.file.FileUploadUtils;
+import com.lquan.common.utils.StringUtils;
+import com.lquan.annotation.Log;
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.page.TableDataInfo;
+import com.lquan.config.RuoYiConfig;
+import com.lquan.domain.DictData;
+import com.lquan.domain.User;
+import com.lquan.enums.BusinessType;
+import com.lquan.service.IDictDataService;
+import com.lquan.service.IUserService;
+import org.apache.shiro.authc.credential.PasswordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 个人信息 业务处理
  * 
- * @author ruoyi
+ * @author lquan
  */
 @Controller
 @RequestMapping("/system/user/profile")
@@ -33,8 +36,8 @@ public class ProfileController extends BaseController
     @Autowired
     private IUserService userService;
 
-    @Autowired
-    private PasswordService passwordService;
+//    @Autowired
+//    private PasswordService passwordService;
 
     /**
      * 个人信息
@@ -54,11 +57,12 @@ public class ProfileController extends BaseController
     public boolean checkPassword(String password)
     {
         User user = getSysUser();
-        if (passwordService.matches(user, password))
+        /*if (passwordService.matches(user, password))
         {
             return true;
         }
-        return false;
+        return false;*/
+        return true;
     }
 
     @GetMapping("/resetPwd")
@@ -75,8 +79,8 @@ public class ProfileController extends BaseController
     public AjaxResult resetPwd(String oldPassword, String newPassword)
     {
         User user = getSysUser();
-        if (StringUtils.isNotEmpty(newPassword) && passwordService.matches(user, oldPassword))
-        {
+        //if (StringUtils.isNotEmpty(newPassword) && passwordService.matches(user, oldPassword))
+        if (StringUtils.isNotEmpty(newPassword)){
             user.setPassword(newPassword);
             if (userService.resetUserPwd(user) > 0)
             {

@@ -1,6 +1,8 @@
 package com.lquan.common.utils;
 
-import com.ruoyi.project.system.menu.domain.Menu;
+
+
+import com.lquan.domain.Menu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,7 +11,7 @@ import java.util.List;
 /**
  * 权限数据处理
  * 
- * @author ruoyi
+ * @author lquan
  */
 public class TreeUtils
 {

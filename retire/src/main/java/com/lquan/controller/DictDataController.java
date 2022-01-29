@@ -1,13 +1,13 @@
 package com.lquan.controller;
 
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.framework.web.controller.BaseController;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.framework.web.page.TableDataInfo;
-import com.ruoyi.project.system.dict.domain.DictData;
-import com.ruoyi.project.system.dict.service.IDictDataService;
+
+import com.lquan.annotation.Log;
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.page.TableDataInfo;
+import com.lquan.common.utils.poi.ExcelUtil;
+import com.lquan.domain.DictData;
+import com.lquan.enums.BusinessType;
+import com.lquan.service.IDictDataService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

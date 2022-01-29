@@ -1,16 +1,17 @@
 package com.lquan.controller;
 
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.common.utils.security.ShiroUtils;
-import com.ruoyi.framework.aspectj.lang.annotation.Log;
-import com.ruoyi.framework.aspectj.lang.enums.BusinessType;
-import com.ruoyi.framework.web.domain.AjaxResult;
-import com.ruoyi.framework.web.page.TableDataInfo;
-import com.ruoyi.project.system.post.service.IPostService;
-import com.ruoyi.project.system.role.service.IRoleService;
-import com.ruoyi.project.system.user.domain.User;
-import com.ruoyi.project.system.user.service.IUserService;
+import com.lquan.annotation.Log;
+import com.lquan.bean.AjaxResult;
+import com.lquan.common.constant.UserConstants;
+
+import com.lquan.common.page.TableDataInfo;
+import com.lquan.common.security.ShiroUtils;
+import com.lquan.common.utils.poi.ExcelUtil;
+import com.lquan.domain.User;
+import com.lquan.enums.BusinessType;
+import com.lquan.service.IPostService;
+import com.lquan.service.IRoleService;
+import com.lquan.service.IUserService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +26,7 @@ import java.util.stream.Collectors;
 /**
  * 用户信息
  * 
- * @author ruoyi
+ * @author lquan
  */
 @Controller
 @RequestMapping("/system/user")

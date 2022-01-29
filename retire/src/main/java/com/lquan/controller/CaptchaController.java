@@ -19,7 +19,7 @@ import java.io.IOException;
 /**
  * 图片验证码（支持算术形式）
  * 
- * @author ruoyi
+ * @author lquan
  */
 @Controller
 @RequestMapping("/captcha")
