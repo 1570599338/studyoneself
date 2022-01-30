@@ -2,6 +2,9 @@ package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 /**
  * @program: retire
@@ -10,12 +13,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create: 2022-01-25 15:09
  **/
 
-@SpringBootApplication
-public class ApiAplication {
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
+public class ApiAplication  extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication.run(ApiAplication.class, args);
 
 
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(ApiAplication.class);
     }
 }

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.user.mapper.UserMapper">
+<mapper namespace="com.lquan.mapper.UserMapper">
 
-	<resultMap type="User" id="UserResult">
-		<id     property="userId"       column="user_id"      />
+	<resultMap type="com.lquan.domain.User" id="UserResult">
+		<id     property="Id"       column="id"      />
 		<result property="deptId"       column="dept_id"      />
 		<result property="vip"       column="vip"      />
 		<result property="loginName"    column="login_name"   />
@@ -29,8 +29,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<collection  property="roles"   javaType="java.util.List"        resultMap="RoleResult" />
 	</resultMap>
 	
-	<resultMap id="deptResult" type="Dept">
-		<id     property="deptId"   column="dept_id"     />
+	<resultMap id="deptResult" type="com.lquan.domain.Dept">
+		<id     property="Id"   column="id"     />
 		<result property="parentId" column="parent_id"   />
 		<result property="deptName" column="dept_name"   />
 		<result property="orderNum" column="order_num"   />
@@ -38,8 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="status"   column="dept_status" />
 	</resultMap>
 	
-	<resultMap id="RoleResult" type="Role">
-		<id     property="roleId"       column="role_id"        />
+	<resultMap id="RoleResult" type="com.lquan.domain.Role">
+		<id     property="Id"       column="id"        />
 		<result property="roleName"     column="role_name"      />
 		<result property="roleKey"      column="role_key"       />
 		<result property="roleSort"     column="role_sort"      />
@@ -48,18 +48,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="selectUserVo">
-        select  u.user_id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,
-       		    d.dept_id, d.parent_id, d.dept_name, d.order_num, d.leader, d.status as dept_status,
-       		    r.role_id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
+        select  u.id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.password, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_time, u.remark,
+       		    d.id, d.parent_id, d.dept_name, d.order_num, d.leader, d.status as dept_status,
+       		    r.id, r.role_name, r.role_key, r.role_sort, r.data_scope, r.status as role_status
 		from sys_user u
-			 left join sys_dept d on u.dept_id = d.dept_id
-			 left join sys_user_role ur on u.user_id = ur.user_id
-			 left join sys_role r on r.role_id = ur.role_id
+			 left join t_dept d on u.dept_id = d.id
+			 left join t_user_role ur on u.id = ur.user_id
+			 left join t_role r on r.id = ur.role_id
     </sql>
 	
 	<select id="selectUserList" parameterType="User" resultMap="UserResult">
-		select u.user_id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from sys_user u
-		left join sys_dept d on u.dept_id = d.dept_id
+		select u.id, u.dept_id, u.login_name, u.vip, u.user_name, u.email, u.avatar, u.phonenumber, u.password, u.sex, u.salt, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from t_user u
+		left join t_dept d on u.dept_id = d.id
 		where u.del_flag = '0'
 		<if test="loginName != null and loginName != ''">
 			AND u.login_name like concat('%', #{loginName}, '%')
@@ -227,5 +227,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	c.role_key = 'tourist'
     ORDER BY RAND()
     LIMIT 1
+	</select>
+
+
+
+	<select id="selectUserLogin" parameterType="User" resultMap="UserResult">
+		<include refid="selectUserVo"/>
+		where 1=1
+		<if test="loginName != null and loginName != ''">
+			AND u.login_name=#{loginName}
+		</if>
+		<if test="password != null and password != ''">
+			AND u.password =#{password}
+		</if>
 	</select>
 </mapper> 

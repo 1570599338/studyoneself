@@ -2,6 +2,7 @@ package com.lquan.mapper;
 
 
 import com.lquan.domain.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * 
  * @author ruoyi
  */
+@Mapper
 public interface UserMapper
 {
     /**
@@ -129,4 +131,11 @@ public interface UserMapper
      * @return
      */
     public User getRandUser();
+
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     */
+    public User  selectUserLogin(User user);
 }

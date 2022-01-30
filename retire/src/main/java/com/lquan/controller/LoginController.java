@@ -7,6 +7,7 @@ import com.lquan.common.utils.ServletUtils;
 import com.lquan.common.utils.StringUtils;
 import com.lquan.domain.User;
 import com.lquan.mapper.UserMapper;
+import com.lquan.service.IUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -22,19 +23,22 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 登录验证
- * 
+ *
  * @author ruoyi
  */
 @Controller
-public class LoginController extends BaseController
-{
+public class LoginController extends BaseController {
+
+    @Autowired(required = false)
+    private UserMapper userMapper;
+
+    @Autowired
+    private IUserService userService;
 
     @GetMapping("/login")
-    public String login(HttpServletRequest request, HttpServletResponse response)
-    {
+    public String login(HttpServletRequest request, HttpServletResponse response) {
         // 如果是Ajax请求，返回Json字符串。
-        if (ServletUtils.isAjaxRequest(request))
-        {
+        if (ServletUtils.isAjaxRequest(request)) {
             return ServletUtils.renderString(response, "{\"code\":\"1\",\"msg\":\"未登录或登录超时。请重新登录\"}");
         }
 
@@ -43,9 +47,9 @@ public class LoginController extends BaseController
 
     @PostMapping("/login")
     @ResponseBody
-    public AjaxResult ajaxLogin(String username, String password, Boolean tourist)
-    {
+    public AjaxResult ajaxLogin(String username, String password, Boolean tourist) {
         UsernamePasswordToken token;
+        User userlogin = null;
         if (tourist) {
             User user = getRandSysUser();
             token = new UsernamePasswordToken(user.getLoginName(), Constants.PASSWORD);
@@ -64,13 +68,10 @@ public class LoginController extends BaseController
                 return AjaxResult.success("登录成功", "tourist");
             }
 
-            return success();
-        }
-        catch (AuthenticationException e)
-        {
+          return success();
+        } catch (AuthenticationException e) {
             String msg = "用户或密码错误";
-            if (StringUtils.isNotEmpty(e.getMessage()))
-            {
+            if (StringUtils.isNotEmpty(e.getMessage())) {
                 msg = e.getMessage();
             }
             return error(msg);
@@ -78,13 +79,10 @@ public class LoginController extends BaseController
     }
 
     @GetMapping("/unauth")
-    public String unauth()
-    {
+    public String unauth() {
         return "error/unauth";
     }
 
-    @Autowired(required = false)
-    private UserMapper userMapper;
 
     public User getRandSysUser() {
         return userMapper.getRandUser();
