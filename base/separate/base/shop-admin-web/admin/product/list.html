@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>商品列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+</head>
+<style type="text/css">
+    .layui-table-cell{
+        height: auto!important;
+        white-space: normal;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>搜索信息</legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">商品名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="code" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <table class="layui-hide" id="logLogin" lay-filter="logLogin"></table>
+    </div>
+</div>
+</body>
+<script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="/static/api/api.js?v=1.0.4" charset="utf-8"></script>
+<script type="text/html" id="imgTpl">
+    <img src= "{{baseimg + d.imgUrl }}">
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table'], function () {
+        var table = layui.table;
+        // 表格
+        table.render({
+            elem: '#logLogin',
+            url:  dev + "/api/admin/product/list",
+            page: true,
+            cols: [
+                [
+                    {field: 'productName', title: '商品名称',width: 150, align: 'center'},
+                    {field: 'title', title: '副标题',width: 150, align: 'center'},
+                    {field: 'sku', title: 'sku',width: 140, align: 'center'},
+                    {field: 'imgUrl', title: '商品封面',width: 140, templet:'#imgTpl'},
+                    {field: 'stock', title: '剩余库存', align: 'center'},
+                    {field: 'sales', title: '销售数量', align: 'center'},
+                    {field: 'mallMobilePrice', title: '售卖价格', align: 'center'},
+                    {field: 'originalPrice', title: '商品原价', align: 'center'}
+                ]
+            ] , toolbar: '#toolbar'
+        });
+
+        table.on('toolbar(logLogin)', function (obj) {
+            switch (obj.event) {
+                case 'add':
+                     location.href = "/admin/product/product-add.html";
+                     break;
+            }
+            return false;
+        });
+    });
+    /*]]>*/
+</script>
+</html>

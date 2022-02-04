@@ -1,0 +1,2036 @@
+{
+  "code": "0",
+  "msg": "成功",
+  "result": {
+    "searchCatResultVOList": [
+      {
+        "searchResultVOList": [
+          {
+            "skuId": "2040796792",
+            "skuName": "A级-千禧圣女果（中）1份230g-250g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/151255/33/13056/206310/5fe974b2Eb3d362bc/4446d893a1795db7.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040796792",
+              "realTimePrice": "14.9",
+              "basicPrice": "17.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1490,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 64,
+            "tags": [
+              {
+                "name": "限时抢",
+                "iconText": "秒杀8.33折",
+                "type": 9,
+                "belongIndustry": 1,
+                "words": "促销商品每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FF5959",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||1|||葡提浆果|sku\",\"isVPlusSku\":0,\"minorPrice\":\"17.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"14.9\",\"sku_id\":\"2040796792\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "5",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 1,
+            "monthSaleSortIndex": 9,
+            "realTimePriceSortIndex": 2,
+            "promoteIndex": 1,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.8324022346368716,
+            "majorPrice": {
+              "price": "14.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "17.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 39512028,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 1,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 0,
+            "basicPrice": "17.9",
+            "realTimePrice": "14.9",
+            "realTimePriceNum": 1490,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2038322808",
+            "skuName": "A级-克瑞森无核珍珠红-1份/250g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/156300/2/5609/428657/5ffd066aEf0d12b23/0d188ccb946cff4d.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2038322808",
+              "realTimePrice": "14.9",
+              "basicPrice": "19.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1490,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 68,
+            "tags": [
+              {
+                "name": "限时抢",
+                "iconText": "秒杀7.49折",
+                "type": 9,
+                "belongIndustry": 1,
+                "words": "促销商品每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FF5959",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||2|||葡提浆果|sku\",\"isVPlusSku\":0,\"minorPrice\":\"19.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"14.9\",\"sku_id\":\"2038322808\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "12",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 2,
+            "monthSaleSortIndex": 11,
+            "realTimePriceSortIndex": 3,
+            "promoteIndex": 2,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.7487437185929648,
+            "majorPrice": {
+              "price": "14.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "19.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 39512027,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 2,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 0,
+            "basicPrice": "19.9",
+            "realTimePrice": "14.9",
+            "realTimePriceNum": 1490,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2036865236",
+            "skuName": "B级-125g盒装进口蓝莓（中）1盒/约125g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/162537/10/2033/464845/5ffe4ff1E1d35a0c7/c27a33046e878781.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2036865236",
+              "realTimePrice": "18.9",
+              "basicPrice": "23.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1890,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 52,
+            "tags": [
+              {
+                "name": "限时抢",
+                "iconText": "秒杀7.91折",
+                "type": 9,
+                "belongIndustry": 1,
+                "words": "促销商品每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FF5959",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||3|||葡提浆果|sku\",\"isVPlusSku\":0,\"minorPrice\":\"23.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"18.9\",\"sku_id\":\"2036865236\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "2",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "做起沙拉来，和整个水果界都很搭\n",
+            "defaultSortIndex": 3,
+            "monthSaleSortIndex": 6,
+            "realTimePriceSortIndex": 5,
+            "promoteIndex": 3,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.7907949790794979,
+            "majorPrice": {
+              "price": "18.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "23.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 39506135,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "做起沙拉来，和整个水果界都很搭\n",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 3,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 0,
+            "basicPrice": "23.9",
+            "realTimePrice": "18.9",
+            "realTimePriceNum": 1890,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2035617279",
+            "skuName": "B级-国产红提（中）-1份/230-250g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/153133/33/8802/396654/5fccefbeE89e2fdd6/6fdb3c16e03d0d62.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2035617279",
+              "realTimePrice": "13.9",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1390,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 12,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||4|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"13.9\",\"sku_id\":\"2035617279\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "3",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "粒粒红果堆绿藤，颗颗甘脆好滋味",
+            "defaultSortIndex": 4,
+            "monthSaleSortIndex": 8,
+            "realTimePriceSortIndex": 1,
+            "promoteIndex": 7,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "13.9",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 39168425,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "粒粒红果堆绿藤，颗颗甘脆好滋味",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 4,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 1,
+            "basicPrice": "",
+            "realTimePrice": "13.9",
+            "realTimePriceNum": 1390,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2035743461",
+            "skuName": "A级- 阳光玫瑰青提 (中)1份/230-250g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/149684/37/17256/58369/5fcd8bc3E4efdb611/33b77a205e2fb08a.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2035743461",
+              "realTimePrice": "38.9",
+              "basicPrice": "49.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 3890,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 44,
+            "tags": [
+              {
+                "name": "限时抢",
+                "iconText": "秒杀7.8折",
+                "type": 9,
+                "belongIndustry": 1,
+                "words": "促销商品每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FF5959",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||5|||葡提浆果|sku\",\"isVPlusSku\":0,\"minorPrice\":\"49.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"38.9\",\"sku_id\":\"2035743461\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "5",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "高颜值的小清新，每一颗都水润多汁，晶莹剔透犹如翡翠",
+            "defaultSortIndex": 5,
+            "monthSaleSortIndex": 10,
+            "realTimePriceSortIndex": 10,
+            "promoteIndex": 4,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.779559118236473,
+            "majorPrice": {
+              "price": "38.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "49.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "高颜值的小清新，每一颗都水润多汁，晶莹剔透犹如翡翠",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 5,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 0,
+            "basicPrice": "49.9",
+            "realTimePrice": "38.9",
+            "realTimePriceNum": 3890,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2040833005",
+            "skuName": "B级-无核夏黑葡萄-1份/230-250g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/161642/18/1362/456396/5ff669abE29d2e52f/76a4e3573acf374c.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040833005",
+              "realTimePrice": "17.9",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1790,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 36,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||6|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"17.9\",\"sku_id\":\"2040833005\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "一颗一颗靠得近，抱在一起超甜蜜",
+            "defaultSortIndex": 6,
+            "monthSaleSortIndex": 2,
+            "realTimePriceSortIndex": 4,
+            "promoteIndex": 8,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "17.9",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "一颗一颗靠得近，抱在一起超甜蜜",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 6,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 1,
+            "basicPrice": "",
+            "realTimePrice": "17.9",
+            "realTimePriceNum": 1790,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2038322804",
+            "skuName": "A级-克瑞森无核珍珠红1份/500g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/161999/32/2351/428657/5ffd066cEcd7fc87a/7bc4eafd3671c123.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2038322804",
+              "realTimePrice": "27.5",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 2750,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 34,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||7|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"27.5\",\"sku_id\":\"2038322804\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "2",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 7,
+            "monthSaleSortIndex": 7,
+            "realTimePriceSortIndex": 9,
+            "promoteIndex": 9,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "27.5",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 7,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 1,
+            "basicPrice": "",
+            "realTimePrice": "27.5",
+            "realTimePriceNum": 2750,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2040796996",
+            "skuName": "A级- 千禧圣女果（中）1份480g-500g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/155241/11/11995/206310/5fe97735Eeb7d67da/299bda4d01701a4f.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040796996",
+              "realTimePrice": "25.9",
+              "basicPrice": "31.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 2590,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 32,
+            "tags": [
+              {
+                "name": "直降",
+                "iconText": "直降8.12折",
+                "type": 1,
+                "belongIndustry": 1,
+                "words": "直降促销每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FFCE0B",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||8|||葡提浆果|sku\",\"isVPlusSku\":0,\"minorPrice\":\"31.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"25.9\",\"sku_id\":\"2040796996\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 8,
+            "monthSaleSortIndex": 1,
+            "realTimePriceSortIndex": 8,
+            "promoteIndex": 5,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.8119122257053292,
+            "majorPrice": {
+              "price": "25.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "31.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 8,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 0,
+            "basicPrice": "31.9",
+            "realTimePrice": "25.9",
+            "realTimePriceNum": 2590,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2040833003",
+            "skuName": "B级-无核夏黑葡萄1份/480-500g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/168262/13/1323/456396/5ff669b0E49c79e60/b129790f1040d0ec.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040833003",
+              "realTimePrice": "22.8",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 2280,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 18,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||9|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"22.8\",\"sku_id\":\"2040833003\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "一颗一颗靠得近，抱在一起超甜蜜",
+            "defaultSortIndex": 9,
+            "monthSaleSortIndex": 3,
+            "realTimePriceSortIndex": 6,
+            "promoteIndex": 10,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "22.8",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "一颗一颗靠得近，抱在一起超甜蜜",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 9,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 1,
+            "basicPrice": "",
+            "realTimePrice": "22.8",
+            "realTimePriceNum": 2280,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2035743460",
+            "skuName": "A级-阳光玫瑰青提 (中)1份/480-500g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/130879/15/18857/58369/5fcd8bc3Eaca38fdc/879852e8bb5c47e3.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2035743460",
+              "realTimePrice": "75.9",
+              "basicPrice": "86.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 7590,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 22,
+            "tags": [
+              {
+                "name": "直降",
+                "iconText": "直降8.74折",
+                "type": 1,
+                "belongIndustry": 1,
+                "words": "直降促销每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FFCE0B",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"minorPrice\":\"50.9\",\"skuStatus\":\"NONSOLDOUT\",\"sku_id\":\"2035743460\",\"isShowCouponPrice\":\"1\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"spm_id\":\"5205234||10|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"majorPrice\":\"75.9\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "1",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "高颜值的小清新，每一颗都水润多汁，晶莹剔透犹如翡翠",
+            "defaultSortIndex": 10,
+            "monthSaleSortIndex": 5,
+            "realTimePriceSortIndex": 11,
+            "promoteIndex": 6,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.8734177215189873,
+            "majorPrice": {
+              "price": "75.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "50.9",
+              "priceType": "7",
+              "deleteLine": false,
+              "priceColor": "#FF1E19",
+              "priceText": "券后",
+              "priceTextColorCode": "#FF1E1A",
+              "colorCode": "#FFECEC"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "高颜值的小清新，每一颗都水润多汁，晶莹剔透犹如翡翠",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 10,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "assistPrice": {
+              "price": "86.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "promotion": 0,
+            "basicPrice": "86.9",
+            "realTimePrice": "75.9",
+            "realTimePriceNum": 7590,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          },
+          {
+            "skuId": "2035831145",
+            "skuName": "B级-黑莓1盒/约120g",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/163992/6/110/284895/5fecadbdEee4a82ca/51a54a32810b5720.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2035831145",
+              "realTimePrice": "22.8",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 2280,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 17,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205234||11|||葡提浆果|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"22.8\",\"sku_id\":\"2035831145\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "果中黑钻石，粒粒好滋味",
+            "defaultSortIndex": 11,
+            "monthSaleSortIndex": 4,
+            "realTimePriceSortIndex": 7,
+            "promoteIndex": 11,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "22.8",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "skuDesc": "果中黑钻石，粒粒好滋味",
+            "skuPromiseType": 0,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 11,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领30元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领25元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "领10元券",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "promotion": 1,
+            "basicPrice": "",
+            "realTimePrice": "22.8",
+            "realTimePriceNum": 2280,
+            "venderId": "316609",
+            "isStoreVip": false,
+            "iconGrayText": "商家会员",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "vipPrice": "",
+            "vipPriceColorCode": "#3CB573",
+            "mkPrice": "暂无报价"
+          }
+        ],
+        "catId": "5205234",
+        "type": "1"
+      }
+    ]
+  },
+  "abTest": [
+    {
+      "duration": "10800000",
+      "experimentName": "OpenRecommend",
+      "testTag": "OpenRecommend:open1:2021-01-15 11:37:07"
+    },
+    {
+      "duration": "10800000",
+      "experimentName": "crossStoreCunstomSort",
+      "testTag": "crossStoreCunstomSort:A:2021-01-15 11:37:07"
+    }
+  ],
+  "traceId": "H5_DEV_98C23223-FE32-4A3B-A3A7-0BBB45D0D37B1610681827795",
+  "success": true
+}

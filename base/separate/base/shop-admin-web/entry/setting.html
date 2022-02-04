@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>基本资料</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../static/css/public.css" media="all">
+    <style>
+        .layui-form-item .layui-input-company {
+            width: auto;
+            padding-right: 10px;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <div class="layui-form layuimini-form">
+            <input th:value="${sysAccount.id}" hidden="hidden" name="id">
+            <div class="layui-form-item">
+                <label class="layui-form-label">账号</label>
+                <label class="layui-form-label" id="mobile"></label>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">头像</label>
+                <div class="layui-upload-list layui-upload">
+                    <img class="layui-upload-img" id="logo"
+                        th:attr="src=${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}"
+                        style="width: 100px;height: 100px;">
+                    <input name="icon" style="display: none;"
+                                th:value="${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}">
+                        <span id="logoText"></span>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label required">昵称</label>
+                <div class="layui-input-inline">
+                    <input id="name" type="tel" name="name" lay-verify="required|name" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">性别</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="gender" value="1" title="男" th:checked="${sysAccount.sex}">
+                    <input type="radio" name="gender" value="2" title="女" th:checked="${!sysAccount.sex}">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">出生日期</label>
+                <div class="layui-input-inline">
+                    <input th:value="${sysAccount.birthData != null ? #dates.format(sysAccount.birthData,'yyyy-MM-dd') : ''}"
+                        type="text" name="birthData" id="birthday" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-inline">
+                    <input th:value="${sysAccount.email}"
+                                   type="email" name="email" id="email" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea th:text="${sysAccount.note}" name="note" id="note" placeholder="请输入简介"
+                                      class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="saveBtn">确认保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="../static/api/api.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'laydate', 'upload'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            laydate = layui.laydate,
+            upload = layui.upload;
+            var url=window.location.search; //获取url中"?"符后的字串      
+	        var userId = url.substr(url.indexOf("=")+1);
+            $.ajax({
+                url: dev + "/api/admin/users/user/view",
+                type:'post',
+                dataType:'json',
+                data: {'token':token},
+                success: function (rst) {
+                    if (rst.code === 200) {
+                        $("#mobile").text(rst.data.user.mobile)
+                        $("#name").val(rst.data.user.name)
+                        $("#birthday").val(rst.data.user.birthday)
+                        $("#email").val(rst.data.user.email)
+                        $("#note").text(rst.data.user.note)
+                        $("#logo").attr("src",baseimg + rst.data.user.icon);
+                        $("input[name=id]").val(rst.data.user.id)
+                        $('input[name=icon]').val(rst.data.user.icon);
+
+                        $("input[name=gender][value=1]").attr("checked", rst.data.user.gender == 1 ? true : false);
+                        $("input[name=gender][value=2]").attr("checked", rst.data.user.gender == 2 ? true : false);
+
+                        var roles = "";
+                        $.each(rst.data.role,function(index,value){  //index:索引obj:循环的每个元素
+                            var $this = value;
+                            if($this.checked) {
+                                roles+="<input name='roleIds'  type='checkbox' checked title="+$this.name+" value="+$this.id+">";
+                            } else {
+                                roles+="<input name='roleIds'  type='checkbox' title="+$this.name+" value="+$this.id+">";
+                            }
+        
+                        });
+                        $("#roleList").html(roles);
+                        form.render('checkbox')
+                        form.render('radio'); //更新全部radio
+                    } else {
+                        layer.msg(rst.msg);
+                    }
+                }
+        });
+        //日期
+        laydate.render({
+            elem: '#birthData'
+        });
+        //监听提交
+        form.on('submit(saveBtn)', function (param) {
+            $.ajax({
+                url: dev + "/api/admin/users/user/setting",
+                type: "post",
+                data: param.field,
+                success: function (rst) {
+                    layer.msg(rst.msg);
+                }
+            });
+            return false;
+        });
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#logo'
+            , url: dev + '/api/entry/file/upload'
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#logo').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (rst) {
+                //如果上传失败
+                if (rst.code > 0) {
+                    var urls = rst.data;
+                    $("input[name='icon']").val(urls[0]);
+                } else {
+                    return layer.msg('上传失败');
+                }
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var logoText = $('#logoText');
+                logoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                logoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

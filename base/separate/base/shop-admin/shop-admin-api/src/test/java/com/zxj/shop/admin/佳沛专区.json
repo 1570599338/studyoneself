@@ -1,0 +1,743 @@
+{
+  "code": "0",
+  "msg": "成功",
+  "result": {
+    "searchCatResultVOList": [
+      {
+        "searchResultVOList": [
+          {
+            "skuId": "2040785621",
+            "skuName": "A级-佳沛金奇异果（大）1个",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/169688/17/635/219683/5ff12926E3bdddf6a/08451f93f686c858.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040785621",
+              "realTimePrice": "19.9",
+              "basicPrice": "25.9",
+              "mkPrice": "暂无报价",
+              "promotion": 0,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 1990,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 96,
+            "tags": [
+              {
+                "name": "限时抢",
+                "iconText": "秒杀7.69折",
+                "type": 9,
+                "belongIndustry": 1,
+                "words": "促销商品每单限购1件",
+                "activityRange": 0,
+                "colorCode": "FF5959",
+                "startColorCode": "#FF5B57",
+                "startColorName": "促销类起始颜色",
+                "endColorCode": "#FF1E19",
+                "endColorName": "促销类结束颜色",
+                "vPlusType": 0,
+                "strokeColorCode": "#FF8E8C",
+                "strokeNameColorCode": "#FF1E1A"
+              }
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205334||1|||佳沛专区|sku\",\"isVPlusSku\":0,\"minorPrice\":\"25.9\",\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"19.9\",\"sku_id\":\"2040785621\",\"couponId\":\"1026724041\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 1,
+            "monthSaleSortIndex": 1,
+            "realTimePriceSortIndex": 1,
+            "promoteIndex": 1,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 0.7683397683397684,
+            "majorPrice": {
+              "price": "19.9",
+              "priceType": "2",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "25.9",
+              "priceType": "1",
+              "deleteLine": true,
+              "priceColor": "#999999"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 1,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "realTimePriceNum": 1990,
+            "mkPrice": "暂无报价",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPrice": "",
+            "isStoreVip": false,
+            "basicPrice": "25.9",
+            "realTimePrice": "19.9",
+            "iconGrayText": "商家会员",
+            "venderId": "316609",
+            "vipPriceColorCode": "#3CB573",
+            "promotion": 0
+          },
+          {
+            "skuId": "2040785738",
+            "skuName": "A级-佳沛金奇异果（大）--1份/4个",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/167920/39/631/219683/5ff128ffE60558950/3cf1ad7ac64e7032.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040785738",
+              "realTimePrice": "74.5",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 7450,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 24,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"minorPrice\":\"49.5\",\"skuStatus\":\"NONSOLDOUT\",\"sku_id\":\"2040785738\",\"isShowCouponPrice\":\"1\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"spm_id\":\"5205334||2|||佳沛专区|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"majorPrice\":\"74.5\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 2,
+            "monthSaleSortIndex": 2,
+            "realTimePriceSortIndex": 3,
+            "promoteIndex": 2,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "74.5",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "49.5",
+              "priceType": "7",
+              "deleteLine": false,
+              "priceColor": "#FF1E19",
+              "priceText": "券后",
+              "priceTextColorCode": "#FF1E1A",
+              "colorCode": "#FFECEC"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 2,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "realTimePriceNum": 7450,
+            "mkPrice": "暂无报价",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPrice": "",
+            "isStoreVip": false,
+            "basicPrice": "",
+            "realTimePrice": "74.5",
+            "iconGrayText": "商家会员",
+            "venderId": "316609",
+            "vipPriceColorCode": "#3CB573",
+            "promotion": 1
+          },
+          {
+            "skuId": "2040785694",
+            "skuName": "A级-佳沛金奇异果（大）-1份/2个",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/167793/26/602/219683/5ff12907E0d1bd020/bd308feafeaaa6c9.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040785694",
+              "realTimePrice": "37.5",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 3750,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 48,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"spm_id\":\"5205334||3|||佳沛专区|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"skuStatus\":\"NONSOLDOUT\",\"majorPrice\":\"37.5\",\"sku_id\":\"2040785694\",\"couponId\":\"1026724041\",\"is_spu\":\"no\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 3,
+            "monthSaleSortIndex": 3,
+            "realTimePriceSortIndex": 2,
+            "promoteIndex": 3,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "37.5",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 3,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "realTimePriceNum": 3750,
+            "mkPrice": "暂无报价",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPrice": "",
+            "isStoreVip": false,
+            "basicPrice": "",
+            "realTimePrice": "37.5",
+            "iconGrayText": "商家会员",
+            "venderId": "316609",
+            "vipPriceColorCode": "#3CB573",
+            "promotion": 1
+          },
+          {
+            "skuId": "2040785771",
+            "skuName": "【整件装】A级-佳沛金奇异果（大）1件/22个",
+            "imgUrl": "https://img30.360buyimg.com/n1//jfs/t1/167035/38/621/203651/5ff128ecEcc4dce6c/161ee217ab95cf08.jpg",
+            "storeId": "11824815",
+            "orgCode": "316609",
+            "fixedStatus": true,
+            "skuPrice": {
+              "skuId": "2040785771",
+              "realTimePrice": "409.8",
+              "basicPrice": "",
+              "mkPrice": "暂无报价",
+              "promotion": 1,
+              "vipPrice": "",
+              "vipPriceColorCode": "#3CB573",
+              "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+              "isStoreVip": false,
+              "realTimePriceNum": 40980,
+              "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+              "iconGrayText": "商家会员"
+            },
+            "incart": false,
+            "incartCount": 0,
+            "stockCount": 4,
+            "tags": [
+
+            ],
+            "medicineCateAttr": {
+
+            },
+            "saleStatus": true,
+            "showCartButton": true,
+            "userActionSku": "{\"store_id\":\"11824815\",\"minorPrice\":\"379.8\",\"skuStatus\":\"NONSOLDOUT\",\"sku_id\":\"2040785771\",\"isShowCouponPrice\":\"1\",\"couponId\":\"1026732250\",\"is_spu\":\"no\",\"spm_id\":\"5205334||4|||佳沛专区|sku\",\"isVPlusSku\":0,\"couponType\":\"displayCoupon\",\"majorPrice\":\"409.8\",\"org_code\":\"316609\"}",
+            "aging": "-1",
+            "monthSales": "0",
+            "highOpinion": "好评100%",
+            "funcIndicatinsOrAdWord": "",
+            "defaultSortIndex": 4,
+            "monthSaleSortIndex": 4,
+            "realTimePriceSortIndex": 4,
+            "promoteIndex": 4,
+            "showModel": 0,
+            "iconType": 0,
+            "discountRate": 1.0,
+            "majorPrice": {
+              "price": "409.8",
+              "priceType": "1",
+              "deleteLine": false,
+              "priceColor": "#FF1E19"
+            },
+            "minorPrice": {
+              "price": "379.8",
+              "priceType": "7",
+              "deleteLine": false,
+              "priceColor": "#FF1E19",
+              "priceText": "券后",
+              "priceTextColorCode": "#FF1E1A",
+              "colorCode": "#FFECEC"
+            },
+            "humanSort": 0,
+            "platformVipSku": false,
+            "sellOutSku": false,
+            "sellOutSkuFollow": false,
+            "spuVo": true,
+            "spuMaxPrice": "",
+            "spuMinPrice": "",
+            "intervalPrice": false,
+            "deductFreightIndex": 4,
+            "skuType": 0,
+            "couponVOList": [
+              {
+                "couponId": 1026732250,
+                "activityCode": "YHXA00125122724",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满99减30",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026732250}"
+              },
+              {
+                "couponId": 1026724041,
+                "activityCode": "KAXA00125116021",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满59减25",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026724041}"
+              },
+              {
+                "couponId": 1026652924,
+                "activityCode": "XMXX00125050337",
+                "markState": 2,
+                "showButton": false,
+                "couponTagVOMap": {
+                  "2": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "领取",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  },
+                  "3": {
+                    "iconText": "满49减10",
+                    "iconTextColorCode": "#FF1E19",
+                    "colorCode": "#FFF5F4",
+                    "strokeColorCode": "#FF8E8C",
+                    "couponButtonTagVO": {
+                      "iconText": "使用",
+                      "iconTextColorCode": "#FF1E19",
+                      "colorCode": "#FFF5F4"
+                    }
+                  }
+                },
+                "userAction": "{\"storeId\":\"11824815\",\"couponId\":1026652924}"
+              }
+            ],
+            "userActionImmedReport": false,
+            "realTimePriceNum": 40980,
+            "mkPrice": "暂无报价",
+            "vipPriceIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/16150/4/2324/3328/5c1b6747E7f2de945/31e65268162d948a.png",
+            "iconGray": "https://img30.360buyimg.com/mobilecms/jfs/t1/33393/21/2092/264/5cac2ebaEc03d2113/77b84458af1db2e6.png",
+            "vipPrice": "",
+            "isStoreVip": false,
+            "basicPrice": "",
+            "realTimePrice": "409.8",
+            "iconGrayText": "商家会员",
+            "venderId": "316609",
+            "vipPriceColorCode": "#3CB573",
+            "promotion": 1
+          }
+        ],
+        "catId": "5205334",
+        "type": "1"
+      }
+    ]
+  },
+  "abTest": [
+    {
+      "duration": "10800000",
+      "experimentName": "OpenRecommend",
+      "testTag": "OpenRecommend:open1:2021-01-15 11:35:46"
+    },
+    {
+      "duration": "10800000",
+      "experimentName": "crossStoreCunstomSort",
+      "testTag": "crossStoreCunstomSort:A:2021-01-15 11:35:46"
+    }
+  ],
+  "traceId": "H5_DEV_98C23223-FE32-4A3B-A3A7-0BBB45D0D37B1610681746337",
+  "success": true
+}

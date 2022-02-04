@@ -1,0 +1,184 @@
+{
+  "code": "0",
+  "msg": "成功",
+  "result": {
+    "skuId": 2040627007,
+    "name": "B级-进口车厘子（小）1份/不少于250g",
+    "orgCode": "316609",
+    "priceUnit": "null",
+    "adword": "不仅红得深邃，而且甜得馥郁\n",
+    "productInfoType": 1,
+    "detailInfo": {
+      "h5HtmlText": "<div id=\"detailInfoWrap\" style=\"overflow: hidden;width: 100%;\">\n<div id=\"detailInfo\" style=\"display:inline-block; \" class=\"content-div\"><style>\n  .content-div img{height:auto !important}\n    .ke-zeroborder {width: 100%} \n    .ke-zeroborder td {vertical-align:auto;border:none;} \n    .ke-zeroborder {width:100%;vertical-align:auto;table-layout:fixed;word-wrap:break-word}\n</style>\n<img src=\"https://img10.360buyimg.com/o2o/jfs/t1/154106/15/18133/725815/601ffb5aEa74f5a26/de7c7ed7dd4407cd.jpg\" alt=\"不仅红得深邃，而且甜...\"/>,<img src=\"https://img10.360buyimg.com/o2o/jfs/t1/161931/40/5952/510707/601ffb5aEcc30f7e4/eeb711a8ff35ead9.jpg\" alt=\"不仅红得深邃，而且甜...\"/>,<img src=\"https://img10.360buyimg.com/o2o/jfs/t1/168716/40/6082/879313/601ffb5aE1133aa8b/749bc5d9ddb41583.jpg\" alt=\"不仅红得深邃，而且甜...\"/><script>        window.onload= function(){            var ua = navigator.userAgent.toLowerCase();            if(ua.indexOf(\"jdlocal\")>-1 && ua.indexOf(\"ios\")>-1){                window.location.href = \"jddj_loadCompleted://\" + document.body.scrollHeight;            }        }</script></div></div><div style=\"background-color: #fff;margin-top:10px;-moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: none;user-select: none;\"><div style=\"color:#333333;font-size:15px;margin-bottom:10px;text-align:left;\">价格说明</div><p style=\"color:#333333;font-size:12px;line-height:17px;margin-bottom:10px;\"><strong style=\"font-weight:bold;\">划线价格：</strong><span style=\"color:#666666;\">划线的价格并非《中华人民共和国价格法》及《禁止价格欺诈行为的规定》等相关法律法规中所指商品“原价”的含义，仅为到家平台商家处商品的供应商指导价或建议零售价，</span><strong style=\"font-weight:bold;\">并非商品原价。</strong></p><p style=\"color:#333333;font-size:12px;line-height:17px;\"><strong style=\"font-weight:bold;\">未划线价格：</strong><span style=\"color:#666666;\">未划线的价格指该商家处商品在京东到家平台实时标价，具体成交价格根据商品参加的活动，或者您使用优惠券等发生变化，最终以订单结算页面价格为准。</span></p></div>"
+    },
+    "fixedStatus": true,
+    "markingPrice": "<div style=\"-moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: none;user-select: none;\"><div style=\"color:#333333;font-size:15px;margin-bottom:10px;text-align:left;\">价格说明</div><p style=\"color:#333333;font-size:12px;line-height:17px;margin-bottom:10px;text-align: justify;\"><strong style=\"font-weight:bold;\">划线价格：</strong><span style=\"color:#666666;\">划线的价格并非《中华人民共和国价格法》及《禁止价格欺诈行为的规定》等相关法律法规中所指商品“原价”的含义，仅为到家平台商家处商品的供应商指导价或建议零售价，</span><strong style=\"font-weight:bold;\">并非商品原价。</strong></p><p style=\"color:#333333;font-size:12px;line-height:17px;text-align: justify;\"><strong style=\"font-weight:bold;\">未划线价格：</strong><span style=\"color:#666666;\">未划线的价格指该商家处商品在京东到家平台实时标价，具体成交价格根据商品参加的活动，或者您使用优惠券等发生变化，最终以订单结算页面价格为准。</span></p></div>",
+    "upcCode": "null",
+    "catId": "",
+    "standard": "",
+    "funcIndicatins": "",
+    "hasSaleAttr": false,
+    "image": [
+      {
+        "small": "https://img30.360buyimg.com/n1//jfs/t1/154128/26/17762/817967/601ffb59E881d8210/a086be601c7f2ebb.png",
+        "big": "https://img30.360buyimg.com/o2o//s550x550_jfs/t1/154128/26/17762/817967/601ffb59E881d8210/a086be601c7f2ebb.png",
+        "share": "https://img30.360buyimg.com/n1//jfs/t1/154128/26/17762/817967/601ffb59E881d8210/a086be601c7f2ebb.png"
+      },
+      {
+        "small": "https://img30.360buyimg.com/n1//jfs/t1/152101/35/18140/214361/601ffb59Ebe0a12c6/19ea4420fef3c6bd.jpg",
+        "big": "https://img30.360buyimg.com/o2o//s550x550_jfs/t1/152101/35/18140/214361/601ffb59Ebe0a12c6/19ea4420fef3c6bd.jpg",
+        "share": "https://img30.360buyimg.com/n1//jfs/t1/152101/35/18140/214361/601ffb59Ebe0a12c6/19ea4420fef3c6bd.jpg"
+      },
+      {
+        "small": "https://img30.360buyimg.com/n1//jfs/t1/167009/39/5673/157952/601ffb59Eb267189a/08137f454cb6d565.jpg",
+        "big": "https://img30.360buyimg.com/o2o//s550x550_jfs/t1/167009/39/5673/157952/601ffb59Eb267189a/08137f454cb6d565.jpg",
+        "share": "https://img30.360buyimg.com/n1//jfs/t1/167009/39/5673/157952/601ffb59Eb267189a/08137f454cb6d565.jpg"
+      }
+    ],
+    "storeInfo": {
+      "venderId": "316609",
+      "venderName": "百果园",
+      "venderPhone": "01085950850",
+      "storeId": "11824815",
+      "storeName": "百果园（新城国际店）",
+      "show": false,
+      "industryTag": 32,
+      "storePhone": [
+        "17631383512",
+        "01085950850"
+      ]
+    },
+    "tags": [
+
+    ],
+    "productComment": {
+      "totalScore": "5.0",
+      "goodRating": "100%",
+      "goodRate": 100.0,
+      "commentNum": "0",
+      "hasMore": false
+    },
+    "isRemind": true,
+    "buttonEnable": true,
+    "showStateEnum": "ARRIVAL_REMIND",
+    "iconType": 0,
+    "skuPriceVO": {
+      "skuId": "2040627007",
+      "realTimePrice": "16.8",
+      "basicPrice": "16.8",
+      "mkPrice": "暂无报价",
+      "promotion": 1,
+      "vipPrice": ""
+    },
+    "productTypeEnum": "NORMAL",
+    "showTimLine": false,
+    "prescription": false,
+    "inCartCount": 0,
+    "isInScope": true,
+    "subtitle": "京东到家，为你而来，足不出户，即刻到家！",
+    "shareProductUrl": "https://daojia.jd.com/activity/goodsShare/index.html?storeId=11824815&orgCode=316609&skuId=2040627007&spuId=&channel=H5",
+    "h5SwichItem": {
+      "to": "activityDetail",
+      "params": {
+        "activityId": "113624"
+      },
+      "isLeadApp": false
+    },
+    "couponInfo": {
+      "newStyle": false,
+      "couponLabel": "领券",
+      "couponList": [
+        {
+          "couponId": 1026894689,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "RXRR00125282021",
+          "price": "30",
+          "priceUnit": 1,
+          "couponLimit": "满99元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园满99减30",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        },
+        {
+          "couponId": 1026910282,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "KYWY00125292270",
+          "price": "22",
+          "priceUnit": 1,
+          "couponLimit": "满59元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园店专享",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        },
+        {
+          "couponId": 1026894234,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "AHHY00125280077",
+          "price": "10",
+          "priceUnit": 1,
+          "couponLimit": "满49元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园满49减10",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        }
+      ]
+    },
+    "isFollow": false,
+    "recipeVO": {
+      "recipeName": "",
+      "recipeVOList": [
+
+      ]
+    },
+    "majorPrice": {
+      "price": "16.8",
+      "priceType": "1",
+      "deleteLine": false,
+      "priceColor": "#FF1E19"
+    },
+    "shareIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/73886/2/5888/8038/5d3e97e9E92a2cae8/1ff1ed2bc0f3986e.png",
+    "userActionSku": "{\"sku_id\":\"2040627007\",\"store_id\":\"11824815\"}",
+    "monthSales": "4",
+    "skuNameTag": {
+
+    },
+    "suitLandFloor": {
+      "to": "layerPromotion"
+    },
+    "treatyType": 0,
+    "treatySubmitDesc": "去结算",
+    "productType": 1,
+    "showState": 9,
+    "showStateName": "到货提醒",
+    "venderId": "316609"
+  },
+  "abTest": [
+    {
+      "duration": "10800000",
+      "experimentName": "ProductOpenBrandDetail",
+      "testTag": "ProductOpenBrandDetail:A:2021-02-08 10:58:11"
+    },
+    {
+      "duration": "10800000",
+      "experimentName": "V8.3GoodsinfoContractPhone",
+      "testTag": "V8.3GoodsinfoContractPhone:Y:2021-02-08 10:58:11"
+    }
+  ],
+  "traceId": "H5_DEV_98C23223-FE32-4A3B-A3A7-0BBB45D0D37B1612753091202",
+  "success": true
+}

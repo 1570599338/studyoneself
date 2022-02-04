@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>基本资料</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/public.css" media="all">
+    <style>
+        .layui-form-item .layui-input-company {
+            width: auto;
+            padding-right: 10px;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>
+             <span class="layui-breadcrumb" lay-separator=">">
+                  <a href="list.html">平台用户</a>
+                  <a><cite>新增</cite></a>
+            </span>
+        </legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline" style="float: right">
+                        <a href="../../../admin/users/user/list.html" class="layui-btn">返回</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layuimini-main">
+                <div class="layui-form layuimini-form">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label required">帐号</label>
+                        <div class="layui-input-inline">
+                            <input type="tel" name="mobile" lay-verify="required|phone" placeholder="请输入手机号"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">头像(点击上传→)</label>
+                        <div class="layui-upload-list layui-upload">
+                            <img class="layui-upload-img" id="icon" src="../../../static/images/logo.png"
+                                 style="width: 100px;height: 100px;">
+                            <input name="icon" style="display: none;" value="/images/logo.png">
+                            <span id="logoText"></span>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label required">昵称</label>
+                        <div class="layui-input-inline">
+                            <input type="tel" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-inline">
+                            <input type="radio" name="gender" checked value="1" title="男">
+                            <input type="radio" name="gender" value="2" title="女">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label required">密码</label>
+                        <div class="layui-input-inline">
+                            <input type="password" name="password" lay-verify="required" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">出生日期</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="birthday" id="birthData" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱</label>
+                        <div class="layui-input-inline">
+                            <input type="email" name="email" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">简介</label>
+                        <div class="layui-col-xs10">
+                            <textarea name="note" placeholder="请输入简介" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">角色</label>
+                        <div class="layui-col-xs10" id="roleList">
+                            
+                        </div>
+                    </div>
+                    <div class="layui-col-xs6 layui-col-md-offset4">
+                        <div class="layui-input-block">
+                            <button class="layui-btn" lay-submit lay-filter="saveBtn">确认保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../../../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../../../static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="../../../static/api/api.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'laydate', 'upload', 'element'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            laydate = layui.laydate,
+            element = layui.element,
+            upload = layui.upload;
+        //日期
+        laydate.render({
+            elem: '#birthData'
+        });
+
+        $.ajax({
+            url: dev + "/api/admin/setting/rolePermission/roles",
+            type:'post',
+            dataType:'json',
+            success: function (rst) {
+                if (rst.code == '200') {
+                    var roles = "";
+                    $.each(rst.data,function(index,value){  //index:索引obj:循环的每个元素
+                        var $this = value;
+                        roles+="<input name='roleIds' type='checkbox' title="+$this.name+" value="+$this.id+">";
+                    });
+                    $("#roleList").html(roles);
+                    form.render('checkbox')
+                } else {
+                    layer.msg(rst.msg);
+                }
+            }
+        });
+       
+
+        //监听提交
+        form.on('submit(saveBtn)', function (param) {
+            //获取checkbox[name='roles']的值
+            var arr = new Array();
+            $("input:checkbox[name='roleIds']:checked").each(function (i) {
+                arr[i] = $(this).val();
+            });
+            //将数组合并成字符串
+            param.field.roleIds = arr.join(",");
+            $.ajax({
+                url: dev+"/api/admin/users/user/confirm/add",
+                type: "post",
+                data: param.field,
+                dataType: "json",
+                success: function (rst) {
+                    layer.msg(rst.msg);
+                    if (rst.code == 200) {
+                        location.href = "../../../admin/users/user/list.html";    
+                    }
+                }
+            });
+            return false;
+        });
+        //普通图片上传
+        var uploadInst = upload.render({
+            elem: '#icon'
+            , url: dev+'/api/entry/file/upload'
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#icon').attr('src', result); //图片链接（base64）
+                });
+            }
+            , done: function (rst) {
+                //如果上传失败
+                if (rst.code > 0) {
+                    var urls = rst.data;
+                    $("input[name='icon']").val(urls[0]);
+                } else {
+                    return layer.msg('上传失败');
+                }
+            }
+            , error: function () {
+                //演示失败状态，并实现重传
+                var logoText = $('#logoText');
+                logoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                logoText.find('.demo-reload').on('click', function () {
+                    uploadInst.upload();
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>验证码</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+</head>
+<style type="text/css">
+    .layui-table-cell{
+        height: auto!important;
+        white-space: normal;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>搜索信息</legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">验证码列表</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="content" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <table class="layui-hide" id="messages" lay-filter="messages"></table>
+    </div>
+</div>
+</body>
+<script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="/static/api/api.js?v=1.0.4" charset="utf-8"></script>
+<script type="text/html" id="imgTpl">
+    <img src= "{{baseimg + d.imgUrl }}">
+</script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table', 'form'], function () {
+        var table = layui.table,
+            form = layui.form;
+        // 表格
+        table.render({
+            elem: '#messages',
+            url:  dev + "/api/admin/member/message",
+            page: true,
+            cols: [
+                [
+                    {field: 'categoryName', title: '短信模板', align: 'center'},
+                    {field: 'mobile', title: '手机号', align: 'center'},
+                    {field: 'content', title: '验证码', align: 'center'},
+                    {field: 'sentTime', title: '发送时间', align: 'center'}
+                ]
+            ]
+        });
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            //执行搜索重载
+            table.reload('messages', {
+                page: {
+                    curr: 1
+                }, where: data.field
+            }, 'data');
+            return false;
+        });
+    });
+    /*]]>*/
+</script>
+</html>

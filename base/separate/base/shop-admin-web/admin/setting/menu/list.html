@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单管理</title>
+    <link rel="stylesheet" href="../../../static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/public.css" media="all">
+    <style>
+        .layui-btn:not(.layui-btn-lg ):not(.layui-btn-sm):not(.layui-btn-xs) {
+            height: 34px;
+            line-height: 34px;
+            padding: 0 8px;
+        }
+    </style>
+</head>
+<body>
+    
+    
+<div class="layuimini-container">
+    
+    <div class="panel panel-default operation_menu" hidden>
+        <div class="panel-heading title"></div>
+        <div class="layui-card-body">
+            <form class="layui-form " action="" lay-filter="deptInfo" style="width: 700px;margin-top: 10px">
+                <input name="id" hidden/>
+                <input name="pid" hidden/>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">类型</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="category" value="1" title="一级目录(&nbsp;就是顶级目录)" checked="" lay-filter="radio-type">
+                        <input type="radio" name="category" value="2" title="二级菜单(&nbsp;就是二级菜单)" lay-filter="radio-type">
+                        <input type="radio" name="category" value="3" title="功能按钮" lay-filter="radio-type">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单名称</label>
+                    <div class="layui-input-block">
+                        <input type="name" name="name" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-form-label ">所属菜单</div>
+                    <div class="layui-input-block">
+                        <input type="pidName" name="pidName" placeholder="请选择所属菜单" autocomplete="off" class="layui-input"
+                               readonly="readonly" style="background:#eeeeee!important">
+                    </div>
+                </div>
+                <div class="layui-form-item menu_url">
+                    <label class="layui-form-label ">接口URL</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="url" placeholder="请输入接口URL" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item menu_target">
+                    <label class="layui-form-label ">target</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="target" value="_self" title="_self" checked="">
+                        <input type="radio" name="target" value="_blank" title="_blank">
+                    </div>
+                </div>
+    
+                <div class="layui-form-item menu-perms" hidden>
+                    <div class="layui-form-label">授权标识</div>
+                    <div class="layui-input-block">
+                        <input type="perms" name="permCode" placeholder="请输入授权标识,如果 sys:user:list" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item menu_icon" hidden>
+                    <div class="layui-form-label">图标</div>
+                    <div class="layui-input-block">
+                        <input type="text" id="iconPicker" name="icon" lay-filter="iconPickerFa" class="layui-input">
+    
+                    </div>
+                </div>
+    
+    
+                <div class="layui-form-item">
+                    <div class="layui-form-label">排序码</div>
+                    <div class="layui-input-block">
+                        <input type="text" name="sort" lay-verify="number" onkeyup="value=zhzs(this.value)"
+                               placeholder="请输入排序码" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-block">
+                        <input type="checkbox" name="status" lay-skin="switch" lay-filter="switch" lay-text="启用|禁用" checked>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit">保存</button>
+                        <button class="layui-btn layui-btn-primary" id="btn_cancel">返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="layuimini-main">
+        <div>
+            <div class="layui-btn-group">
+                <button class="layui-btn" id="btn-expand">全部展开</button>
+                <button class="layui-btn" id="btn-fold">全部折叠</button>
+            </div>
+            <table id="munu-table" class="layui-table" lay-filter="munu-table"></table>
+        </div>
+    </div>
+</div>
+<script src="../../../static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../../../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../../../static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script src="../../../static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="../../../static/api/api.js" charset="utf-8"></script>
+<script src="../../../static/js/core.util.js"></script>
+<div id="menuTree" style="display: none"></div>
+
+<script type="text/html" id="toolbar">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="addMenu" shiro:hasPermission="sys:permission:add">添加菜单</button>
+    </div>
+</script>
+<script type="text/html" id="tool">
+    <a class="layui-btn layui-btn-xs" lay-event="edit" shiro:hasPermission="sys:permission:update">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" >删除</a>
+</script>
+<script>
+    var treetable;
+    var iconPicker;
+    /*<![CDATA[*/
+    layui.use(['table', 'treetable','iconPickerFa','tree','form'], function () {
+        var $ = layui.jquery;
+        var table = layui.table;
+        treetable = layui.treetable;
+        iconPicker = layui.iconPickerFa;
+        var form = layui.form;
+        var tree = layui.tree;
+
+        // 渲染表格
+        layer.load(2);
+        treetable.render({
+            treeColIndex: 1,
+            treeSpid: 0,
+            treeIdName: 'id',
+            treePidName: 'pid',
+            elem: '#munu-table',
+            url: menuList,
+            treeDefaultClose: true,
+            treeLinkage: false,
+            page: false,
+            toolbar: '#toolbar',
+            cols: [
+                [
+                    {type: 'numbers'},
+                    {field: 'name', width: 180, title: '菜单名称'},
+                    {field: 'id', title: 'Id', align: 'center', hide: true},
+                    {field: 'sort', width: 120, title: '排序号', align: 'center'},
+                    {
+                        field: 'icon', align: 'center', templet: function (d) {
+                        var icon = d.icon;
+                        return '<i class="'+icon+'"></i>';
+                    }, title: '图标'
+                    },
+                    {field: 'url', title: '菜单url', align: 'center'},
+                    {field: 'target', title: 'target', align: 'center'},
+                    {field: 'permCode', title: '资源标识', align: 'center'},
+                    {
+                        field: 'category', align: 'center', templet: function (d) {
+                            if (d.category === 1) {
+                                return '<span class="layui-badge layui-bg-gray">目录</span>';
+                            } else if (d.category === 2) {
+                                return '<span class="layui-badge layui-bg-blue">菜单</span>';
+                            } else if (d.category === 3) {
+                                return '<span class="layui-badge-rim">按钮</span>';
+                            }
+                        }, title: '类型'
+                    },
+                    {title: '操作', width: 120, toolbar: '#tool'}
+                ]
+            ],
+            done: function () {
+                layer.closeAll('loading');
+            }
+        });
+
+        $('#btn-expand').click(function () {
+            treetable.expandAll('#munu-table');
+        });
+
+        $('#btn-fold').click(function () {
+            treetable.foldAll('#munu-table');
+        });
+        $(".operation_menu input[name=pidName]").click(function () {
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-molv',
+                title: "选择菜单",
+                area: ['400px', '450px'],
+                shade: 0,
+                shadeClose: false,
+                content: jQuery("#menuTree"),
+                btn: ['确定', '取消'],
+                yes: function (index) {
+                    if (selectNode.data != null) {
+                        $(".operation_menu input[name=pid]").val(selectNode.data.id);
+                        $(".operation_menu input[name=pidName]").val(selectNode.data.title);
+                    }
+
+                    layer.close(index);
+                }
+            });
+        });
+
+        table.on('toolbar(munu-table)', function (obj) {
+            var data = obj.data;
+            switch (obj.event) {
+                case 'addMenu':
+                    selectNode = null;
+                    $(".layuimini-main").hide();
+                    $(".operation_menu").show();
+                    $(".title").html("新增菜单权限");
+                    initRadio(1);
+                    $(".menu-perms").hide();
+                    $(".menu_target").hide();
+                    $(".menu_url").hide();
+                    $(".menu_icon").show();
+                    form.val('deptInfo', {
+                        "id": ""
+                        ,"pid": ""
+                        ,"name": ""
+                        ,"pidName": ""
+                        ,"url": ""
+                        ,"perms": ""
+                        ,"orderNum": ""
+                        ,"target": "_self"
+                    });
+                    $("input[name='icon']").attr("value","")
+                    iconPicker.checkIcon('iconPicker', '');
+                    if ($("#reset_icon").length === 0){
+                        $(".layui-select-title").append("<a id='reset_icon' onclick='resetIcon()' class=\"layui-btn  layui-btn-danger layui-btn-sm\">重置</a>")
+                    }
+                    $(".operation_menu input[name=status]").attr('checked', 'checked');
+                    $(".operation_menu input[name=status]").attr('type', 'hidden').val(1);
+                    var x = document.getElementsByClassName("layui-unselect layui-form-switch");
+                    x[0].setAttribute("class", "layui-unselect layui-form-switch layui-form-onswitch");
+                    var d = document.getElementsByTagName('em')[0];
+                    d.firstChild.nodeValue = '启用';
+                    form.render(); //更新全部
+                    initTree("");
+                    break;
+            }
+        });
+        iconPicker.render({
+            // 选择器，推荐使用input
+            elem: '#iconPicker',
+            // fa 图标接口
+            url: "../../../static/lib/font-awesome-4.7.0/less/variables.less",
+            // 是否开启搜索：true/false
+            search: true,
+            // 是否开启分页
+            page: true,
+            // 每页显示数量，默认12
+            limit: 12,
+            // 点击回调
+            click: function (data) {
+                console.log(data);
+            }
+        });
+
+        var initRadio = function (value) {
+            var radio = document.getElementsByName("type");
+            var radioLength = radio.length;
+            for (var i = 0; i < radioLength; i++) {
+                if (value == radio[i].value) {
+                    $(radio[i]).next().click();
+                }
+
+            }
+        };
+        var initTree = function (id) {
+            var param = {permissionId: id}
+            CoreUtil.sendGet(dev + "/api/admin/setting/menu/tree",param, function (res) {
+                console.log(res.data)
+                loadDeptTree(res.data);
+            });
+        };
+        var loadDeptTree = function (data) {
+            tree.render({
+                elem: '#menuTree'
+                , data: data
+                , onlyIconControl: true  //是否仅允许节点左侧图标控制展开收缩
+                , click: function (obj) {
+                    selectNode = obj;
+                    layer.msg(JSON.stringify(selectNode.data.title));
+                }
+            });
+        };
+        form.on('radio(radio-type)', function (data) {
+            if (data.value == '1') {
+                $(".menu-perms").hide();
+                $(".menu_target").hide();
+                $(".menu_url").hide();
+                $(".menu_icon").show();
+            } else if(data.value == '2'){
+                $(".menu-perms").hide();
+                $(".menu_target").show();
+                $(".menu_url").show();
+                $(".menu_icon").show();
+            } else{
+                $(".menu-perms").show();
+                $(".menu_target").hide();
+                $(".menu_url").show();
+                $(".menu_icon").hide();
+            }
+        });
+        form.on('submit(submit)', function (data) {
+            console.log(data.field.id)
+            if (data.field.id === undefined || data.field.id === null || data.field.id === "") {
+                $.ajax({
+                    url: dev + "/api/admin/setting/menu/savePermission",
+                    type: "post",
+                    data: JSON.stringify(data.field),
+                    contentType: "application/json", //必须有
+                    success: function (rst) {
+                            layer.msg(rst.msg);
+                            if (rst.code == 200) {
+                                setTimeout(function () {
+                                    $(".menu-table").show();
+                                    $(".operation_menu").hide();
+                                    location.href = "/admin/setting/menu/list.html";    
+                                }, 1000);
+                            }
+                    }
+                });
+            } else {
+                $.ajax({
+                    url: dev + "/api/admin/setting/menu/updatePermission",
+                    type: "post",
+                    data: JSON.stringify(data.field),
+                    contentType: "application/json", //必须有
+                    success: function (rst) {
+                            layer.msg(rst.msg);
+                            if (rst.code == 200) {
+                                setTimeout(function () {
+                                    $(".menu-table").show();
+                                    $(".operation_menu").hide();
+                                    location.href = "/admin/setting/menu/list.html";    
+                                }, 1000);
+                            }
+                        }
+                });
+            }
+            return false;
+        });
+    });
+    function resetIcon(){
+            iconPicker.checkIcon('iconPicker', '');
+            $("input[name='icon']").val("")
+     }
+     function zhzs(value) {
+        value = value.replace(/[^\d]/g, '');
+        if ('' != value) {
+            value = parseInt(value);
+        }
+        return value;
+    }
+
+    /*]]>*/
+</script>
+</body>
+</html>

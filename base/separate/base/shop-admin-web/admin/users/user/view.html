@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>基本资料</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/public.css" media="all">
+    <style>
+        .layui-form-item .layui-input-company {
+            width: auto;
+            padding-right: 10px;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>
+             <span class="layui-breadcrumb" lay-separator=">">
+                  <a href="list.html">平台用户</a>
+                  <a><cite>详情</cite></a>
+            </span>
+        </legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline" style="float: right">
+                        <a href="../../../admin/users/user/list.html" class="layui-btn">返回</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <div class="layui-form layuimini-form">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">账号</div>
+                        <div class="layui-col-xs10" id="mobile"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">头像</div>
+                        <div class="layui-col-xs10 layui-upload-list layui-upload">
+                            <img class="layui-upload-img" id="logo"
+                                 style="width: 100px;height: 100px;">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">昵称</div>
+                        <div class="layui-col-xs10" id="name"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">性别</div>
+                        <div class="layui-col-xs8" th:if="${sysAccount.sex != null}" th:text="${sysAccount.sex ? '男' :'女'}" id="sex"></div>
+                        <div class="layui-col-xs10" th:if="${sysAccount.sex == null}"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">出生日期</div>
+                        <div class="layui-col-xs10" id="birthday"></div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-col-xs2">邮箱</div>
+                        <div class="layui-col-xs10" id="email"></div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <div class="layui-col-xs2">简介</div>
+                        <div class="layui-col-xs10">
+                            <textarea id="note" placeholder="请输入简介" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-col-xs2">角色</label>
+                        <div class="layui-col-xs10" id="roleList">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../../../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../../../static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="../../../static/api/api.js" charset="utf-8"></script>
+<script>
+    layui.use(['form', 'element'], function () {
+        var element = layui.element,
+            form = layui.form;
+            var url=window.location.search; //获取url中"?"符后的字串      
+	        var userId = url.substr(url.indexOf("=")+1);
+            $.ajax({
+                url: dev + "/api/admin/users/user/view",
+                type:'post',
+                dataType:'json',
+                data: {'userId':userId},
+                success: function (rst) {
+                    if (rst.code === 200) {
+                        $("#mobile").html(rst.data.user.mobile)
+                        $("#name").html(rst.data.user.name)
+                        $("#birthday").html(rst.data.user.birthday)
+                        $("#email").html(rst.data.user.email)
+                        $("#note").text(rst.data.user.note)
+                        $("#logo").attr("src", baseimg + rst.data.user.icon);
+                        if(rst.data.user.gender !=null) {
+                            switch(rst.data.user.gender) {
+                                case "1":
+                                    $("#sex").html('男')
+                                    break;
+                                case "2":
+                                    $("#sex").html('女')
+                                    break;
+                            }
+                        }
+                        
+                        var roles = "";
+                        $.each(rst.data.role,function(index,value){  //index:索引obj:循环的每个元素
+                            var $this = value;
+                            if($this.checked) {
+                                roles+="<input name='roles' type='checkbox' checked title="+$this.name+" value="+$this.id+">";
+                            } else {
+                                roles+="<input name='roles' type='checkbox' title="+$this.name+" value="+$this.id+">";
+                            }
+                        });
+                        $('#roleList').html(roles);
+                        form.render('checkbox')
+                    } else {
+                        layer.msg(rst.msg);
+                    }
+                }
+             });
+    });
+</script>
+</body>
+</html>

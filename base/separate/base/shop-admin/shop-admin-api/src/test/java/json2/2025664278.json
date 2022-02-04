@@ -1,0 +1,196 @@
+{
+  "code": "0",
+  "msg": "成功",
+  "result": {
+    "skuId": 2025664278,
+    "name": "B级-水晶富士苹果（中）-2个/480-560g",
+    "orgCode": "316609",
+    "priceUnit": "null",
+    "adword": "咔嚓脆，好美味\n",
+    "productInfoType": -1,
+    "fixedStatus": true,
+    "preName": "",
+    "markingPrice": "<div style=\"-moz-user-select: none;  -webkit-user-select: none;  -ms-user-select: none;user-select: none;\"><div style=\"color:#333333;font-size:15px;margin-bottom:10px;text-align:left;\">价格说明</div><p style=\"color:#333333;font-size:12px;line-height:17px;margin-bottom:10px;text-align: justify;\"><strong style=\"font-weight:bold;\">划线价格：</strong><span style=\"color:#666666;\">划线的价格并非《中华人民共和国价格法》及《禁止价格欺诈行为的规定》等相关法律法规中所指商品“原价”的含义，仅为到家平台商家处商品的供应商指导价或建议零售价，</span><strong style=\"font-weight:bold;\">并非商品原价。</strong></p><p style=\"color:#333333;font-size:12px;line-height:17px;text-align: justify;\"><strong style=\"font-weight:bold;\">未划线价格：</strong><span style=\"color:#666666;\">未划线的价格指该商家处商品在京东到家平台实时标价，具体成交价格根据商品参加的活动，或者您使用优惠券等发生变化，最终以订单结算页面价格为准。</span></p></div>",
+    "upcCode": "null",
+    "catId": "",
+    "standard": "",
+    "funcIndicatins": "",
+    "hasSaleAttr": false,
+    "image": [
+      {
+        "small": "https://img30.360buyimg.com/n1//jfs/t1/159048/27/6223/866267/601b586aE9f1e9175/279b8ed7669d4f1f.png",
+        "big": "https://img30.360buyimg.com/o2o//s550x550_jfs/t1/159048/27/6223/866267/601b586aE9f1e9175/279b8ed7669d4f1f.png",
+        "share": "https://img30.360buyimg.com/n1//jfs/t1/159048/27/6223/866267/601b586aE9f1e9175/279b8ed7669d4f1f.png"
+      }
+    ],
+    "storeInfo": {
+      "venderId": "316609",
+      "venderName": "百果园",
+      "venderPhone": "01085950850",
+      "storeId": "11824815",
+      "storeName": "百果园（新城国际店）",
+      "show": false,
+      "industryTag": 32,
+      "storePhone": [
+        "17631383512",
+        "01085950850"
+      ]
+    },
+    "tags": [
+      {
+        "name": "直降",
+        "iconText": "直降8.33折",
+        "type": 1,
+        "belongIndustry": 1,
+        "words": "直降促销每单限购1件",
+        "activityRange": 0,
+        "colorCode": "FFCE0B",
+        "promotionPrice": "1490",
+        "startColorCode": "#FF5B57",
+        "endColorCode": "#FF1E19",
+        "strokeColorCode": "#FF8E8C",
+        "strokeNameColorCode": "#FF1E1A",
+        "vPlusType": 0,
+        "vplusType": 0
+      }
+    ],
+    "productComment": {
+      "totalScore": "4.0",
+      "goodRating": "66.7%",
+      "goodRate": 66.7,
+      "commentNum": "3",
+      "hasMore": false
+    },
+    "isRemind": true,
+    "buttonEnable": true,
+    "showStateEnum": "Add_To_Shopping_Cart",
+    "iconType": 0,
+    "skuPriceVO": {
+      "skuId": "2025664278",
+      "realTimePrice": "14.9",
+      "basicPrice": "17.9",
+      "mkPrice": "0",
+      "promotion": 0,
+      "vipPrice": ""
+    },
+    "productTypeEnum": "NORMAL",
+    "showTimLine": false,
+    "prescription": false,
+    "inCartCount": 0,
+    "isInScope": true,
+    "subtitle": "京东到家，为你而来，足不出户，即刻到家！",
+    "shareProductUrl": "https://daojia.jd.com/activity/goodsShare/index.html?storeId=11824815&orgCode=316609&skuId=2025664278&spuId=&channel=H5",
+    "h5SwichItem": {
+      "to": "activityDetail",
+      "params": {
+        "activityId": "113624"
+      },
+      "isLeadApp": false
+    },
+    "transferProtocol": {
+
+    },
+    "couponInfo": {
+      "newStyle": false,
+      "couponLabel": "领券",
+      "couponList": [
+        {
+          "couponId": 1026894689,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "RXRR00125282021",
+          "price": "30",
+          "priceUnit": 1,
+          "couponLimit": "满99元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园满99减30",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        },
+        {
+          "couponId": 1026910282,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "KYWY00125292270",
+          "price": "22",
+          "priceUnit": 1,
+          "couponLimit": "满59元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园店专享",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        },
+        {
+          "couponId": 1026894234,
+          "markState": 2,
+          "needToUse": 0,
+          "activityCode": "AHHY00125280077",
+          "price": "10",
+          "priceUnit": 1,
+          "couponLimit": "满49元可用",
+          "couponButton": {
+            "title": "领取",
+            "state": 1
+          },
+          "couponTitle": "百果园满49减10",
+          "couponMode": 1,
+          "skuAbStyle": 1
+        }
+      ]
+    },
+    "isFollow": false,
+    "recipeVO": {
+      "recipeName": "",
+      "recipeVOList": [
+
+      ]
+    },
+    "majorPrice": {
+      "price": "14.9",
+      "priceType": "2",
+      "deleteLine": false,
+      "priceColor": "#FF1E19"
+    },
+    "minorPrice": {
+      "price": "17.9",
+      "priceType": "1",
+      "deleteLine": true,
+      "priceColor": "#999999"
+    },
+    "shareIcon": "https://img30.360buyimg.com/mobilecms/jfs/t1/73886/2/5888/8038/5d3e97e9E92a2cae8/1ff1ed2bc0f3986e.png",
+    "userActionSku": "{\"sku_id\":\"2025664278\",\"store_id\":\"11824815\"}",
+    "monthSales": "8",
+    "skuNameTag": {
+
+    },
+    "suitLandFloor": {
+      "to": "layerPromotion"
+    },
+    "treatyType": 0,
+    "treatySubmitDesc": "去结算",
+    "productType": 1,
+    "showState": 3,
+    "showStateName": "加入购物车",
+    "venderId": "316609"
+  },
+  "abTest": [
+    {
+      "duration": "10800000",
+      "experimentName": "ProductOpenBrandDetail",
+      "testTag": "ProductOpenBrandDetail:A:2021-02-08 11:01:04"
+    },
+    {
+      "duration": "10800000",
+      "experimentName": "V8.3GoodsinfoContractPhone",
+      "testTag": "V8.3GoodsinfoContractPhone:Y:2021-02-08 11:01:04"
+    }
+  ],
+  "traceId": "H5_DEV_98C23223-FE32-4A3B-A3A7-0BBB45D0D37B1612753263989",
+  "success": true
+}
