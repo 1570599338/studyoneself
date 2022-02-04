@@ -110,8 +110,9 @@
                         type: "DELETE",
                         data: param,
                         success: function (rst) {
+							debugger;
                             layer.msg(rst.msg);
-                            if (rst.code === '1') {
+                            if (rst.code === '200') {
                                 setTimeout(function () {
                                     //location.href = "/admin/users/user/list";
 									location.href = "list.html";
