@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.user.mapper.UserMapper">
+<mapper namespace="com.lquan.mapper.UserMapper">
 
-	<resultMap type="User" id="UserResult">
+	<resultMap type="com.lquan.domain.User" id="UserResult">
 		<id     property="userId"       column="user_id"      />
 		<result property="deptId"       column="dept_id"      />
 		<result property="vip"       column="vip"      />

@@ -17,12 +17,11 @@ import java.util.List;
 
 /**
  * 首页 业务处理
- * 
+ *
  * @author ruoyi
  */
 @Controller
-public class IndexController extends BaseController
-{
+public class IndexController extends BaseController {
     @Autowired
     private IMenuService menuService;
 
@@ -60,8 +59,7 @@ public class IndexController extends BaseController
 
     // 切换主题
     @GetMapping("/system/switchSkin")
-    public String switchSkin(ModelMap mmap)
-    {
+    public String switchSkin(ModelMap mmap) {
         return "skin";
     }
 
