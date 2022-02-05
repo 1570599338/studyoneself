@@ -57,4 +57,10 @@ public interface ShiroService extends IService<User> {
     int updateUserById(User user);
 
     int locked(User sysAccount);
+
+    /**
+     * 删除用户和角色
+     * @param userId
+     */
+    void deleteUserRoleX(Integer userId);
 }

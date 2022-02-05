@@ -41,8 +41,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements ShiroService
-{
+public class ShiroServiceImpl extends ServiceImpl<UserMapper, User> implements ShiroService {
 
     //12小时后失效
     private final static int EXPIRE = 12;
@@ -52,7 +51,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
     @Autowired
     TokenMapper tokenMapper;
     @Autowired
-    LogMapper  logMapper;
+    LogMapper logMapper;
     @Autowired
     RoleService roleService;
 
@@ -63,7 +62,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
     @Override
     public SysToken findByToken(String accessToken) {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("token",accessToken);
+        wrapper.eq("token", accessToken);
         return tokenMapper.selectOne(wrapper);
     }
 
@@ -89,9 +88,9 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
         //判断是否生成过token
         SysToken sysToken = tokenMapper.findByUserId(userId);
 
-        if(sysToken!=null) {
+        if (sysToken != null) {
             updateUserToken(userId, token, now, expireTime);
-        }else {
+        } else {
             tokenMapper.insert(ObjectUtil.initObject(new SysToken())
                     .init(v -> v.setUserId(userId))
                     .init(v -> v.setToken(token))
@@ -105,7 +104,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
         user.setLoginCount(user.getLoginCount() + 1);
         userMapper.updateById(user);
 
-        HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 
         String requestHeader = request.getHeader("user-agent");
         UserAgent userAgent = UserAgentUtil.parse(requestHeader);
@@ -113,7 +112,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
         String ip = getIpAddress(request);
         Map<String, JSONObject> map = getAddressByIp(ip);
 
-        if(map != null) {
+        if (map != null) {
             logMapper.insert(ObjectUtil.initObject(new SysLog())
                     .init(v -> v.setMobile(user.getMobile()))
                     .init(v -> v.setIp(ip))
@@ -150,7 +149,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
 
 
     @Override
-    public int logout(String token,Integer userId) {
+    public int logout(String token, Integer userId) {
         //生成一个token
         String token_ = TokenGenerator.generateValue();
         //当前时间
@@ -166,9 +165,9 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
 
     @Override
     public IPage<User> page(Page<User> page, User user) {
-        QueryWrapper<User> queryWrapper  = new QueryWrapper<User>();
-        if(StringUtils.isNotBlank(user.getSearch())) {
-            queryWrapper.and(wrapper-> wrapper.like("name",user.getSearch()).or().like("mobile",user.getSearch()));
+        QueryWrapper<User> queryWrapper = new QueryWrapper<User>();
+        if (StringUtils.isNotBlank(user.getSearch())) {
+            queryWrapper.and(wrapper -> wrapper.like("name", user.getSearch()).or().like("mobile", user.getSearch()));
         }
         return userMapper.selectPage(page, queryWrapper);
     }
@@ -177,7 +176,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
     @Override
     @Transactional
     public int createUser(User user) {
-        if(userMapper.findByUserMobile(user.getMobile()) != null) {
+        if (userMapper.findByUserMobile(user.getMobile()) != null) {
             throw new BusinessException("用户已经注册，请去登录");
         }
         userMapper.insert(ObjectUtil.initObject(user)
@@ -192,7 +191,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
                 .init(v -> v.setState("0"))
                 .getObject());
 
-        if(user.getRoleIds() == null || user.getRoleIds().size() == 0) {
+        if (user.getRoleIds() == null || user.getRoleIds().size() == 0) {
             //赋权限
             userMapper.createUserRole(ObjectUtil.initObject(new UserRole())
                     .init(v -> v.setRoleId(1)) //默认给一个admin
@@ -216,7 +215,7 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
         updateUserById(user);
 
         userMapper.deleteUserRole(ObjectUtil.initObject(new UserRole())
-                                        .init(v -> v.setUserId(user.getId())).getObject());
+                .init(v -> v.setUserId(user.getId())).getObject());
 
         user.getRoleIds().forEach((e) -> {
             userMapper.createUserRole(ObjectUtil.initObject(new UserRole())
@@ -237,22 +236,22 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
 
     @Override
     public Map<String, Object> view(String token, String userId) {
-        Map<String,Object> maps = new HashMap<>();
+        Map<String, Object> maps = new HashMap<>();
 
         User user = null;
         //从个人中心过来，否则是从用户列表进来的
-        if(StringUtils.isNotEmpty(token)) {
+        if (StringUtils.isNotEmpty(token)) {
             user = getToken(token);
         }
-        if(StringUtils.isNotEmpty(userId)) {
+        if (StringUtils.isNotEmpty(userId)) {
             user = findByUserId(Integer.parseInt(userId));
         }
-        Map<Integer,String> userRoles = roleService.getUserRoles(user.getId().toString()).
-                stream().collect(Collectors.toMap(Role::getId,Role::getName));
+        Map<Integer, String> userRoles = roleService.getUserRoles(user.getId().toString()).
+                stream().collect(Collectors.toMap(Role::getId, Role::getName));
         List<Role> roles = roleService.getRoles();
-        for (Role r: roles) {
-            String role =  userRoles.get(r.getId());
-            if(StringUtils.isNotBlank(role)) {
+        for (Role r : roles) {
+            String role = userRoles.get(r.getId());
+            if (StringUtils.isNotBlank(role)) {
                 r.setChecked(true);
             }
         }
@@ -264,31 +263,19 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
     @Override
     public int updateUserById(User user) {
         User uers = findByUserId(user.getId());
-        if(uers == null) {
+        if (uers == null) {
             throw new BusinessException("用户不存在");
         }
-        userMapper.updateById(ObjectUtil.initObject(new User())
-                .init(v -> v.setBirthday(user.getBirthday()))
-                .init(v -> v.setEmail(user.getEmail()))
-                .init(v -> v.setMobile(user.getMobile()))
-                .init(v -> v.setPassword(user.getPassword()))
-                .init(v -> v.setName(user.getMobile()))
-                .init(v -> v.setGender(user.getGender()))
-                .init(v -> v.setIcon(user.getIcon()))
-                .init(v -> v.setNote(user.getNote()))
-                .init(v -> v.setCreateDate(new Date()))
-                .init(v -> v.setLastVisit(new Date()))
-                .init(v -> v.setId(user.getId()))
-                .init(v -> v.setVersion(uers.getVersion()))
-                .getObject());
+        userMapper.updateById(user);
         return 1;
     }
 
     @Override
     public int locked(User sysAccount) {
-        userMapper.update(sysAccount , new UpdateWrapper<User>().lambda().eq(User::getId, sysAccount.getId()));
+        userMapper.update(sysAccount, new UpdateWrapper<User>().lambda().eq(User::getId, sysAccount.getId()));
         return 1;
     }
+
 
     public static String getIpAddress(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -319,15 +306,31 @@ public class ShiroServiceImpl extends ServiceImpl<UserMapper,User> implements Sh
     /**
      * 根据IP 查询城市信息
      */
-    public static Map<String,JSONObject> getAddressByIp(String ip) {
+    public static Map<String, JSONObject> getAddressByIp(String ip) {
         JSONObject object = HttpUtils.requestGet("http://api.map.baidu.com/location/ip?ak=cTYtHPV1spdnWgFSeKfXqjTh&coor=bd09ll&ip=" + ip).getJSONObject("content");
         if (object != null) {
-            Map<String,JSONObject> map = new HashMap<>();
-            map.put("point"  , object.getJSONObject("point"));
+            Map<String, JSONObject> map = new HashMap<>();
+            map.put("point", object.getJSONObject("point"));
             map.put("address", object.getJSONObject("address_detail"));
             return map;
         }
         return null;
+    }
+
+
+    /**
+     * 删除用户和角色
+     *
+     * @param userId
+     */
+    @Override
+    public void deleteUserRoleX(Integer userId) {
+    // 删除用户和相关连的用户权限
+        userMapper.deleteUserRole(userId);
+        //userMapper
+        Map<String,Object> map=new HashMap<>();
+        map.put("id",userId);
+        this.removeByMap(map);
     }
 
 }

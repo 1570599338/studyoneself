@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zxj.shop.admin.entity.Member;
 import com.zxj.shop.admin.entity.MsgRecord;
+import com.zxj.shop.admin.entity.Role;
 import com.zxj.shop.admin.entity.User;
+import com.zxj.shop.admin.entity.dto.Passwd;
 import com.zxj.shop.admin.service.MemberService;
 import com.zxj.shop.admin.service.MsgService;
 import com.zxj.shop.admin.service.ShiroService;
@@ -67,6 +69,22 @@ public class UserApiController {
         return ResultVO.success(shiroService.view(token,userId));
     }
 
+
+    @ApiOperation(value = "用户锁定")
+    @RequestMapping("/users/user/confirm/passwd")
+    public ResultVO locked(Passwd passwd) {
+        Map<String,Object>  map = shiroService.view(passwd.getToken(),passwd.getId());
+        User user = (User) map.get("user");
+        if(user==null){
+            return ResultVO.success("不存在该用户");
+        }
+        if(!user.getPassword().equals(passwd.getOldPassword())){
+            return ResultVO.success("对不起，你的原始密码不正确！请重新输入");
+        }
+        user.setPassword(passwd.getPassword());
+        return ResultVO.success( shiroService.updateUserById(user));
+    }
+
     @ApiOperation(value = "用户锁定")
     @PostMapping("/users/user/confirm/locked")
     public ResultVO locked(User sysAccount) {
@@ -92,5 +110,12 @@ public class UserApiController {
     @ApiOperation(value = "会员详情")
     public ResultVO<Member> view(@RequestParam(required = false) String userId) {
         return ResultVO.success(memberService.getMemberById(userId));
+    }
+
+    @RequestMapping("/users/user/confirm/delete/{id}")
+    public ResultVO<Role> delete(@PathVariable("id")  Integer id) {
+        System.out.println("###############id = " + id);
+        this.shiroService.deleteUserRoleX(id);
+        return ResultVO.success();
     }
 }

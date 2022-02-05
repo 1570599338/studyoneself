@@ -21,7 +21,8 @@ public interface UserMapper extends BaseMapper<User> {
     @Insert({"delete from sys_user_role where user_id=#{userId}" })
     int deleteUserRole(UserRole userRole);
 
-
+    @Insert({"delete from sys_user_role where user_id=#{userId}" })
+    int deleteUserRole(Integer userId);
 
 
 }
