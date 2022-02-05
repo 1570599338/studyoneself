@@ -71,7 +71,7 @@
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
             if (layEvent === 'edit') { //编辑
-                location.href = "/admin/setting/role/edit.html?id=" + data.id;
+                location.href = "edit.html?id=" + data.id;
             } else if (layEvent === 'del') { //删除
             layer.confirm('真的删除该角色吗?', function (index) {
                 //向服务端发送删除指令
@@ -85,10 +85,18 @@
                     data: param,
                     success: function (rst) {
                         layer.msg(rst.msg);
-                        if (rst.code === '1') {
-                            setTimeout(function () {
-                                location.href = "/admin/setting/rolePermission/list";
-                            }, 2000);
+                        if (rst.code == '200') {
+                            // setTimeout(function () {
+                            //     location.href = "/admin/setting/rolePermission/list";
+                            // }, 2000);
+							setTimeout(function () {
+								//table.cache["users"];
+							    //location.href = "/admin/users/user/list";
+								var oldData = table.cache["role"];
+								 layer.msg("删除成功",{time: 10},function(){
+								   table.reload('role',{data : oldData});
+								 });
+							}, 500);
                         }
                     }
                 });

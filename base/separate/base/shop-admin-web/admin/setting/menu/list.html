@@ -318,6 +318,7 @@
             }
         });
         form.on('submit(submit)', function (data) {
+			debugger;
             console.log(data.field.id)
             if (data.field.id === undefined || data.field.id === null || data.field.id === "") {
                 $.ajax({

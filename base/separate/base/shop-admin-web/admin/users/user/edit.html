@@ -73,8 +73,10 @@
                     <div class="layui-form-item">
                         <div class="layui-col-xs2">出生日期</div>
                         <div class="layui-input-inline layui-col-xs10">
-                            <input th:value="${sysAccount.birthData != null ? #dates.format(sysAccount.birthData,'yyyy-MM-dd') : ''}"
-                                   type="text" name="birthData" id="birthday" class="layui-input">
+                            <!-- <input th:value="${sysAccount.birthData != null ? #dates.format(sysAccount.birthData,'yyyy-MM-dd') : ''}"
+                                   type="text" name="birthData" id="birthday" class="layui-input"> -->
+							 <input th:value="${sysAccount.birthday != null ? sysAccount.birthday : ''}"
+								          type="text" name="birthday" id="birthday" class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -159,7 +161,7 @@
         });
         //日期
         laydate.render({
-            elem: '#birthData'
+            elem: '#birthday'
         });
         //监听提交
         form.on('submit(saveBtn)', function (param) {
@@ -176,7 +178,9 @@
                 success: function (rst) {
                     layer.msg(rst.msg);
                     if (rst.code == 200) {
-                        location.href = "/admin/users/user/list.html";   
+						setTimeout(function () {
+						    location.href = "list.html";   
+						}, 1000);
 						
                     }
                 }

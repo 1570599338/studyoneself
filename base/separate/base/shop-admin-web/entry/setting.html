@@ -28,12 +28,9 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">头像</label>
                 <div class="layui-upload-list layui-upload">
-                    <img class="layui-upload-img" id="logo"
-                        th:attr="src=${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}"
-                        style="width: 100px;height: 100px;">
-                    <input name="icon" style="display: none;"
-                                th:value="${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}">
-                        <span id="logoText"></span>
+                    <img class="layui-upload-img" id="logo"  th:attr="src=${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}"  style="width: 100px;height: 100px;">
+                    <input name="icon" style="display: none;" th:value="${sysAccount.logo != null ? sysAccount.logo : '/images/logo.png'}">
+                    <span id="logoText"></span>
                 </div>
             </div>
             <div class="layui-form-item">
@@ -52,15 +49,15 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">出生日期</label>
                 <div class="layui-input-inline">
-                    <input th:value="${sysAccount.birthData != null ? #dates.format(sysAccount.birthData,'yyyy-MM-dd') : ''}"
-                        type="text" name="birthData" id="birthday" class="layui-input">
+                    <input th:value="${sysAccount.birthday != null ? #dates.format(sysAccount.birthday,'yyyy-MM-dd') : ''}"
+                        type="text" name="birthday" id="birthday" class="layui-input">
+						
                 </div>
             </div>
             <div class="layui-form-item">
                 <label class="layui-form-label">邮箱</label>
                 <div class="layui-input-inline">
-                    <input th:value="${sysAccount.email}"
-                                   type="email" name="email" id="email" class="layui-input">
+                    <input th:value="${sysAccount.email}" type="email" name="email" id="email" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item layui-form-text">
@@ -87,10 +84,17 @@
     layui.use(['form', 'laydate', 'upload'], function () {
         var $ = layui.jquery,
             form = layui.form,
-            laydate = layui.laydate,
+            laydate = layui.laydate;
+			//日期
+			laydate.render({
+			    elem: '#birthday',
+				format: 'yyyy-MM-dd', //可任意组合
+			});
+			debugger;
             upload = layui.upload;
             var url=window.location.search; //获取url中"?"符后的字串      
 	        var userId = url.substr(url.indexOf("=")+1);
+			debugger;
             $.ajax({
                 url: dev + "/api/admin/users/user/view",
                 type:'post',
@@ -128,18 +132,19 @@
                     }
                 }
         });
-        //日期
-        laydate.render({
-            elem: '#birthData'
-        });
+        
         //监听提交
         form.on('submit(saveBtn)', function (param) {
+			debugger;
             $.ajax({
                 url: dev + "/api/admin/users/user/setting",
                 type: "post",
                 data: param.field,
                 success: function (rst) {
-                    layer.msg(rst.msg);
+                    //layer.msg(rst.msg);
+					 setTimeout(function () {
+					     layer.msg(rst.msg); 
+					 }, 1000);
                 }
             });
             return false;

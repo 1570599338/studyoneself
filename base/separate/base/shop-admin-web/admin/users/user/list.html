@@ -105,18 +105,24 @@
                     var param = {
                         "id": data.id
                     }
+					debugger;
                     $.ajax({
-                        url: "/api/admin/users/user/confirm/delete/" + data.id,
+                        url: dev + "/api/admin/users/user/confirm/delete/" + data.id,
                         type: "DELETE",
                         data: param,
                         success: function (rst) {
 							debugger;
                             layer.msg(rst.msg);
-                            if (rst.code === '200') {
+                            if (rst.code == '200') {
                                 setTimeout(function () {
+									//table.cache["users"];
                                     //location.href = "/admin/users/user/list";
-									location.href = "list.html";
-                                }, 2000);
+									var oldData = table.cache["users"];
+									
+									 layer.msg("删除成功",{time: 10},function(){
+									   table.reload('users',{data : oldData});
+									 });
+                                }, 500);
                             }
                         }
                     });

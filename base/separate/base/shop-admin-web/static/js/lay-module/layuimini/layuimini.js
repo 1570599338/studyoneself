@@ -66,6 +66,7 @@ layui.define(["element", "jquery"], function (exports) {
                 }
             }).fail(function () {
                 layer.msg('登录接口有误');
+				 window.location.href = "entry/login.html";
             });
             layer.close(loading);
         };

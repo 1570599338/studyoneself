@@ -66,14 +66,10 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd>
-                        <a id="setting"
-                           data-title="基本资料"
-                           data-icon="fa fa-gears">基本资料</a>
+                        <a id="setting"  data-title="基本资料"  data-icon="fa fa-gears">基本资料</a>
                     </dd>
                     <dd>
-                        <a id="password" 
-                           data-title="修改密码"
-                           data-icon="fa fa-gears">修改密码</a>
+                        <a id="password" data-title="修改密码"  data-icon="fa fa-gears">修改密码</a>
                     </dd>
                     <dd>
                         <a href="javascript:;" class="login-out">退出登录</a>
@@ -134,12 +130,20 @@
         layuimini.init(initIndex);
 
         $("#password").click(function(){
-            layuimini.addTab("entry/password.html", "entry/password.html", "修改密码", true);
-                        layuimini.changeTab("entry/password.html");
+			if(!layuimini.checkTab("entry/password.html")){
+				layuimini.addTab("entry/password.html", "entry/password.html", "修改密码", true);
+			}
+            layuimini.changeTab("entry/password.html");
+			
         });
         $("#setting").click(function(){
-            layuimini.addTab("entry/setting.html", "entry/setting.html", "基本资料", true);
-                        layuimini.changeTab("entry/setting.html");
+			debugger;
+			if(!layuimini.checkTab("entry/setting.html")){
+				layuimini.addTab("entry/setting.html", "entry/setting.html", "基本资料", true);
+			}
+			layuimini.changeTab("entry/setting.html");
+			
+            
         });
         
         $.ajax({
