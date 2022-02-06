@@ -20,4 +20,7 @@ public interface PermissionService {
 	boolean updatePermission(Permission vo);
 
 	public List<RolePermissionParam> setPermission (List<Permission> resourceList, String superId, Boolean spread, List<Integer> menuIdList);
+
+
+	Permission getPermissionById(Integer id);
 }

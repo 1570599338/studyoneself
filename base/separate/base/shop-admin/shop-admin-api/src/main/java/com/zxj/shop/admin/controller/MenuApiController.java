@@ -46,4 +46,19 @@ public class MenuApiController {
         return ResultVO.success(permissionService.updatePermission(vo));
     }
 
+
+    /**
+     * 获取上一菜单名称
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("/menuById/{id}")
+    @ApiOperation(value = "获取所有目录菜单树接口")
+    public ResultVO getMenusPermissionById(@PathVariable("id")  Integer id) {
+        Permission bean = permissionService.getPermissionById(id);
+        return ResultVO.success(bean);
+    }
+
+
 }

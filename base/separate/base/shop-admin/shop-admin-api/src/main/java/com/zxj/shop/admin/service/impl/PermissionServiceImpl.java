@@ -213,4 +213,9 @@ public class PermissionServiceImpl implements PermissionService {
 		}
 		return list;
 	}
+
+	@Override
+	public Permission getPermissionById(Integer id) {
+		return permissionMapper.selectById(id);
+	}
 }
