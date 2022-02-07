@@ -4,10 +4,12 @@ import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zxj.shop.admin.entity.Permission;
+import com.zxj.shop.admin.entity.RolePermission;
 import com.zxj.shop.admin.entity.vo.RolePermissionParam;
 import com.zxj.shop.admin.exception.BaseResponseCode;
 import com.zxj.shop.admin.exception.BusinessException;
 import com.zxj.shop.admin.mapper.PermissionMapper;
+import com.zxj.shop.admin.mapper.RolePermissionMapper;
 import com.zxj.shop.admin.service.PermissionService;
 import com.zxj.shop.admin.entity.vo.PermissionRespNode;
 import lombok.val;
@@ -16,14 +18,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PermissionServiceImpl implements PermissionService {
 
 	@Autowired
 	private PermissionMapper permissionMapper;
+
+	@Resource
+	private RolePermissionMapper rolePermissionMapper;
 
 	@Override
 	public List<Permission> getUserPermission(String roleId) {
@@ -167,7 +175,8 @@ public class PermissionServiceImpl implements PermissionService {
 				}
 				break;
 			case 2:
-				if (parent == null || parent.getCategory() != 2) {
+				//if (parent == null || parent.getCategory() != 2) {
+				if (parent == null  || parent.getCategory() != 1) {
 					throw new BusinessException(BaseResponseCode.OPERATION_MENU_PERMISSION_MENU_ERROR);
 				}
 				if (StringUtils.isEmpty(sysPermission.getUrl())) {
@@ -217,5 +226,27 @@ public class PermissionServiceImpl implements PermissionService {
 	@Override
 	public Permission getPermissionById(Integer id) {
 		return permissionMapper.selectById(id);
+	}
+
+	@Override
+	public List<Permission> getPermissionByPid(Integer pid) {
+		Map map = new HashMap();
+		map.put("pid",pid);
+		List<Permission>  list = permissionMapper.selectByMap(map);
+		return list;
+	}
+
+	@Override
+	public void delPermission(Integer id) {
+		//1、删除sys_role_permission的数据
+		Map map = new HashMap();
+		map.put("permission_id",id);
+		List<RolePermission>  list = rolePermissionMapper.selectByMap(map);
+		if(!CollectionUtils.isEmpty(list)) {
+			rolePermissionMapper.deleteByMap(map);
+		}
+
+		//2、删除sys_permission的数据
+		permissionMapper.deleteById(id);
 	}
 }

@@ -22,5 +22,23 @@ public interface PermissionService {
 	public List<RolePermissionParam> setPermission (List<Permission> resourceList, String superId, Boolean spread, List<Integer> menuIdList);
 
 
+	/**
+	 * 根据id进行数据查询
+	 * @param id
+	 * @return
+	 */
 	Permission getPermissionById(Integer id);
+
+	/**
+	 * 根据父节点进行数据查询
+	 * @param pid
+	 * @return
+	 */
+	List<Permission>  getPermissionByPid(Integer pid);
+
+	/**
+	 * 对接点进行删除
+	 * @param id
+	 */
+	void delPermission(Integer id);
 }

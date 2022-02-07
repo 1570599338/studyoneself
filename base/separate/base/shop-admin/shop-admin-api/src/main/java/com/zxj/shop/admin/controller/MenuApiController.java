@@ -2,6 +2,7 @@ package com.zxj.shop.admin.controller;
 
 
 import com.zxj.shop.admin.entity.Permission;
+import com.zxj.shop.admin.entity.Role;
 import com.zxj.shop.admin.service.PermissionService;
 import com.zxj.shop.admin.entity.vo.PageVO;
 import com.zxj.shop.admin.entity.vo.ResultVO;
@@ -61,4 +62,19 @@ public class MenuApiController {
     }
 
 
+
+    @RequestMapping("/menuDelById/{id}")
+    public ResultVO menuDelById(@PathVariable("id")  Integer id) {
+        System.out.println("###############id = " + id);
+        Permission bean = permissionService.getPermissionById(id);
+        //1、查询改删除节点是否有子节点，
+        List<Permission>  list = permissionService.getPermissionByPid(id);
+        //2、没有子节点可以进行删除操作
+        if(list!=null && list.size()>0){
+            return ResultVO.systemError("对不起，该菜单有子菜单不能删除！");
+        }
+        // 2.1、 首先删除sys_role_permission
+        permissionService.delPermission(id);
+        return ResultVO.success();
+    }
 }

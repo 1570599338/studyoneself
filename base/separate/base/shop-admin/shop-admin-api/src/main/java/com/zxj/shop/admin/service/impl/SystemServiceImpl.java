@@ -135,7 +135,7 @@ public class SystemServiceImpl extends ServiceImpl<LogMapper,SysLog> implements 
         // 2级菜单
         List<Child> list = new ArrayList<>();
         for (Permission sysResource : userResource) {
-            if (superId == sysResource.getPid()) {
+            if (superId.intValue() == sysResource.getPid().intValue()) {
                 Child child = new Child();
                 child.setId(sysResource.getId());
                 child.setTitle(sysResource.getName());
