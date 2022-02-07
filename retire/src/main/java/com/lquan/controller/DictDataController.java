@@ -19,13 +19,12 @@ import java.util.List;
 
 /**
  * 数据字典信息
- * 
+ *
  * @author ruoyi
  */
 @Controller
 @RequestMapping("/system/dict/data")
-public class DictDataController extends BaseController
-{
+public class DictDataController extends BaseController {
     private String prefix = "system/dict/data";
 
     @Autowired
@@ -33,16 +32,14 @@ public class DictDataController extends BaseController
 
     @RequiresPermissions("system:dict:view")
     @GetMapping()
-    public String dictData()
-    {
+    public String dictData() {
         return prefix + "/data";
     }
 
     @PostMapping("/list")
     @RequiresPermissions("system:dict:list")
     @ResponseBody
-    public TableDataInfo list(DictData dictData)
-    {
+    public TableDataInfo list(DictData dictData) {
         startPage();
         List<DictData> list = dictDataService.selectDictDataList(dictData);
         return getDataTable(list);
@@ -52,8 +49,7 @@ public class DictDataController extends BaseController
     @RequiresPermissions("system:dict:export")
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(DictData dictData)
-    {
+    public AjaxResult export(DictData dictData) {
         List<DictData> list = dictDataService.selectDictDataList(dictData);
         ExcelUtil<DictData> util = new ExcelUtil<DictData>(DictData.class);
         return util.exportExcel(list, "字典数据");
@@ -63,8 +59,7 @@ public class DictDataController extends BaseController
      * 新增字典类型
      */
     @GetMapping("/add/{dictType}")
-    public String add(@PathVariable("dictType") String dictType, ModelMap mmap)
-    {
+    public String add(@PathVariable("dictType") String dictType, ModelMap mmap) {
         mmap.put("dictType", dictType);
         return prefix + "/add";
     }
@@ -76,8 +71,7 @@ public class DictDataController extends BaseController
     @RequiresPermissions("system:dict:add")
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(@Validated DictData dict)
-    {
+    public AjaxResult addSave(@Validated DictData dict) {
         return toAjax(dictDataService.insertDictData(dict));
     }
 
@@ -85,8 +79,7 @@ public class DictDataController extends BaseController
      * 修改字典类型
      */
     @GetMapping("/edit/{dictCode}")
-    public String edit(@PathVariable("dictCode") Long dictCode, ModelMap mmap)
-    {
+    public String edit(@PathVariable("dictCode") Long dictCode, ModelMap mmap) {
         mmap.put("dict", dictDataService.selectDictDataById(dictCode));
         return prefix + "/edit";
     }
@@ -98,8 +91,7 @@ public class DictDataController extends BaseController
     @RequiresPermissions("system:dict:edit")
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(@Validated DictData dict)
-    {
+    public AjaxResult editSave(@Validated DictData dict) {
         return toAjax(dictDataService.updateDictData(dict));
     }
 
@@ -107,8 +99,7 @@ public class DictDataController extends BaseController
     @RequiresPermissions("system:dict:remove")
     @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(dictDataService.deleteDictDataByIds(ids));
     }
 }

@@ -61,14 +61,13 @@ public class LoginController extends BaseController {
         }
 
         Subject subject = SecurityUtils.getSubject();
-        try
-        {
+        try {
             subject.login(token);
             if (tourist) {
                 return AjaxResult.success("登录成功", "tourist");
             }
 
-          return success();
+            return success();
         } catch (AuthenticationException e) {
             String msg = "用户或密码错误";
             if (StringUtils.isNotEmpty(e.getMessage())) {

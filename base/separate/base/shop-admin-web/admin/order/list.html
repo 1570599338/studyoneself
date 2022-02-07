@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>订单列表</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+</head>
+<style type="text/css">
+    .layui-table-cell{
+        height: auto!important;
+        white-space: normal;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>搜索信息</legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">订单列表</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="code" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <table class="layui-hide" id="orders" lay-filter="orders"></table>
+    </div>
+   
+    <table class="layui-hide" id="demo3" lay-filter="demo3"></table>
+</div>
+</body>
+<script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="/static/api/api.js?v=1.0.4" charset="utf-8"></script>
+<script src="/static/js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+<script type="text/html" id="imgTpl">
+    <img src= "{{baseimg + d.imgUrl }}">
+</script>
+<script type="text/html" id="orderBar">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table', 'opTable'], function () {
+        var table = layui.table,
+            openTable = layui.opTable;
+    
+    
+            openTable.render({
+                elem: '#orders',
+                url:  dev + "/api/admin/order/list",
+                id: '#orders'
+                , page: true
+                , cols: [[
+                {field: 'orderSn', title: '订单号', width: 200, align: 'center'},
+                    {field: 'paySn', title: '支付单', width: 208, align: 'center'},
+                    {field: 'orderMoney', title: '订单金额', width: 100, align: 'center'},
+                    {field: 'distinctMoney', title: '优惠金额', width: 100, align: 'center'},
+                    {field: 'realName', title: '收货人', width: 100, align: 'center'},
+                    {field: 'mobile', title: '手机号', width: 150, align: 'center'},
+                    {
+                        field: 'orderStatus', title: '订单状态', align: 'center', width: 100, templet: function (item) {
+                            if (item.orderStatus == '1') {
+                                return "待付款";
+                            } else if (item.orderStatus == '2') {
+                                return "待发货";
+                            } else if (item.orderStatus == '3') {
+                                return "待收货";
+                            } else if (item.orderStatus == '4') {
+                                return "评价";
+                            } else if (item.orderStatus == '8') {
+                                return "已取消";
+                            }
+                        }
+                    },
+                    {field: 'source', title: '订单来源', align: 'center', width: 100, templet: function (item) {
+                            if (item.source == '1') {
+                                return "微信";
+                            } 
+                        }
+                    },
+                    {field: 'createTime', title: '创建时间',width: 160, align: 'center'},
+                    // {fixed: 'right', title: '操作', toolbar: '#orderBar', align: 'center', minWidth: 120}
+      ]]
+      , openTable: function (itemData) {
+          console.log(itemData.orderSn)
+                return {
+                  elem: '#child_1_' + itemData.LAY_INDEX
+                  , id: 'child_1_' + itemData.LAY_INDEX
+                  ,url:  dev + "/api/admin/order/orderList?orderSn=" + itemData.orderSn
+                  , openVisible: false
+                  , cols: [[
+                    , {field: 'productName', width: 225, align: 'center', title: '购买商品'}
+                    , {field: 'productPrice', align: 'center', title: '单价'}
+                    , {field: 'productNumber', align: 'center', title: '购买数量'}
+                    , {field: 'productMoney', align: 'center', title: '购买金额'}
+                  ]]
+                  , done: function () {
+                    //  监听子表 修改
+                    layui.table.on('edit(' + 'child' + itemData.LAY_INDEX + ')', function (obj) {
+                      layer.msg(JSON.stringify(obj.data, null, "\t"));
+                    });
+                  }
+                  , onEdit: function (data) {
+                    console.log("表格4修改", data)
+                  }
+                }
+              }
+              , onEdit: function (data) {
+                console.log("表格3修改", data)
+              }
+      , openType: 1
+      , onEdit: function (data) {
+        console.log("表格1修改", data)
+        layer.msg(JSON.stringify(data));
+      }
+    });
+
+    });
+    /*]]>*/
+</script>
+</html>

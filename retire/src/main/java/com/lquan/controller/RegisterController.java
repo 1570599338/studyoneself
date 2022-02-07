@@ -34,9 +34,8 @@ public class RegisterController extends BaseController {
     private IRoleService roleService;
 
     @GetMapping()
-    public String register(ModelMap mmap)
-    {
-        mmap.put("roles", roleService.selectRoleAll().stream().filter(s ->"enterprise".equals(s.getRoleKey()) ||
+    public String register(ModelMap mmap) {
+        mmap.put("roles", roleService.selectRoleAll().stream().filter(s -> "enterprise".equals(s.getRoleKey()) ||
                 "job_wanted".equals(s.getRoleKey())).collect(Collectors.toList()));
         return prefix + "/register";
     }
@@ -47,18 +46,12 @@ public class RegisterController extends BaseController {
     @Log(title = "用户注册", businessType = BusinessType.INSERT)
     @PostMapping("/register")
     @ResponseBody
-    public AjaxResult register(@Validated User user)
-    {
-        if (UserConstants.USER_NAME_NOT_UNIQUE.equals(userService.checkLoginNameUnique(user.getLoginName())))
-        {
+    public AjaxResult register(@Validated User user) {
+        if (UserConstants.USER_NAME_NOT_UNIQUE.equals(userService.checkLoginNameUnique(user.getLoginName()))) {
             return error("新增用户'" + user.getLoginName() + "'失败，登录账号已存在");
-        }
-        else if (UserConstants.USER_PHONE_NOT_UNIQUE.equals(userService.checkPhoneUnique(user)))
-        {
+        } else if (UserConstants.USER_PHONE_NOT_UNIQUE.equals(userService.checkPhoneUnique(user))) {
             return error("新增用户'" + user.getLoginName() + "'失败，手机号码已存在");
-        }
-        else if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkEmailUnique(user)))
-        {
+        } else if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkEmailUnique(user))) {
             return error("新增用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
         }
         return toAjax(userService.insertUser(user));

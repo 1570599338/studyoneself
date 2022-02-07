@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>登录日志</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../../static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../../static/css/public.css" media="all">
+</head>
+<body>
+<div class="layuimini-container">
+    <div class="layuimini-main">
+        <fieldset class="layui-elem-field layuimini-search">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">用户帐号</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="search" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+        <table class="layui-hide" id="logLogin" lay-filter="logLogin"></table>
+    </div>
+</div>
+</body>
+<script src="../../../static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="../../../static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="../../../static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="../../../static/api/api.js" charset="utf-8"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table'], function () {
+        var table = layui.table;
+        // 表格
+        table.render({
+            elem: '#logLogin',
+            url:  loginLog,
+            page: true,
+            cols: [
+                [
+                    {field: 'mobile', title: '帐号', align: 'center'},
+                    {field: 'ip', title: 'IP', align: 'center'},
+                    {field: 'province', title: '省', align: 'center'},
+                    {field: 'city', title: '市', align: 'center'},
+                    {field: 'os', title: '操作系统', align: 'center'},
+                    {field: 'browser', title: '浏览器', align: 'center'},
+                    {
+                        field: 'loginTime',
+                        title: '登录时间',
+                        align: 'center',
+                        templet: '<div>{{layui.util.toDateString(d.loginTime, "yyyy-MM-dd HH:mm:ss")}}</div>'
+                    }
+                ]
+            ]
+        });
+    });
+    /*]]>*/
+</script>
+</html>

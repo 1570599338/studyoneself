@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>商城会员</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+</head>
+<style type="text/css">
+    .layui-table-cell{
+        height: auto!important;
+        white-space: normal;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>搜索信息</legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">会员列表</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="code" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <table class="layui-hide" id="members" lay-filter="members"></table>
+    </div>
+</div>
+</body>
+<script type="text/html" id="memberBar">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<script type="text/html" id="checkboxTpl">
+    <input type="checkbox" value="{{d.id}}" name="isLocked" lay-skin="switch" lay-filter="locked"
+           lay-text="已锁定|未锁定"
+           title="锁定">
+</script>
+<script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="/static/api/api.js?v=1.0.4" charset="utf-8"></script>
+<script type="text/html" id="imgTpl">
+    <img src= "{{baseimg + d.imgUrl }}">
+</script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table'], function () {
+        var table = layui.table;
+        // 表格
+        table.render({
+            elem: '#members',
+            url:  dev + "/api/admin/member/list",
+            page: true,
+            cols: [
+                [
+                    {field: 'nickName', title: '会员名称',width: 140, align: 'center'},
+                    {field: 'mobile', title: '手机号',width: 140, align: 'center'},
+                    {
+                        field: 'gender', title: '性别', align: 'center', width: 60, templet: function (item) {
+                            if (item.gender == '0') {
+                                return "女";
+                            } else if (item.gender == '1') {
+                                return "男";
+                            } else {
+                                return "未知";
+                            }
+                        }
+                    },
+                    {field: 'source', title: '来源', align: 'center', width: 120, templet: function (item) {
+                            if (item.source == '1') {
+                                return "公众号";
+                            } 
+                        }
+                    },
+                    {field: 'isLocked', title: '是否锁定', templet: '#checkboxTpl', unresize: true, align: 'center',width: 100},
+                    {field: 'loginCount', title: '登录次数',width: 100, align: 'center'},
+                    {field: 'createDate', title: '创建时间',width: 190, align: 'center'},
+                    {field: 'lastVisit', title: '访问时间',width: 190, align: 'center'},
+                    {fixed: 'right', title: '操作', toolbar: '#memberBar', align: 'center', minWidth: 130}
+                ]
+            ]
+        });
+
+        //监听工具条
+        table.on('tool(members)', function (obj) {
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if (layEvent === 'detail') { //查看
+                window.location = "/admin/member/view.html?id=" + data.id;
+            } else if (layEvent === 'del') { //删除
+                layer.confirm('真的删除行么', function (index) {
+                    //向服务端发送删除指令
+                    var param = {
+                        "id": data.id
+                    }
+                    $.ajax({
+                        url: "/api/admin/users/user/confirm/delete/" + data.id,
+                        type: "DELETE",
+                        data: param,
+                        success: function (rst) {
+                            layer.msg(rst.msg);
+                            if (rst.code === '1') {
+                                setTimeout(function () {
+                                    location.href = "/admin/users/user/list";
+                                }, 2000);
+                            }
+                        }
+                    });
+                    layer.close(index);
+                });
+            } else if (layEvent === 'edit') { //编辑
+                window.location = "/admin/users/user/edit.html?id=" + data.id;
+            }
+        });
+    });
+    /*]]>*/
+</script>
+</html>

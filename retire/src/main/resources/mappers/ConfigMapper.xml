@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lquan.mapper.ConfigMapper">
     
-    <resultMap type="Config" id="ConfigResult">
+    <resultMap type="com.lquan.domain.Config" id="ConfigResult">
     	<id     property="configId"      column="config_id"      />
         <result property="configName"    column="config_name"    />
         <result property="configKey"     column="config_key"     />
@@ -33,12 +33,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</sql>
     
-    <select id="selectConfig" parameterType="Config" resultMap="ConfigResult">
+    <select id="selectConfig" parameterType="com.lquan.domain.Config" resultMap="ConfigResult">
         <include refid="selectConfigVo"/>
         <include refid="sqlwhereSearch"/>
     </select>
     
-    <select id="selectConfigList" parameterType="Config" resultMap="ConfigResult">
+    <select id="selectConfigList" parameterType="com.lquan.domain.Config" resultMap="ConfigResult">
         <include refid="selectConfigVo"/>
         <where>
 			<if test="configName != null and configName != ''">
@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where config_key = #{configKey}
     </select>
     
-    <insert id="insertConfig" parameterType="Config">
+    <insert id="insertConfig" parameterType="com.lquan.domain.Config">
         insert into sys_config (
 			<if test="configName != null and configName != '' ">config_name,</if>
 			<if test="configKey != null and configKey != '' ">config_key,</if>
@@ -84,7 +84,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)
     </insert>
 	 
-    <update id="updateConfig" parameterType="Config">
+    <update id="updateConfig" parameterType="com.lquan.domain.Config">
         update sys_config 
         <set>
             <if test="configName != null and configName != ''">config_name = #{configName},</if>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>商品分类</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/static/lib/layui-v2.5.4/css/layui.css" media="all">
+    <link rel="stylesheet" href="/static/css/public.css" media="all">
+</head>
+<style type="text/css">
+    .layui-table-cell{
+        height: auto!important;
+        white-space: normal;
+    }
+</style>
+<body>
+<div class="layuimini-container">
+    <fieldset class="layui-elem-field layuimini-search">
+        <legend>搜索信息</legend>
+        <div style="margin: 10px 10px 10px 10px">
+            <form class="layui-form layui-form-pane" action="">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">分类名称</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="code" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <a class="layui-btn" lay-submit="" lay-filter="data-search-btn">搜索</a>
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <div class="layuimini-main">
+        <table class="layui-hide" id="productCate" lay-filter="productCate"></table>
+    </div>
+</div>
+</body>
+<script src="/static/lib/jquery-3.4.1/jquery-3.4.1.min.js" charset="utf-8"></script>
+<script src="/static/lib/layui-v2.5.4/layui.js" charset="utf-8"></script>
+<script src="/static/js/jquery-ajax-cache.js" charset="utf-8"></script>
+<script src="/static/api/api.js?v=1.0.4" charset="utf-8"></script>
+<script type="text/html" id="imgTpl">
+    <img src= "{{baseimg + d.imgUrl }}">
+</script>
+<script type="text/html" id="userBar">
+    <a class="layui-btn layui-btn-xs" lay-event="detail">上架</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">下架</a>
+</script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    layui.use(['table'], function () {
+        var table = layui.table;
+        // 表格
+        table.render({
+            elem: '#productCate',
+            url:  dev + "/api/product/cate/list",
+            page: true,
+            cols: [
+                [
+                    {field: 'catName', title: '分类名称', align: 'center'},
+                    {field: 'imgUrl', title: '分类图片', align: 'center', templet:'#imgTpl'},
+                    {field: 'sort', title: '展示排序', align: 'center'},
+                    
+                    {field: 'clickCount', title: '点击次数', align: 'center'},
+                    {field: 'optionTime', title: '操作时间', align: 'center'},
+                    {field: 'sellerState', title: '售卖状态', align: 'center', width: 130, templet: function (item) {
+                            if (item.sellerState == '1') {
+                                return "已上架";
+                            } else if (item.sellerState == '2') {
+                                return "已下架";
+                            } else {
+                                return "未上架"
+                            }
+                        }
+                    },
+                    {fixed: 'right', title: '操作', toolbar: '#userBar', align: 'center', minWidth: 130}
+                ]
+            ]
+        });
+
+        table.on('toolbar(productCate)', function (obj) {
+            switch (obj.event) {
+                case 'add':
+                     location.href = "/admin/product/product-cate-add.html";
+                     break;
+            }
+            return false;
+        });
+    });
+    /*]]>*/
+</script>
+</html>
