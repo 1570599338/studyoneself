@@ -143,12 +143,13 @@
 
         // 渲染表格
         layer.load(2);
-        treetable.render({
+       var insttree = treetable.render({
             treeColIndex: 1,
             treeSpid: 0,
             treeIdName: 'id',
             treePidName: 'pid',
             elem: '#munu-table',
+			autoRefresh:true,
             url: menuList,
             treeDefaultClose: true,
             treeLinkage: false,
@@ -163,7 +164,7 @@
                     {
                         field: 'icon', align: 'center', templet: function (d) {
                         var icon = d.icon;
-                        return '<i class="'+icon+'"></i>';
+                        return '<i class="fa '+icon+'"></i>';
                     }, title: '图标'
                     },
                     {field: 'url', title: '菜单url', align: 'center'},
@@ -220,7 +221,7 @@
 			 var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
 			 var tr = obj.tr; //获得当前行 tr 的DOM对象
 			 debugger;
-			  if (layEvent === 'edit') { //查看
+			  if (layEvent === 'edit') { //编辑
 				  selectNode = null;
 				  $(".layuimini-main").hide();
 				  $(".operation_menu").show();
@@ -244,8 +245,8 @@
 					  ,"orderNum": data.orderNum
 					  ,"target": data.target
 				  });
-				  $("input[name='icon']").attr("value", data.icon)
-				  iconPicker.checkIcon('iconPickerFa', data.icon);
+				  $("input[name='icon']").attr("value","fa "+ data.icon)
+				  iconPicker.checkIcon('iconPickerFa', "fa "+ data.icon);
 				  if ($("#reset_icon").length === 0){
 					  $(".layui-select-title").append("<a id='reset_icon' onclick='resetIcon()' class=\"layui-btn  layui-btn-danger layui-btn-sm\">重置</a>")
 				  }
@@ -269,7 +270,35 @@
 				  form.render(); //更新全部
 				  initTree("");
 			  }
-			 
+			debugger;  
+			var tr = obj.tr; //获得当前行 tr 的DOM对象
+			  if (layEvent === 'del') { // 删除
+				debugger;
+				layer.confirm('真的删除行么', function (index) {
+					debugger;
+				    $.ajax({
+				        url: dev + "/api/admin/setting/menu/menuDelById/" + data.id,
+				        type: "DELETE",
+				        data: "",
+				        success: function (rst) {
+							debugger;
+				            layer.msg(rst.msg);
+				            if (rst.code == '200') {
+				                setTimeout(function () {
+									
+								
+									 layer.msg("删除成功",{time: 10},function(){
+										// treetable
+										//treetable.reload('munu-table',{ data: insttree.config.data });
+									  	window.parent.location.reload();
+									 }); 
+				                }, 500);
+				            }
+				        }
+				    });
+				    layer.close(index);
+				});
+			  }
 		 });
 			 
 		
@@ -327,7 +356,10 @@
             limit: 12,
             // 点击回调
             click: function (data) {
+				console.log(data);
+				data.icon="fa "+data.icon;
                 console.log(data);
+				
             }
         });
 
@@ -412,7 +444,7 @@
                                 setTimeout(function () {
                                     $(".menu-table").show();
                                     $(".operation_menu").hide();
-                                    location.href = "/admin/setting/menu/list.html";    
+                                    location.href = "list.html";    
                                 }, 1000);
                             }
                     }
@@ -429,7 +461,7 @@
                                 setTimeout(function () {
                                     $(".menu-table").show();
                                     $(".operation_menu").hide();
-                                    location.href = "/admin/setting/menu/list.html";    
+                                    location.href = "list.html";    
                                 }, 1000);
                             }
                         }
