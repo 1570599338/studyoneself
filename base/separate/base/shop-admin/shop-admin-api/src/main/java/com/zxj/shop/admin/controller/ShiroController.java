@@ -12,6 +12,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.Map;
 
@@ -50,7 +51,10 @@ public class ShiroController {
     public ResultVO logout(@RequestHeader("token")String token) {
         Subject subject = SecurityUtils.getSubject();
         Object obj = subject.getPrincipal();
-        User user = (User)subject.getPrincipal();
+      //  User user = (User)subject.getPrincipal();
+
+        User user = new User();
+        BeanUtils.copyProperties(subject.getPrincipal(),user);
         int i = shiroService.logout(token,user.getId());
         return ResultVO.success(i);
     }
