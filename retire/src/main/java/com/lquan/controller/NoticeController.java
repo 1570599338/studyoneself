@@ -26,7 +26,7 @@ import java.util.List;
 public class NoticeController extends BaseController {
     private String prefix = "system/notice";
 
-    @Autowired
+    @Autowired(required = false)
     private INoticeService noticeService;
 
     @RequiresPermissions("system:notice:view")

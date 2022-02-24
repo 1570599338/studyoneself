@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
  * 
  * @author ruoyi
  */
-@Component
-@ConfigurationProperties(prefix = "ruoyi")
+//@Component
+//@ConfigurationProperties(prefix = "ruoyi")
 public class RuoYiConfig
 {
     /** 项目名称 */
