@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ <!-- <meta charset="UTF-8">
+  <title>首页</title>
+  <link rel="stylesheet" href="third_lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/index.css"/>-->
+  <th:block th:include="include :: front-header-index('首页')" />
+</head>
+<body>
+
+
+<div class="main-nav">
+  <div class="main-container">
+    <!--<div class="logo">
+      <a href="/front/index">爱心<span class="glyphicon glyphicon-heart heart-image"></span>圆梦</a>
+    </div>-->
+    <th:block th:include="include :: front-logo" />
+
+   <!-- <ul class="nav-list">
+      <li class="active"><a href="/front/index">首页</a></li>
+      <li><a href="/front/wishes">愿望清单</a></li>
+      <li><a href="/front/realizations">圆梦故事</a></li>
+      <li><a href="/front/contact">联系我们</a></li>
+    </ul>-->
+  </div>
+</div>
+
+<div id="home">
+  <div class="content main-container">
+    <h2 class="title">爱心圆梦</h2>
+    <p class="description">一段描述该网站有什么用的文字，总之prprpr地填点东西上去啦，不要太短
+      也不要太长哦</p>
+    <a class="btn btn-info" href="/front/wishes">帮他们圆梦</a>
+  </div>
+
+
+
+</div>
+
+
+<!--<script src="third_lib/jquery/jquery.js"></script>
+<script src="third_lib/bootstrap/js/bootstrap.js"></script>-->
+
+<script type="text/javascript">
+  //$(function(){
+  $(document).ready(function(){
+    $(".nav-list li").click(function() {
+      $(this).siblings('li').removeClass('active');  // 删除其兄弟元素的样式
+      $(this).addClass('active');                    // 为点击元素添加类名
+    });
+  });
+
+  function  fun() {
+    $(".nav-list li").click(function() {
+      $(this).siblings('li').removeClass('active');  // 删除其兄弟元素的样式
+      $(this).addClass('active');                    // 为点击元素添加类名
+    });
+  }
+
+  fun();
+</script>
+
+</body>
+</html>

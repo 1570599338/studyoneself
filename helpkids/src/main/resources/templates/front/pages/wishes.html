@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+ <!-- <meta charset="UTF-8">
+  <title>愿望列表</title>
+  <link rel="stylesheet" href="../front/third_lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../front/css/common.css"/>
+  <link rel="stylesheet" href="../front/css/wishes.css"/>-->
+  <th:block th:include="include :: front-header('愿望列表')" />
+  <th:block th:include="include :: front-wishes" />
+</head>
+<body>
+
+
+<div class="main-nav">
+  <div class="main-container">
+    <th:block th:include="include :: front-logo" />
+
+    <!--<ul class="nav-list">
+      <li><a href="/front/index">首页</a></li>
+      <li><a href="/front/wishes">愿望清单</a></li>
+      <li><a href="/front/realizations">圆梦故事</a></li>
+      <li><a href="/front/contact">联系我们</a></li>
+    </ul>-->
+  </div>
+</div>
+
+<div id="wishes" class="main-container">
+  <div class="common-label">
+    <div class="line"></div>
+    <div class="common-title"><span>愿望清单</span></div>
+  </div>
+
+  <div class="wish-list">
+
+<!--  <div class="wish-item">
+    <img src="../front/images/p2.jpg" alt="test"/>
+    <h4 class="wish-title">看望山区的儿童呀</h4>
+    <p class="wish-content">prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦</p>
+    <a class="more-info-btn btn btn-info" href="/front/wish">详细信息</a>
+    <a class="realization-btn btn btn-default" href="/front/apply">帮他圆梦</a>
+  </div>-->
+  <!--<h2 class="title text-center">愿望清单</h2>-->
+
+    <div class="wish-item" th:each="wish:${wisheList}">
+      <img th:src="@{'/headImage/upload/'+${wish.imgurl}}" th:alt="${wish.title}"   style="height: 174px;"/>
+      <h4 class="wish-title">[(${wish.title})]</h4>
+      <p class="wish-content">[(${wish.wishShort})]</p>
+      <a class="more-info-btn btn btn-info" th:href="@{'/front/wish/'+${wish.id}}">详细信息</a>
+      <a class="realization-btn btn btn-default" th:href="@{'/front/apply/'+${wish.id}}">帮他圆梦</a>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!--<script src="../front/third_lib/jquery/jquery.js"></script>
+<script src="../front/third_lib/bootstrap/js/bootstrap.js"></script>-->
+
+<script type="text/javascript">
+/*  jQuery(document).ready(function() {
+    $(".nav-list li").click(function() {
+      $(this).siblings('li').removeClass('active');  // 删除其兄弟元素的样式
+      $(this).addClass('active');                    // 为点击元素添加类名
+    });
+  });*/
+</script>
+
+</body>
+</html>

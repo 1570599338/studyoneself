@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<!--  <meta charset="UTF-8">
+  <title>愿望详细</title>
+  <link rel="stylesheet" href="../front/third_lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../front/css/common.css"/>
+  <link rel="stylesheet" href="../front/css/wish.css"/>-->
+  <th:block th:include="include :: front-header('愿望详细')" />
+  <th:block th:include="include :: front-wish" />
+
+
+</head>
+<body>
+
+
+<div class="main-nav">
+  <div class="main-container">
+    <th:block th:include="include :: front-logo" />
+
+   <!-- <ul class="nav-list">
+      <li class="active"><a href="/front/index">首页</a></li>
+      <li class="active"><a href="/front/wishes">愿望清单</a></li>
+      <li><a href="/front/realizations">圆梦故事</a></li>
+      <li><a href="/front/contact">联系我们</a></li>
+    </ul>-->
+  </div>
+</div>
+
+
+<div id="wish" class="main-container" >
+  <div class="wish-picture">
+   <!-- <img src="../front/images/p1.jpg" alt="wish picture"/>-->
+    <img th:src="@{'/headImage/upload/'+${wish.imgurl}}" th:alt="${wish.title}" />
+  </div>
+  <div class="wish-content">
+    <div class="title">[(${wish.title})]</div>
+
+    <div class="description-row info-top">
+
+      <span class="description-label">
+        <span class="glyphicon glyphicon-send"></span>
+        <span>他的愿望</span>
+      </span>
+
+
+      <div class="description">
+        [(${wish.wishInfo})]
+       <!-- prprpr地说一堆东西，虽然并没有什么卵用，可是让人看了会很感动，很感动。所以你还是能编什么就编什么啦.总之编得就编-->
+      </div>
+    </div>
+
+    <div class="wish-row info-top">
+      <span class="row-label">姓名</span>
+      <div class="name row-main">[(${user.userName})]</div>
+    </div>
+
+    <div class="wish-row info-top">
+      <span class="row-label">地址</span>
+      <div class="address row-main">[(${user.address})]</div>
+    </div>
+
+
+
+    <div class="wish-row info-top">
+      <!--<a class="btn btn-default btn-lg btn-desire" href="/front/apply/">帮他圆梦</a>-->
+      <a class="btn btn-default btn-lg btn-desire" th:href="@{'/front/apply/'+${wish.id}}">帮他圆梦</a>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+<!--
+<script src="../front/third_lib/jquery/jquery.js"></script>
+<script src="../front/third_lib/bootstrap/js/bootstrap.js"></script>
+-->
+
+</body>
+</html>

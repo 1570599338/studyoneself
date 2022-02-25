@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hong.mapper.ShiroUserMapper">
+
+    <resultMap type="com.hong.domain.ShiroUser" id="ShiroUserMap">
+        <result property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="userPassword" column="user_password" jdbcType="VARCHAR"/>
+        <result property="author" column="Author" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ShiroUserMap">
+        select
+          id, user_name, user_password, Author
+        from shiro_user
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ShiroUserMap">
+        select
+          id, user_name, user_password, Author
+        from shiro_user
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name = #{userName}
+            </if>
+            <if test="userPassword != null and userPassword != ''">
+                and user_password = #{userPassword}
+            </if>
+            <if test="author != null and author != ''">
+                and Author = #{author}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from shiro_user
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name = #{userName}
+            </if>
+            <if test="userPassword != null and userPassword != ''">
+                and user_password = #{userPassword}
+            </if>
+            <if test="author != null and author != ''">
+                and Author = #{author}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_user(user_name, user_password, Author)
+        values (#{userName}, #{userPassword}, #{author})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_user
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null and id != ''">
+                `id`,
+            </if>
+                    <if test="userName != null and userName != ''">
+                `user_name`,
+            </if>
+                    <if test="userPassword != null and userPassword != ''">
+                `user_password`,
+            </if>
+                    <if test="author != null and author != ''">
+                `Author`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null and id != ''">
+                #{id,jdbcType=VARCHAR},
+            </if>
+                    <if test="userName != null and userName != ''">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+                    <if test="userPassword != null and userPassword != ''">
+                #{userPassword,jdbcType=VARCHAR},
+            </if>
+                    <if test="author != null and author != ''">
+                #{author,jdbcType=VARCHAR},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_user(user_name, user_password, Author)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.userName}, #{entity.userPassword}, #{entity.author})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shiro_user(user_name, user_password, Author)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userName}, #{entity.userPassword}, #{entity.author})
+        </foreach>
+        on duplicate key update
+        user_name = values(user_name),
+        user_password = values(user_password),
+        Author = values(Author)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shiro_user
+        <set>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName},
+            </if>
+            <if test="userPassword != null and userPassword != ''">
+                user_password = #{userPassword},
+            </if>
+            <if test="author != null and author != ''">
+                Author = #{author},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from shiro_user where id = #{id}
+    </delete>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByShiroUser" resultMap="ShiroUserMap">
+        select
+        id, user_name, user_password, Author
+        from shiro_user
+        <where>
+            <if test="id != null and id != ''">
+                and id = #{id}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name = #{userName}
+            </if>
+            <if test="userPassword != null and userPassword != ''">
+                and user_password = #{userPassword}
+            </if>
+            <if test="author != null and author != ''">
+                and Author = #{author}
+            </if>
+        </where>
+
+    </select>
+
+</mapper>
+

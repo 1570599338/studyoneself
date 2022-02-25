@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hong.mapper.WishMapper">
+    
+    <resultMap type="com.hong.domain.Wish" id="WishResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="imgurl"    column="imgUrl"    />
+        <result property="wishShort"    column="wish_short"    />
+        <result property="wishInfo"    column="wish_info"    />
+        <result property="wishType"    column="wish_type"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userId"    column="user_id"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="auditId"    column="audit_id"    />
+    </resultMap>
+
+    <sql id="selectWishVo">
+        select id, title, imgUrl, wish_short, wish_info, wish_type, del_flag, create_by, create_time, update_by, update_time, remark, user_id, audit_status, audit_id from t_wish
+    </sql>
+
+    <select id="selectWishList" parameterType="com.hong.domain.Wish" resultMap="WishResult">
+        <include refid="selectWishVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title  like concat('%',#{title}, '%')</if>
+            <if test="imgurl != null  and imgurl != ''"> and imgUrl = #{imgurl}</if>
+            <if test="wishShort != null  and wishShort != ''"> and wish_short = #{wishShort}</if>
+            <if test="wishInfo != null  and wishInfo != ''"> and wish_info = #{wishInfo}</if>
+            <if test="wishType != null "> and wish_type = #{wishType}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="auditStatus != null "> and audit_status = #{auditStatus}</if>
+            <if test="auditId != null "> and audit_id = #{auditId}</if>
+        </where>
+    </select>
+    
+    <select id="selectWishById" parameterType="java.lang.Integer" resultMap="WishResult">
+        <include refid="selectWishVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertWish" parameterType="com.hong.domain.Wish" useGeneratedKeys="true" keyProperty="id">
+        insert into t_wish
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">title,</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl,</if>
+            <if test="wishShort != null  and wishShort != ''">wish_short,</if>
+            <if test="wishInfo != null  and wishInfo != ''">wish_info,</if>
+            <if test="wishType != null ">wish_type,</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="userId != null ">user_id,</if>
+            <if test="auditStatus != null ">audit_status,</if>
+            <if test="auditId != null ">audit_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">#{title},</if>
+            <if test="imgurl != null  and imgurl != ''">#{imgurl},</if>
+            <if test="wishShort != null  and wishShort != ''">#{wishShort},</if>
+            <if test="wishInfo != null  and wishInfo != ''">#{wishInfo},</if>
+            <if test="wishType != null ">#{wishType},</if>
+            <if test="delFlag != null  and delFlag != ''">#{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="userId != null ">#{userId},</if>
+            <if test="auditStatus != null ">#{auditStatus},</if>
+            <if test="auditId != null ">#{auditId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateWish" parameterType="com.hong.domain.Wish">
+        update t_wish
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null  and title != ''">title = #{title},</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl = #{imgurl},</if>
+            <if test="wishShort != null  and wishShort != ''">wish_short = #{wishShort},</if>
+            <if test="wishInfo != null  and wishInfo != ''">wish_info = #{wishInfo},</if>
+            <if test="wishType != null ">wish_type = #{wishType},</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="auditStatus != null ">audit_status = #{auditStatus},</if>
+            <if test="auditId != null ">audit_id = #{auditId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWishById" parameterType="java.lang.Integer">
+        delete from t_wish where id = #{id}
+    </delete>
+
+    <delete id="deleteWishByIds" parameterType="java.lang.String">
+        delete from t_wish where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

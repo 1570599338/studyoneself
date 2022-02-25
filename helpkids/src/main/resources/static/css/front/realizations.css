@@ -1,0 +1,42 @@
+/*------------------------- 圆梦故事 ----------------------------*/
+#realizations {
+
+}
+
+
+
+
+/*----------------- 故事列表 --------------------*/
+#realization-list {
+  width: 75%;
+}
+
+#realization-list .realization-item {
+  margin-bottom: 50px;
+}
+
+#realization-list .realization-item .realization-title {
+  font-weight: 600;
+}
+
+#realization-list .realization-item img {
+  width: 100%;
+}
+
+#realization-list .realization-item p.realization-content {
+  padding: 1em 0 .5em 0;
+  line-height: 23px;
+  width: 90%;
+  color: #888;
+  font-size: 1em;
+
+  height: 7.8em;
+  overflow: hidden;
+}
+
+#realization-list .realization-item .realization-button {
+  background-color: #ff0505;
+  color: white;
+  font-size: 1.2em;
+  padding: .5em 1.6em;
+}

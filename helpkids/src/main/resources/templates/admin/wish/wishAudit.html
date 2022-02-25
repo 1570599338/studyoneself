@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('审核愿望列表')" />
+    <th:block th:include="include :: layout-latest-css" />
+</head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="formId">
+                <div class="select-list">
+                    <ul>
+                        <li>
+                            <p>名称：</p>
+                            <input type="text" name="title"/>
+                        </li>
+
+                        <li>
+                            <p>愿望类型</p>
+                            <select name="wishType" th:with="type=${@dict.getType('sys_audit_status')}">
+                                <option value="">所有</option>
+                                <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                            </select>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div class="btn-group-sm" id="toolbar" role="group">
+            <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:wish:add">
+                <i class="fa fa-plus"></i> 添加
+            </a>
+            <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:wish:edit">
+                <i class="fa fa-edit"></i> 修改
+            </a>
+
+        </div>
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table"></table>
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer" />
+<th:block th:include="include :: layout-latest-js" />
+<script th:inline="javascript">
+    var editFlag = [[${@permission.hasPermi('system:wishA:audit')}]];
+    var prefix = ctx + "admin/wish";
+
+    $(function() {
+        var options = {
+            url: prefix + "/auditlist",
+            /*createUrl: prefix + "/add",
+            updateUrl: prefix + "/edit/{id}",
+            removeUrl: prefix + "/remove",
+            exportUrl: prefix + "/export",*/
+            modalName: "关于我们",
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field : 'id',
+                    title : '主键',
+                    visible: false
+                },
+                {
+                    field : 'title',
+                    title : '名称'
+                },
+                {
+                    field : 'imgurl',
+                    title : '图片地址'
+                },
+                {
+                    field : 'wishShort',
+                    title : '愿望简介'
+                },
+                {
+                    field : 'wishInfo',
+                    title : '愿望简介'
+                },
+                {
+                    field : 'wishType', title : '愿望类型',formatter:function(value,row,index){
+                        if (row.wishType == 0) {
+                            return "货币";
+                        }else{
+                            return "人力物力";
+                        }
+                    }
+                },
+                {
+                    field : 'createBy',  title : '创建者'
+                },
+                {
+                    field : 'auditStatus',  title : '审核状态',formatter:function(value,row,index){
+                        if (row.auditStatus == 0) {
+                            return "待审核";
+                        }
+                        if (row.auditStatus == 1) {
+                            return "审核通过";
+                        }if (row.auditStatus == 2) {
+                            return "审核失败";
+                        }else{
+                            return "实现愿望";
+                        }
+                    }
+                },
+                {
+                    field : 'auditName',
+                    title : '审核人员'
+                },
+                {
+                    field : 'remark',
+                    title : '备注'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="enable(\'' + row.id + '\')"><i class="fa fa-edit"></i>审核通过</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="disable(\'' + row.id + '\')"><i class="fa fa-remove"></i>审核失败</a>');
+                        return actions.join('');
+                    }
+                }]
+        };
+        $.table.init(options);
+    });
+
+
+    /* 用户管理-审核失败 */
+    function disable(userId) {
+        $.modal.confirm("确认改求助者审核失败吗？", function () {
+            $.operate.post(prefix + "/changeAudt", {"id": userId, "auditStatus": "2"});
+        })
+    }
+
+    /* 用户管理-审核成功 */
+    function enable(userId) {
+        $.modal.confirm("确认改求助者审核成功吗？", function () {
+            $.operate.post(prefix + "/changeAudt", {"id": userId, "auditStatus": "1"});
+        })
+    }
+</script>
+</body>
+</html>

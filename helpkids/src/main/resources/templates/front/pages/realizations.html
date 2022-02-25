@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+  <!--<meta charset="UTF-8">
+  <title>圆梦故事列表</title>
+  <link rel="stylesheet" href="../front/third_lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="../front/css/common.css"/>
+  <link rel="stylesheet" href="../front/css/realizations.css"/>-->
+  <th:block th:include="include :: front-header('圆梦故事列表')" />
+  <th:block th:include="include :: front-realizations" />
+
+</head>
+<body>
+
+<!-------------------------------- 导航栏 --------------------------------->
+<div class="main-nav">
+  <div class="main-container">
+    <th:block th:include="include :: front-logo" />
+  </div>
+</div>
+
+<div id="realizations" class="main-container">
+
+  <div class="common-label">
+    <div class="line"></div>
+    <div class="common-title">圆梦故事</div>
+  </div>
+
+  <div id="realization-list">
+
+    <div class="realization-item" th:each="story:${stories}">
+      <h4 class="realization-title">[[${story.title}]]</h4>
+      <a th:href="@{'/front/realizationInfo/'+${story.id}}"><img th:src="@{'/headImage/upload/'+${story.imgurl}}" th:alt="${story.title}" style="height: 390px;" /></a>
+      <p class="realization-content">[[${story.storyShort}]] </p>
+      <a class="btn btn-default realization-button"  th:href="@{'/front/realizationInfo/'+${story.id}}">详细信息</a>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+
+<!--
+<script src="../front/third_lib/jquery/jquery.js"></script>
+<script src="../front/third_lib/bootstrap/js/bootstrap.js"></script>
+-->
+
+</body>
+</html>

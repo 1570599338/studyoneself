@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hong.mapper.ConfigMapper">
+
+    <resultMap type="com.hong.domain.Config" id="ConfigMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="configName" column="config_name" jdbcType="VARCHAR"/>
+        <result property="configKey" column="config_key" jdbcType="VARCHAR"/>
+        <result property="configValue" column="config_value" jdbcType="VARCHAR"/>
+        <result property="configType" column="config_type" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ConfigMap">
+        select
+          id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark
+        from t_config
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ConfigMap">
+        select
+          id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark
+        from t_config
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="configName != null and configName != ''">
+                and config_name = #{configName}
+            </if>
+            <if test="configKey != null and configKey != ''">
+                and config_key = #{configKey}
+            </if>
+            <if test="configValue != null and configValue != ''">
+                and config_value = #{configValue}
+            </if>
+            <if test="configType != null and configType != ''">
+                and config_type = #{configType}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from t_config
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="configName != null and configName != ''">
+                and config_name = #{configName}
+            </if>
+            <if test="configKey != null and configKey != ''">
+                and config_key = #{configKey}
+            </if>
+            <if test="configValue != null and configValue != ''">
+                and config_value = #{configValue}
+            </if>
+            <if test="configType != null and configType != ''">
+                and config_type = #{configType}
+            </if>
+            <if test="createBy != null and createBy != ''">
+                and create_by = #{createBy}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="remark != null and remark != ''">
+                and remark = #{remark}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into t_config(config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark)
+        values (#{configName}, #{configKey}, #{configValue}, #{configType}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
+    </insert>
+    
+    
+              <!-- 新增选择列 -->
+    <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true">
+        insert into t_config
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                `id`,
+            </if>
+                    <if test="configName != null and configName != ''">
+                `config_name`,
+            </if>
+                    <if test="configKey != null and configKey != ''">
+                `config_key`,
+            </if>
+                    <if test="configValue != null and configValue != ''">
+                `config_value`,
+            </if>
+                    <if test="configType != null and configType != ''">
+                `config_type`,
+            </if>
+                    <if test="createBy != null and createBy != ''">
+                `create_by`,
+            </if>
+                    <if test="createTime != null">
+                `create_time`,
+            </if>
+                    <if test="updateBy != null and updateBy != ''">
+                `update_by`,
+            </if>
+                    <if test="updateTime != null">
+                `update_time`,
+            </if>
+                    <if test="remark != null and remark != ''">
+                `remark`,
+            </if>
+                </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+                    <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+                    <if test="configName != null and configName != ''">
+                #{configName,jdbcType=VARCHAR},
+            </if>
+                    <if test="configKey != null and configKey != ''">
+                #{configKey,jdbcType=VARCHAR},
+            </if>
+                    <if test="configValue != null and configValue != ''">
+                #{configValue,jdbcType=VARCHAR},
+            </if>
+                    <if test="configType != null and configType != ''">
+                #{configType,jdbcType=VARCHAR},
+            </if>
+                    <if test="createBy != null and createBy != ''">
+                #{createBy,jdbcType=VARCHAR},
+            </if>
+                    <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="updateBy != null and updateBy != ''">
+                #{updateBy,jdbcType=VARCHAR},
+            </if>
+                    <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+                    <if test="remark != null and remark != ''">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+                </trim>
+    </insert>
+    
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into t_config(config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.configName}, #{entity.configKey}, #{entity.configValue}, #{entity.configType}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark})
+        </foreach>
+    </insert>
+    
+
+    
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into t_config(config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.configName}, #{entity.configKey}, #{entity.configValue}, #{entity.configType}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.remark})
+        </foreach>
+        on duplicate key update
+        config_name = values(config_name),
+        config_key = values(config_key),
+        config_value = values(config_value),
+        config_type = values(config_type),
+        create_by = values(create_by),
+        create_time = values(create_time),
+        update_by = values(update_by),
+        update_time = values(update_time),
+        remark = values(remark)
+    </insert>
+    
+
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update t_config
+        <set>
+            <if test="configName != null and configName != ''">
+                config_name = #{configName},
+            </if>
+            <if test="configKey != null and configKey != ''">
+                config_key = #{configKey},
+            </if>
+            <if test="configValue != null and configValue != ''">
+                config_value = #{configValue},
+            </if>
+            <if test="configType != null and configType != ''">
+                config_type = #{configType},
+            </if>
+            <if test="createBy != null and createBy != ''">
+                create_by = #{createBy},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                update_by = #{updateBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="remark != null and remark != ''">
+                remark = #{remark},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from t_config where id = #{id}
+    </delete>
+
+
+    <sql id="selectConfigVo">
+        select id, config_name, config_key, config_value, config_type, create_by, create_time, update_by, update_time, remark
+		from t_config
+    </sql>
+
+    <!-- 查询条件 -->
+    <sql id="sqlwhereSearch">
+        <where>
+            <if test="id !=null">
+                and id = #{id}
+            </if>
+            <if test="configKey !=null and configKey != ''">
+                and config_key = #{configKey}
+            </if>
+        </where>
+    </sql>
+
+
+    <select id="selectConfig" parameterType="com.hong.domain.Config" resultMap="ConfigMap">
+        <include refid="selectConfigVo"/>
+        <include refid="sqlwhereSearch"/>
+    </select>
+
+
+    <select id="selectConfigList" parameterType="com.hong.domain.Config" resultMap="ConfigMap">
+        <include refid="selectConfigVo"/>
+        <where>
+            <if test="configName != null and configName != ''">
+                AND config_name like concat('%', #{configName}, '%')
+            </if>
+            <if test="configType != null and configType != ''">
+                AND config_type = #{configType}
+            </if>
+            <if test="configKey != null and configKey != ''">
+                AND config_key like concat('%', #{configKey}, '%')
+            </if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                and date_format(create_time,'%y%m%d') &gt;= date_format(#{params.beginTime},'%y%m%d')
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                and date_format(create_time,'%y%m%d') &lt;= date_format(#{params.endTime},'%y%m%d')
+            </if>
+        </where>
+    </select>
+
+
+    <delete id="deleteConfigByIds" parameterType="String">
+        delete from t_config where id in
+        <foreach item="configId" collection="array" open="(" separator="," close=")">
+            #{configId}
+        </foreach>
+    </delete>
+
+    <select id="checkConfigKeyUnique" parameterType="String" resultMap="ConfigMap">
+        <include refid="selectConfigVo"/>
+        where config_key = #{configKey}
+    </select>
+</mapper>
+

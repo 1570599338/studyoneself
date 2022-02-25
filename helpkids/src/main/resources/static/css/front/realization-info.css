@@ -1,0 +1,18 @@
+/*------------------------- 圆梦故事详细 -------------------------*/
+
+#realizationInfo {
+}
+
+#realizationInfo .info-box {
+  width: 80%;
+}
+
+#realizationInfo img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#realizationInfo p {
+  width: 80%;
+  line-height: 35px;
+}

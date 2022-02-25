@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hong.mapper.ApplyMapper">
+    
+    <resultMap type="com.hong.domain.Apply" id="ApplyResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="tel"    column="tel"    />
+        <result property="adress"    column="adress"    />
+        <result property="reason"    column="reason"    />
+        <result property="wishId"    column="wish_id"    />
+        <result property="useId"    column="use_id"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="auditId"    column="audit_id"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectApplyVo">
+        select id, name, tel, adress, reason, wish_id, use_id, audit_status, audit_id, del_flag, create_by, create_time, update_by, update_time, remark from t_apply
+    </sql>
+
+    <select id="selectApplyList" parameterType="com.hong.domain.Apply" resultMap="ApplyResult">
+        <include refid="selectApplyVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="tel != null  and tel != ''"> and tel like concat('%', #{tel}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectApplyById" parameterType="Integer" resultMap="ApplyResult">
+        <include refid="selectApplyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertApply" parameterType="com.hong.domain.Apply" useGeneratedKeys="true" keyProperty="id">
+        insert into t_apply
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''">name,</if>
+            <if test="tel != null  and tel != ''">tel,</if>
+            <if test="adress != null  and adress != ''">adress,</if>
+            <if test="reason != null  and reason != ''">reason,</if>
+            <if test="wishId != null ">wish_id,</if>
+            <if test="useId != null ">use_id,</if>
+            <if test="auditStatus != null ">audit_status,</if>
+            <if test="auditId != null ">audit_id,</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''">#{name},</if>
+            <if test="tel != null  and tel != ''">#{tel},</if>
+            <if test="adress != null  and adress != ''">#{adress},</if>
+            <if test="reason != null  and reason != ''">#{reason},</if>
+            <if test="wishId != null ">#{wishId},</if>
+            <if test="useId != null ">#{useId},</if>
+            <if test="auditStatus != null ">#{auditStatus},</if>
+            <if test="auditId != null ">#{auditId},</if>
+            <if test="delFlag != null  and delFlag != ''">#{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateApply" parameterType="com.hong.domain.Apply">
+        update t_apply
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null  and name != ''">name = #{name},</if>
+            <if test="tel != null  and tel != ''">tel = #{tel},</if>
+            <if test="adress != null  and adress != ''">adress = #{adress},</if>
+            <if test="reason != null  and reason != ''">reason = #{reason},</if>
+            <if test="wishId != null ">wish_id = #{wishId},</if>
+            <if test="useId != null ">use_id = #{useId},</if>
+            <if test="auditStatus != null ">audit_status = #{auditStatus},</if>
+            <if test="auditId != null ">audit_id = #{auditId},</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteApplyById" parameterType="Integer">
+        delete from t_apply where id = #{id}
+    </delete>
+
+    <delete id="deleteApplyByIds" parameterType="String">
+        delete from t_apply where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

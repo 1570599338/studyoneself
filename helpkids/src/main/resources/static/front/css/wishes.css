@@ -1,0 +1,54 @@
+/*--------------------------- wish -----------------------*/
+#wishes {
+
+}
+
+
+
+#wishes .wish-list {
+  overflow: hidden;
+}
+
+
+#wishes .wish-list .wish-item {
+  width: 333px;
+  float: left;
+
+  margin-bottom: 28px;
+
+  padding-left: 36px;
+  padding-right: 36px;
+
+}
+
+#wishes .wish-list img {
+  width: 100%;
+}
+
+#wishes .wish-list .wish-title {
+  margin-top: 28px;
+
+  font-size: 1.3em;
+  font-weight: 700;
+
+}
+
+#wishes .wish-list .wish-content {
+  font-size: 1em;
+  color: #888;
+  margin: 0 0 .6em 0;
+  padding: .3em 0;
+
+  height: 4.7em;
+  overflow: hidden;
+
+}
+
+#wishes .wish-list .realization-btn {
+  background-color: #ff0505;
+  /*padding: 0.5em 1em;*/
+
+  color: #fff;
+  /*font-size: 1.2em;*/
+
+}

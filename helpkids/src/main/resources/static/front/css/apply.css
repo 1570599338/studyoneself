@@ -1,0 +1,123 @@
+#apply-jumbotron {
+  background-color: #ff9933;
+  /*background-color: #51C8FD;*/
+  /*background-color: #ff372b;*/
+  color: white;
+
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#apply-jumbotron h2 {
+  font-size: 50px;
+}
+
+#apply-jumbotron p {
+  font-size: 21px;
+}
+
+
+/*-------------------------- 愿望申请 ------------------------*/
+#apply {
+
+}
+
+#apply .notify {
+  color: #808080;
+}
+
+
+/*------------------- 愿望申请表单 ------------------------*/
+#apply label {
+  width: 100px;
+
+}
+
+
+
+#apply input, #apply textarea {
+  width: 249px;
+}
+
+#apply em {
+  color: red;
+}
+
+#apply .input-group {
+  margin-top: 15px;
+  position: relative;
+}
+
+#apply .field-row {
+  margin-top: 30px;
+  background-color: #fafafa;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#apply .input-group textarea {
+  vertical-align: text-top;
+}
+
+#apply .button-row {
+  /*text-align: center;*/
+}
+
+#apply #submit {
+  width: 150px;
+  margin-left: 106px;
+}
+
+/*----------------- 小图标 ---------------*/
+#apply .image-box1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#apply .image-box2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#apply .sm-image {
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+
+  -moz-border-radius: 55px;
+  -webkit-border-radius: 55px;
+  border-radius: 55px;
+  /*background-color: #51C8FD;*/
+  background-color: #ff9933;
+  /*background-color: #ff372b;*/
+  color: white;
+  font-size: 60px;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*---------------- 错误提示 ---------------*/
+#apply .alert-danger {
+  position: absolute;
+  top: -2px;
+  right: -249px;
+  display: inline-block;
+  padding-bottom: 4px;
+  padding-top: 4px;
+}
+
+/*------------------------------ 申领成功 -----------------------------*/
+
+#applySuccessInfo {
+  margin-top: 40px;
+}
+#applySuccessInfo .content{
+  font-size: 1.3em;
+  color: #111;
+  margin-bottom: 20px;
+
+}

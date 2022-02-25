@@ -1,0 +1,97 @@
+/*---------------------------- wish ---------------------------*/
+#wish {
+  margin-top: 35px;
+}
+
+/*------------------ wish picture ---------------------*/
+#wish .wish-picture {
+  width: 40%;
+  float: left;
+  display: inline;
+  overflow: hidden;
+
+
+}
+
+#wish .wish-picture img {
+  width: 450px;
+  height: 450px;
+  border: solid #ccc 1px;
+}
+
+
+/*----------------- wish content ----------------------*/
+#wish .wish-content {
+  width: 50%;
+  float: right;
+  display: inline;
+}
+
+#wish .wish-content .wish-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  /*border-top: 1px solid #cbcbcb;*/
+
+  overflow: hidden;
+}
+
+#wish .wish-content .wish-row .row-label {
+  float: left;
+  line-height: 30px;
+}
+
+#wish .wish-content .wish-row .row-main {
+  margin-left: 70px;
+}
+
+#wish .wish-content .info-top {
+  border-top: 1px solid #cbcbcb;
+}
+
+#wish .wish-content .title {
+  font-size: 30px;
+  line-height: 50px;
+  margin-bottom: 10px;
+
+}
+
+#wish .wish-content .name {
+  line-height: 30px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+#wish .wish-content .address {
+  line-height: 30px;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+
+#wish .wish-content .description-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+#wish .wish-content .description-label {
+  font-size: 23px;
+  color: #ff3300;
+}
+
+#wish .wish-content .description {
+  line-height: 30px;
+  font-size: 1em;
+}
+
+#wish .wish-content .btn-desire {
+  /*padding-top: 10px;*/
+  /*padding-bottom: 10px;*/
+
+  margin-left: 60px;
+
+  background-color: #ff0505;
+  color: white;
+}
+
