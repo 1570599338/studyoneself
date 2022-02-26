@@ -65,6 +65,7 @@
     <script th:inline="javascript">
         var editFlag = [[${@permission.hasPermi('system:wish:edit')}]];
         var removeFlag = [[${@permission.hasPermi('system:wish:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('system:wishV:detailFlag')}]];
         var prefix = ctx + "admin/wish";
 
         $(function() {
@@ -138,14 +139,25 @@
                     align: 'center',
                     formatter: function(value, row, index) {
                         var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        if (row.auditStatus != 3)
+                            actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        if (row.auditStatus == 1 || row.auditStatus == 3) {
+                            actions.push('<a class="btn btn-info btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="detail(\'' + row.id + '\')"><i class="fa fa-list-ul"></i>列表</a> ');
+                        }
+                        if (row.auditStatus != 3)
+                            actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.id + '\')"><i class="fa fa-remove"></i>删除</a>');
                         return actions.join('');
                     }
                 }]
             };
             $.table.init(options);
         });
+
+        /*捐赠列表*/
+        function detail(dictId) {
+            var url = prefix + '/detail/' + dictId;
+            $.modal.openTab("字典数据", url);
+        }
     </script>
 </body>
 </html>

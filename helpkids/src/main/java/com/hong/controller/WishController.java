@@ -178,7 +178,7 @@ public class WishController extends BaseController {
         if(!user.isAdmin()){
             wish.setAuditId(user.getId().intValue());//负责或者跟踪的帮扶对象的心愿
         }
-        wish.setAuditStatus(Constants.audit_pass);
+    //    wish.setAuditStatus(Constants.audit_pass);
         startPage();
         List<Wish> list = wishService.selectWishList(wish);
         return getDataTable(list);
