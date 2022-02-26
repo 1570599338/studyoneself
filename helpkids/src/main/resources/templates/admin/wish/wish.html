@@ -27,8 +27,8 @@
                                 <input type="text" name="wishInfo"/>
                             </li>-->
                             <li>
-                                <p>愿望类型</p>
-                                <select name="wishType" th:with="type=${@dict.getType('sys_audit_status')}">
+                                <p>愿望状态</p>
+                                <select name="auditStatus" th:with="type=${@dict.getType('sys_audit_status')}">
                                     <option value="">所有</option>
                                     <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
                                 </select>

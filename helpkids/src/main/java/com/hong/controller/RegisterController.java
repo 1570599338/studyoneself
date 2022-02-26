@@ -31,7 +31,7 @@ public class RegisterController extends BaseController {
 
     @GetMapping()
     public String register(ModelMap mmap) {
-        mmap.put("roles", roleService.selectRoleAll().stream().filter(s -> "enterprise".equals(s.getRoleKey()) ||
+        mmap.put("roles", roleService.selectRoleAll().stream().filter(s -> "need_helpKid".equals(s.getRoleKey()) ||
                 "love_volunteer".equals(s.getRoleKey())).collect(Collectors.toList()));
         return prefix + "/register";
     }
@@ -48,6 +48,14 @@ public class RegisterController extends BaseController {
             return error("新增用户'" + user.getLoginName() + "'失败，手机号码已存在");
         } else if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkEmailUnique(user))) {
             return error("新增用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
+        }
+        if("01".equals(user.getUserType())){// 志愿者love_volunteer
+            Long[] roleids={3l};
+            user.setRoleIds(roleids);
+        }
+        if("02".equals(user.getUserType())){// 求助者need_helpKid
+            Long[] roleids={4l};
+            user.setRoleIds(roleids);
         }
         return toAjax(userService.insertUser(user));
     }

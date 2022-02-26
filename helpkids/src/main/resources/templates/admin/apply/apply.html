@@ -12,6 +12,7 @@
                         <ul>
                             <li>
                                 <p>姓名：</p>
+                                <input type="hidden" name="wishId" id="wishId" th:value="${wishId}"/>
                                 <input type="text" name="name"/>
                             </li>
                             <li>
@@ -59,6 +60,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
+                queryParams: queryParams,
                 modalName: "愿望申领单",
                 columns: [{
                     checkbox: true
@@ -93,8 +95,18 @@
                     title : '用户id'
                 },
                 {
-                    field : 'auditStatus', 
-                    title : '审核状态'
+                    field : 'auditStatus', title : '审核状态',formatter:function(value,row,index){
+                if (row.auditStatus == 0) {
+                    return "待确认";
+                }
+                if (row.auditStatus == 1) {
+                    return "已确认";
+                }if (row.auditStatus == 2) {
+                    return "完成";
+                }else{
+                    return "失败";
+                }
+            }
                 },
                 {
                     field : 'auditId', 
@@ -133,6 +145,13 @@
             };
             $.table.init(options);
         });
+
+
+        function queryParams(params) {
+            var search = $.table.queryParams(params);
+            search.wishId = $("#wishId").val();
+            return search;
+        }
     </script>
 </body>
 </html>

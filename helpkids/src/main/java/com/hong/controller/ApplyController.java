@@ -29,7 +29,9 @@ public class ApplyController extends BaseController {
 
     @RequiresPermissions("system:apply:view")
     @GetMapping()
-    public String apply() {
+    public String apply(ModelMap mmap) {
+
+        mmap.put("wishId", "");
         return prefix + "/apply";
     }
 
@@ -104,4 +106,6 @@ public class ApplyController extends BaseController {
     public AjaxResult remove(String ids) {
         return toAjax(applyService.deleteApplyByIds(ids));
     }
+
+
 }

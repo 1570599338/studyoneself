@@ -18,7 +18,7 @@
 
                         <li>
                             <p>愿望类型</p>
-                            <select name="wishType" th:with="type=${@dict.getType('sys_audit_status')}">
+                            <select name="wishType" th:with="type=${@dict.getType('sys_user_wishType')}">
                                 <option value="">所有</option>
                                 <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
                             </select>
@@ -32,7 +32,7 @@
             </form>
         </div>
 
-        <div class="btn-group-sm" id="toolbar" role="group">
+<!--        <div class="btn-group-sm" id="toolbar" role="group">
             <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:wish:add">
                 <i class="fa fa-plus"></i> 添加
             </a>
@@ -40,7 +40,7 @@
                 <i class="fa fa-edit"></i> 修改
             </a>
 
-        </div>
+        </div>-->
         <div class="col-sm-12 select-table table-striped">
             <table id="bootstrap-table"></table>
         </div>

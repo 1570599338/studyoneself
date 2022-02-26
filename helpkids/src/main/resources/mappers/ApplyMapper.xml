@@ -31,6 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="tel != null  and tel != ''"> and tel like concat('%', #{tel}, '%')</if>
+            <if test="wishId != null"> and wish_id  = #{wishId}</if>
         </where>
     </select>
     

@@ -1,6 +1,8 @@
 package com.hong.controller;
 
 import com.hong.bean.Resp.AjaxResult;
+import com.hong.domain.User;
+import com.hong.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -26,7 +29,8 @@ import static com.hong.bean.Resp.AjaxResult.success;
 @Slf4j
 @Controller
 public class LoginController {
-
+    @Resource
+    private UserService userService;
 
     @GetMapping("/login")
     public String login(HttpServletRequest request, HttpServletResponse response) {
@@ -47,6 +51,18 @@ public class LoginController {
 //            }
 //            token = new UsernamePasswordToken(username, password);
 //        }
+
+        User user = userService.login(username,null);
+        if(user==null){
+            return AjaxResult.error("该用户不存在");
+        }
+        if(user.getAudit()==0){
+            return AjaxResult.error("请联系管理员进行审核后在登陆！");
+        }
+        if(user.getAudit()==2){
+            return AjaxResult.error("审核不通过，无权限登陆！");
+        }
+
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         Subject subject = SecurityUtils.getSubject();
         try {

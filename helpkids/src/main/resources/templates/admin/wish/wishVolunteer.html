@@ -32,7 +32,7 @@
             </form>
         </div>
 
-        <div class="btn-group-sm" id="toolbar" role="group">
+       <!-- <div class="btn-group-sm" id="toolbar" role="group">
             <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:wish:add">
                 <i class="fa fa-plus"></i> 添加
             </a>
@@ -40,7 +40,7 @@
                 <i class="fa fa-edit"></i> 修改
             </a>
 
-        </div>
+        </div>-->
         <div class="col-sm-12 select-table table-striped">
             <table id="bootstrap-table"></table>
         </div>
@@ -49,8 +49,9 @@
 <th:block th:include="include :: footer" />
 <th:block th:include="include :: layout-latest-js" />
 <script th:inline="javascript">
-    var editFlag = [[${@permission.hasPermi('system:wishV:audit')}]];
-    var listFlag = [[${@permission.hasPermi('system:wishV:audit')}]];
+    var auditPassFlag = [[${@permission.hasPermi('system:wishV:audit')}]];
+    var detailFlag = [[${@permission.hasPermi('system:wishV:detailFlag')}]];
+   // var auditFailFlag = [[${@permission.hasPermi('system:wishV:auditFailFlag')}]];
     var prefix = ctx + "admin/wish";
 
     $(function() {
@@ -124,9 +125,11 @@
                     align: 'center',
                     formatter: function(value, row, index) {
                         var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="enable(\'' + row.id + '\')"><i class="fa fa-edit"></i>审核通过</a> ');
-                        actions.push('<a class="btn btn-info btn-xs ' + listFlag + '" href="javascript:void(0)" onclick="detail(\'' + row.id + '\')"><i class="fa fa-list-ul"></i>列表</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="disable(\'' + row.id + '\')"><i class="fa fa-remove"></i>审核失败</a>');
+                        actions.push('<a class="btn btn-success btn-xs ' + auditPassFlag + '" href="javascript:void(0)" onclick="enable(\'' + row.id + '\')"><i class="fa fa-edit"></i>圆梦</a> ');
+                        if (row.auditStatus == 1) {
+                            actions.push('<a class="btn btn-info btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="detail(\'' + row.id + '\')"><i class="fa fa-list-ul"></i>列表</a> ');
+                        }
+                     //  actions.push('<a class="btn btn-danger btn-xs ' + auditPassFlag + '" href="javascript:void(0)" onclick="disable(\'' + row.id + '\')"><i class="fa fa-remove"></i>审核失败</a>');
                         return actions.join('');
                     }
                 }]
@@ -136,16 +139,16 @@
 
 
     /* 用户管理-审核失败 */
-    function disable(userId) {
+    function disable(wishId) {
         $.modal.confirm("确认改求助者审核失败吗？", function () {
-            $.operate.post(prefix + "/changeAudt", {"id": userId, "auditStatus": "2"});
+            $.operate.post(prefix + "/changeAudtV", {"id": wishId, "auditStatus": "3"});
         })
     }
 
     /* 用户管理-审核成功 */
-    function enable(userId) {
+    function enable(wishId) {
         $.modal.confirm("确认改求助者审核成功吗？", function () {
-            $.operate.post(prefix + "/changeAudt", {"id": userId, "auditStatus": "1"});
+            $.operate.post(prefix + "/changeAudtV", {"id": wishId, "auditStatus": "3"});
         })
     }
 

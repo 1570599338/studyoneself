@@ -114,6 +114,8 @@ public class WishController extends BaseController {
     }
 
 
+
+
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<待审核数据>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
@@ -132,7 +134,7 @@ public class WishController extends BaseController {
     public TableDataInfo listA(Wish wish) {
         User user = ShiroUtils.getSysUser();
         if(!user.isAdmin()){
-            wish.setUserId(user.getId().intValue());
+           // wish.setUserId(user.getId().intValue());
         }
         wish.setAuditStatus(Constants.audit_init);
         startPage();
@@ -141,7 +143,7 @@ public class WishController extends BaseController {
     }
 
     /**
-     * 用户状态修改
+     * 状态修改
      */
     @RequiresPermissions("system:auditF:edit")
     @PostMapping("/changeAudt")
@@ -182,5 +184,26 @@ public class WishController extends BaseController {
         return getDataTable(list);
     }
 
+    /**
+     * 查询详细
+     */
+    @RequiresPermissions("system:wishV:detailFlag")
+    @GetMapping("/detail/{wishId}")
+    public String detail(@PathVariable("wishId") Long wishId, ModelMap mmap) {
+        mmap.put("wishId", wishId);
 
+        return "admin/apply/apply";
+    }
+
+
+    /**
+     * 状态修改
+     */
+    @RequiresPermissions("system:wishV:audit")
+    @PostMapping("/changeAudtV")
+    @ResponseBody
+    public AjaxResult changeAudtV(Wish wish) {
+        wish.setAuditId(ShiroUtils.getUserId().intValue());
+        return toAjax(wishService.updateWish(wish));
+    }
 }
