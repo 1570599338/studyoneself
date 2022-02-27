@@ -4,6 +4,7 @@ import com.hong.common.shiro.ShiroUtils;
 import com.hong.common.text.Convert;
 import com.hong.common.utils.Constants;
 import com.hong.common.utils.DateUtils;
+import com.hong.domain.User;
 import com.hong.domain.Wish;
 import com.hong.mapper.UserMapper;
 import com.hong.mapper.WishMapper;
@@ -53,8 +54,10 @@ public class WishServiceImpl implements IWishService {
         List<Wish> list  = wishMapper.selectWishList(wish);
         List<Wish> result_list  = new ArrayList<>();
         for (Wish bean:list){
-            if(bean!=null && bean.getAuditId()!=null)
-                bean.setAuditName(userMapper.queryById(bean.getAuditId().longValue()).getLoginName());
+            if(bean!=null && bean.getAuditId()!=null) {
+                User user = userMapper.queryById(bean.getAuditId().longValue());
+                bean.setAuditName(user == null ? "" : user.getLoginName());
+            }
             result_list.add(bean);
         }
 

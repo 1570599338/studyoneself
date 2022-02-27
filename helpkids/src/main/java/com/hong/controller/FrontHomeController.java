@@ -103,10 +103,10 @@ public class FrontHomeController {
         model.addAttribute("contact", Boolean.TRUE);
 
         List<About> list = aboutService.selectAboutList(new About());
-        if (list != null) {
+        if (list != null && list.size()>0) {
             model.addAttribute("about", list.get(0));
         } else {
-            model.addAttribute("about", "");
+            model.addAttribute("about", null);
         }
 
         return prefix + "contact";
