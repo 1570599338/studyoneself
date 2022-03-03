@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>02-计算属性的复杂操作</title>
+	<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>总价格:{{totalPrice}}</h2>
+		</div>
+	</body>
+	<script>
+	// let(变量) const(常量)
+	const app = new Vue({
+		el:"#app",//用于挂载要管理的元素
+		data: {
+			books:[
+				{id:110,name:'变成是想',price:119},
+				{id:111,name:'变成是想1',price:101},
+				{id:112,name:'变成是想2',price:90},
+				{id:113,name:'变成是想3',price:87}
+			]
+		},
+		computed:{
+			totalPrice:function(){
+				let result=0;
+				for(let i=0;i<this.books.length;i++){
+					result+=this.books[i].price;
+				}
+				for (let i in this.books) {
+					var book = this.books[i];
+				}
+				for (let bookx of this.books) {
+					var book =bookx;
+				}
+				return result;
+			}
+		}
+		
+	})
+	</script>
+	
+</html>
+

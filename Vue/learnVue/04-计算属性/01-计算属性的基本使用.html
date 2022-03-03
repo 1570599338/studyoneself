@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>01-ji</title>
+	<script src="../js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{firstName}} {{lastName}}</h2>
+			<h2>{{firstName +' '+lastName}}</h2>
+			<h2>{{getFullName()}}</h2>
+			<h2>{{getFullNames()}}</h2>
+			<h2>{{fullName}}</h2>
+		</div>
+	</body>
+	<script>
+	// let(变量) const(常量)
+	const app = new Vue({
+		el:"#app",//用于挂载要管理的元素
+		data: {
+			firstName:'Jams',
+			lastName:'Tom'
+		},
+		computed:{
+			fullName:function(){
+				return this.firstName+' '+this.lastName;
+			}
+		},
+		methods:{
+			getFullName(){
+				return this.firstName+' '+this.lastName;
+			},
+			
+			getFullNames:function(){
+				return this.firstName+' '+this.lastName;
+			}
+		}
+	})
+	</script>
+	
+</html>
+
