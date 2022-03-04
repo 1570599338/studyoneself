@@ -36,3 +36,5 @@ hs_err_pid*
 out
 gen
 *.keystore
+.DS_Store
+*/headImage/*
