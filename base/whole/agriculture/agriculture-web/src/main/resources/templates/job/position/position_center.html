@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('职位中心')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <p>职位名称：</p>
+                                <input type="text" name="positionName"/>
+                            </li>
+                            <li>
+                                <p>职位类型：</p>
+                                <select name="positionType" th:with="type=${@dict.getType('job_position_type')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>工作地点：</p>
+                                <select name="area" th:with="type=${@dict.getType('job_area')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>薪资：</p>
+                                <select name="positionSalary" th:with="type=${@dict.getType('job_salary')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>状态：</p>
+                                <select name="status" th:with="type=${@dict.getType('job_resume_status')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var positionTypeDatas = [[${@dict.getType('job_position_type')}]];
+        var positionSalaryDatas = [[${@dict.getType('job_salary')}]];
+        var statusDatas = [[${@dict.getType('job_resume_status')}]];
+        var areaDatas = [[${@dict.getType('job_area')}]];
+        var prefix = ctx + "job/positionCenter";
+        var receivePrefix = ctx + "job/receive";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                modalName: "职位",
+                columns: [
+                {
+                    field : 'positionId', 
+                    title : '职位id',
+                    visible: false
+                },
+                {
+                    field : 'userId', 
+                    title : '用户id',
+                    visible: false
+                },
+                    {
+                        field : 'enterpriseId',
+                        title : '企业id',
+                        visible: false
+                    },
+                    {
+                        field : 'name',
+                        title : '企业名称'
+                    },
+                {
+                    field : 'positionName', 
+                    title : '职位名称'
+                },
+                {
+                    field : 'positionType', 
+                    title : '职位类型',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(positionTypeDatas, value);
+                    }
+                },
+                {
+                    field : 'area', 
+                    title : '工作地点',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(areaDatas, value);
+                    }
+                },
+                {
+                    field : 'positionSalary', 
+                    title : '薪资',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(positionSalaryDatas, value);
+                    }
+                },
+                {
+                    field : 'status', 
+                    title : '状态',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(statusDatas, value);
+                    }
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        if (row.view) {
+                            actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0)" onclick="enterpriseInfo( \'' + row.enterpriseId + '\')"><i class="fa fa-edit"></i>查看企业信息</a> ');
+                            if (row.deliveryStatus == 0) {
+                                actions.push('<a class="button btn-success btn-xs " href="javascript:void(0)" onclick="deliver(\'' + row.userId + '\', \'' + row.positionId + '\')"><i class="fa fa-edit"></i>投递简历</a> ');
+                            } else {
+                                actions.push('<a class="button btn-default btn-info" href="javascript:void(0)"><i class="fa fa-edit"></i>已投递</a> ');
+                                actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0)" onclick="viewing( \'' + row.positionId + '\')"><i class="fa fa-edit"></i>投递进度</a> ');
+                            }
+                        }
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+
+        /* 投递职位-选择简历 */
+        function deliver(userId, positionId) {
+            var url = prefix + '/selectResume/' + userId + '/' + positionId;
+            $.modal.open("选择简历", url);
+        }
+        /* 查看投递进度 */
+        function viewing(positionId) {
+            var url = receivePrefix + '/view/' + positionId;
+            $.modal.open("投递进度", url);
+        }
+        /** 查看企业信息*/
+        function enterpriseInfo(enterpriseId) {
+            /* 查看企业信息 */
+            var url = prefix + '/viewEnterpriseInfo/' + enterpriseId;
+            $.modal.open("投递进度", url);
+
+        }
+    </script>
+</body>
+<style>
+    .button {
+        display: inline-block;
+        padding: 1px 1px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+</style>
+</html>

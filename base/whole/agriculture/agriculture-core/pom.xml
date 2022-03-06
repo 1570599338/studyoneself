@@ -9,15 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>agriculture-common</artifactId>
+    <artifactId>agriculture-core</artifactId>
+
     <dependencies>
-        <!-- shiro -->
         <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring</artifactId>
-            <version>${spring.shiro.version}</version>
+            <groupId>com.zxj</groupId>
+            <artifactId>agriculture-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
+
     </dependencies>
+
 
     <build>
         <plugins>

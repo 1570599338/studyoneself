@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('职位管理')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <p>职位名称：</p>
+                                <input type="text" name="positionName"/>
+                            </li>
+                            <li>
+                                <p>职位类型：</p>
+                                <select name="positionType" th:with="type=${@dict.getType('job_position_type')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>工作地点：</p>
+                                <select name="area" th:with="type=${@dict.getType('job_area')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>薪资：</p>
+                                <select name="positionSalary" th:with="type=${@dict.getType('job_salary')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>状态：</p>
+                                <select name="status" th:with="type=${@dict.getType('job_resume_status')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" >
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" >
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var positionTypeDatas = [[${@dict.getType('job_position_type')}]];
+        var positionSalaryDatas = [[${@dict.getType('job_salary')}]];
+        var statusDatas = [[${@dict.getType('job_resume_status')}]];
+        var areaDatas = [[${@dict.getType('job_area')}]];
+        var prefix = ctx + "job/position";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "职位",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field : 'positionId', 
+                    title : '职位id',
+                    visible: false
+                },
+                {
+                    field : 'userId', 
+                    title : '企业人员id',
+                    visible: false
+                },
+                    {
+                        field : 'name',
+                        title : '企业名称'
+                    },
+                {
+                    field : 'positionName', 
+                    title : '职位名称'
+                },
+                {
+                    field : 'positionType', 
+                    title : '职位类型',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(positionTypeDatas, value);
+                    }
+                },
+                {
+                    field : 'area', 
+                    title : '工作地点',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(areaDatas, value);
+                    }
+                },
+                {
+                    field : 'positionSalary', 
+                    title : '薪资',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(positionSalaryDatas, value);
+                    }
+                },
+                {
+                    field : 'status', 
+                    title : '状态',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(statusDatas, value);
+                    }
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        if (row.status == 0) {
+                            actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0)" onclick="enable(\'' + row.positionId + '\')"><i class="fa fa-edit"></i>发布</a> ');
+                        } else {
+                            actions.push('<a class="btn btn-info btn-xs " href="javascript:void(0)" onclick="deliveryDetail(\'' + row.positionId + '\')"><i class="fa fa-list-ul"></i>投递情况</a> ');
+                        }
+                        actions.push('<a class="btn btn-success btn-xs " href="javascript:void(0)" onclick="$.operate.edit(\'' + row.positionId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs " href="javascript:void(0)" onclick="$.operate.remove(\'' + row.positionId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+        /* 简历发布 */
+        function enable(positionId) {
+            $.modal.confirm("确认要发布该职位吗？", function() {
+                $.operate.post(prefix + "/enable", { "positionId": positionId, "status": 1 });
+            })
+        }
+
+        /* 投递情况 */
+        function deliveryDetail(positionId) {
+            var url = prefix + "/deliveryDetail/"+ positionId;
+            $.modal.openTab("投递情况", url);
+        }
+    </script>
+</body>
+</html>

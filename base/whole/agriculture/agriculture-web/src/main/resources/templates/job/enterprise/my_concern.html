@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <th:block th:include="include :: header('关注列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+
+        var positionTypeDatas = [[${@dict.getType('job_position_type')}]];
+        var areaDatas = [[${@dict.getType('job_area')}]];
+        var salaryDatas = [[${@dict.getType('job_salary')}]];
+        var prefix = ctx + "job/enterprise";
+
+        $(function() {
+            var options = {
+                url: prefix + "/myConcern",
+                modalName: "简历",
+                columns: [
+                {
+                    field : 'resumeId', 
+                    title : '简历id',
+                    visible: false
+                },
+
+                    {
+                        field : 'name',
+                        title : '求职者姓名'
+                    },
+                    {
+                        field : 'resumeName',
+                        title : '简历名称'
+                    },
+
+                {
+                    field : 'positionType', 
+                    title : '职位类别',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(positionTypeDatas, value);
+                    }
+                },
+                {
+                    field : 'area', 
+                    title : '地区',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(areaDatas, value);
+                    }
+                },
+                {
+                    field : 'salary', 
+                    title : '薪资范围',
+                    formatter: function(value, row, index) {
+                       return $.table.selectDictLabel(salaryDatas, value);
+                    }
+                }
+                ]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

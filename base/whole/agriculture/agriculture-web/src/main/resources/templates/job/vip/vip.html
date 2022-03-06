@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('用户开通vip记录列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <p>状态：</p>
+                                <select name="status" th:with="type=${@dict.getType('sys_normal_disable')}">
+                                    <option value="">所有</option>
+                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                                </select>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var prefix = ctx + "job/vip";
+
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+
+                modalName: "用户开通vip记录",
+                columns: [
+                {
+                    field : 'userId', 
+                    title : '用户id',
+                    visible: false
+                },
+                    {
+                        field : 'userName',
+                        title : '用户名',
+                        visible: false
+                    },
+                {
+                    field : 'openTime', 
+                    title : '开通时间'
+                },
+                {
+                    field : 'startTime', 
+                    title : '开始时间'
+                },
+                {
+                    field : 'endTime', 
+                    title : '结束时间'
+                },
+                    {
+                        title: '用户状态',
+                        align: 'center',
+                        formatter: function (value, row, index) {
+                            return statusTools(row);
+                        }
+                    }]
+            };
+            $.table.init(options);
+        });
+
+        /* 用户状态显示 */
+        function statusTools(row) {
+            if (row.status == 1) {
+                // return '<i class=\"fa fa-toggle-on text-info fa-2x\" onclick="disable(\'' + row.userId + '\')"></i> ';
+                return '<i class=\"fa fa-toggle-on text-info fa-2x\" ></i> ';
+            } else {
+                return '<i class=\"fa fa-toggle-off text-info fa-2x\" ></i> ';
+            }
+        }
+        /* vip用户管理-停用 */
+        function disable(userId) {
+            $.modal.confirm("确认要停用用户吗？", function() {
+                $.operate.post(prefix + "/changeStatus", { "userId": userId, "status": 2 });
+            })
+        }
+
+        /* vip用户管理启用 */
+        function enable(userId) {
+            $.modal.confirm("确认要启用用户吗？", function() {
+                $.operate.post(prefix + "/changeStatus", { "userId": userId, "status": 1 });
+            })
+        }
+    </script>
+</body>
+</html>
