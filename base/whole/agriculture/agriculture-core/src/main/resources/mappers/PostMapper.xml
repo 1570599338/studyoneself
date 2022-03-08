@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<include refid="selectPostVo"/>
 	</select>
 	
-	<select id="selectPostsByUserId" parameterType="Long" resultMap="PostResult">
+	<select id="selectPostsByUserId" parameterType="java.lang.Long" resultMap="PostResult">
 		SELECT p.post_id, p.post_name, p.post_code
 		FROM sys_user u
 			 LEFT JOIN sys_user_post up ON u.user_id = up.user_id
@@ -49,22 +49,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE up.user_id = #{userId}
 	</select>
 	
-	<select id="selectPostById" parameterType="Long" resultMap="PostResult">
+	<select id="selectPostById" parameterType="java.lang.Long" resultMap="PostResult">
 		<include refid="selectPostVo"/>
 		where post_id = #{postId}
 	</select>
 	
-	<select id="checkPostNameUnique" parameterType="String" resultMap="PostResult">
+	<select id="checkPostNameUnique" parameterType="java.lang.String" resultMap="PostResult">
 		<include refid="selectPostVo"/>
 		 where post_name=#{postName}
 	</select>
 	
-	<select id="checkPostCodeUnique" parameterType="String" resultMap="PostResult">
+	<select id="checkPostCodeUnique" parameterType="java.lang.String" resultMap="PostResult">
 		<include refid="selectPostVo"/>
 		 where post_code=#{postCode}
 	</select>
 	
- 	<delete id="deletePostByIds" parameterType="Long">
+ 	<delete id="deletePostByIds" parameterType="java.lang.Long">
  		delete from sys_post where post_id in
  		<foreach collection="array" item="postId" open="(" separator="," close=")">
  			#{postId}

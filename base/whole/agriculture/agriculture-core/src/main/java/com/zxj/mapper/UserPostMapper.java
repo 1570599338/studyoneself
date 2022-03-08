@@ -2,6 +2,7 @@ package com.zxj.mapper;
 
 
 import com.zxj.domain.UserPost;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  *
  * @author lquan
  */
+@Mapper
 public interface UserPostMapper {
     /**
      * 通过用户ID删除用户和岗位关联

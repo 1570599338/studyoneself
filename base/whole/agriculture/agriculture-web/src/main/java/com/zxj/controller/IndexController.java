@@ -21,13 +21,11 @@ import java.util.List;
  */
 @Controller
 public class IndexController extends BaseController {
-    @Autowired
+    @Autowired(required = false)
     private IMenuService menuService;
 
-    @Autowired
+    @Autowired(required = false)
     private IUserService userService;
-
-
 
     @Autowired(required = false)
     private RoleMapper roleMapper;
@@ -62,10 +60,11 @@ public class IndexController extends BaseController {
     }
 
     // 系统介绍
-   /* @GetMapping("/system/main")
+    @GetMapping("/system/main")
     public String main(ModelMap mmap)
     {
-        mmap.put("version", ruoYiConfig.getVersion());
+        mmap.put("version", "V1.0");
+
         return "main";
-    }*/
+    }
 }

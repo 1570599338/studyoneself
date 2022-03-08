@@ -383,7 +383,7 @@ public class ExcelUtil<T> {
         if (ColumnType.STRING == attr.cellType()) {
             cell.setCellType(CellType.NUMERIC);
             cell.setCellValue(StringUtils.isNull(value) ? attr.defaultValue() : value + attr.suffix());
-        } else if (Excel.ColumnType.NUMERIC == attr.cellType()) {
+        } else if (ColumnType.NUMERIC == attr.cellType()) {
             cell.setCellType(CellType.NUMERIC);
             cell.setCellValue(Integer.parseInt(value + ""));
         }

@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from sys_notice
     </sql>
     
-    <select id="selectNoticeById" parameterType="Long" resultMap="NoticeResult">
+    <select id="selectNoticeById" resultType="java.lang.Long" resultMap="NoticeResult">
         <include refid="selectNoticeVo"/>
         where notice_id = #{noticeId}
     </select>
@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where notice_id = #{noticeId}
     </update>
 	
-    <delete id="deleteNoticeByIds" parameterType="String">
+    <delete id="deleteNoticeByIds" parameterType="java.lang.String">
         delete from sys_notice where notice_id in 
         <foreach item="noticeId" collection="array" open="(" separator="," close=")">
             #{noticeId}

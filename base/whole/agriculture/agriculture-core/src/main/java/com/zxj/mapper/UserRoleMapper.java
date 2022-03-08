@@ -1,6 +1,7 @@
 package com.zxj.mapper;
 
 import com.zxj.domain.UserRole;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  *
  * @author lquan
  */
+@Mapper
 public interface UserRoleMapper {
     /**
      * 通过用户ID删除用户和角色关联

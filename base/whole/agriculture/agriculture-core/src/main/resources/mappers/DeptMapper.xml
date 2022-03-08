@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         from sys_dept d
     </sql>
     
-	<select id="selectRoleDeptTree" parameterType="Long" resultType="String">
+	<select id="selectRoleDeptTree" parameterType="java.lang.Long" resultType="java.lang.String">
 		select concat(d.dept_id, d.dept_name) as dept_name
 		from sys_dept d
 			left join sys_role_dept rd on d.dept_id = rd.dept_id
@@ -52,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by d.parent_id, d.order_num
     </select>
 	
-	<select id="checkDeptExistUser" parameterType="Long" resultType="int">
+	<select id="checkDeptExistUser" parameterType="java.lang.Long" resultType="int">
 		select count(1) from sys_user where dept_id = #{deptId} and del_flag = '0'
 	</select>
 	
@@ -68,14 +68,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where dept_name=#{deptName} and parent_id = #{parentId}
 	</select>
 
-	<select id="selectDeptById" parameterType="Long" resultMap="DeptResult">
+	<select id="selectDeptById" parameterType="java.lang.Long" resultMap="DeptResult">
 		select d.dept_id, d.parent_id, d.ancestors, d.dept_name, d.order_num, d.leader, d.phone, d.email, d.status,
 			(select dept_name from sys_dept where dept_id = d.parent_id) parent_name
 		from sys_dept d
 		where d.dept_id = #{deptId}
 	</select>
 	
-	<select id="selectChildrenDeptById" parameterType="Long" resultMap="DeptResult">
+	<select id="selectChildrenDeptById" parameterType="java.lang.Long" resultMap="DeptResult">
 		select * from sys_dept where find_in_set(#{deptId}, ancestors)
 	</select>
 	
@@ -137,7 +137,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    </foreach>
 	 </update>
 
-	<delete id="deleteDeptById" parameterType="Long">
+	<delete id="deleteDeptById" parameterType="java.lang.Long">
 		update sys_dept set del_flag = '2' where dept_id = #{deptId}
 	</delete>
 	

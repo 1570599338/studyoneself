@@ -2,6 +2,7 @@ package com.zxj.common.shiro;
 
 
 import com.zxj.domain.User;
+import com.zxj.shiro.UserRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.session.Session;
@@ -14,7 +15,7 @@ import org.springframework.beans.BeanUtils;
 /**
  * shiro 工具类
  *
- * @author hong
+ * @author ruoyi
  */
 public class ShiroUtils {
     public static Subject getSubject() {
@@ -51,8 +52,8 @@ public class ShiroUtils {
 
     public static void clearCachedAuthorizationInfo() {
         RealmSecurityManager rsm = (RealmSecurityManager) SecurityUtils.getSecurityManager();
-       // UserRealm realm = (UserRealm) rsm.getRealms().iterator().next();
-      //  realm.clearCachedAuthorizationInfo();
+        UserRealm realm = (UserRealm) rsm.getRealms().iterator().next();
+       // realm.clearCachedAuthorizationInfo();
     }
 
     public static Long getUserId() {

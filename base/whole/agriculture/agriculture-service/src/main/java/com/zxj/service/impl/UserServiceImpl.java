@@ -48,8 +48,8 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private IConfigService configService;
 
-    @Resource
-    private PasswordService passwordService;
+    //@Resource
+   // private PasswordService passwordService;
 
     /**
      * 根据条件分页查询用户列表

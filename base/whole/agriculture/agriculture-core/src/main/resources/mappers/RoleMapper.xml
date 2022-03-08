@@ -58,31 +58,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		${params.dataScope}
 	</select>
 
-	<select id="selectRolesByUserId" parameterType="Long" resultMap="RoleResult">
+	<select id="selectRolesByUserId" resultType="java.lang.Long" resultMap="RoleResult">
 		<include refid="selectRoleContactVo"/>
 		WHERE r.del_flag = '0' and ur.user_id = #{userId}
 	</select>
 	
-	<select id="selectRoleById" parameterType="Long" resultMap="RoleResult">
+	<select id="selectRoleById" resultType="java.lang.Long" resultMap="RoleResult">
 		<include refid="selectRoleVo"/>
 		where r.del_flag = '0' and r.role_id = #{roleId}
 	</select>
 	
-	<select id="checkRoleNameUnique" parameterType="String" resultMap="RoleResult">
+	<select id="checkRoleNameUnique" parameterType="java.lang.String" resultMap="RoleResult">
 		<include refid="selectRoleVo"/>
 		 where r.role_name=#{roleName}
 	</select>
 	
-	<select id="checkRoleKeyUnique" parameterType="String" resultMap="RoleResult">
+	<select id="checkRoleKeyUnique" parameterType="java.lang.String" resultMap="RoleResult">
 		<include refid="selectRoleVo"/>
 		 where r.role_key=#{roleKey}
 	</select>
 	
-	<delete id="deleteRoleById" parameterType="Long">
+	<delete id="deleteRoleById" parameterType="java.lang.Long">
  		delete from sys_role where role_id = #{roleId}
  	</delete>
  	
- 	<delete id="deleteRoleByIds" parameterType="Long">
+ 	<delete id="deleteRoleByIds" parameterType="java.lang.Long">
  	    update sys_role set del_flag = '2' where role_id in
  		<foreach collection="array" item="roleId" open="(" separator="," close=")">
  			#{roleId}
@@ -129,14 +129,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<!-- 查询用户是否是游客-->
-	<select id="selectRoleKeyCount" parameterType="Long" resultType="Integer">
+	<select id="selectRoleKeyCount" parameterType="java.lang.Long" resultType="java.lang.Integer">
 	  SELECT COUNT(1) FROM sys_role a JOIN sys_user_role b ON a.role_id = b.role_id
 	  WHERE
 	  b.user_id = #{userId} AND a.role_key='tourist'
 	</select>
 
 	<!-- 查询用户是否是游客-->
-	<select id="selectRoleKey" parameterType="Long" resultType="String">
+	<select id="selectRoleKey" parameterType="java.lang.Long" resultType="java.lang.String">
 	  SELECT a.role_key roleKey FROM sys_role a JOIN sys_user_role b ON a.role_id = b.role_id
 	  WHERE
 	  b.user_id = #{userId}

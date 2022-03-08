@@ -1,6 +1,7 @@
-package com.zxj.config.shiro;
+package com.zxj.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
+import com.zxj.shiro.UserRealm;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -9,67 +10,28 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * @program: springs
  * @description: ShiroConfig
- * @author: hong
+ * @author: lquan
  * @create: 2022-01-30 16:06
  **/
 @Configuration
 public class ShrioConfig {
 
 
-    @Bean(name = "sessionManager")
-    public SessionManager sessionManager() {
-        DefaultWebSessionManager sManager = new DefaultWebSessionManager();
-        sManager.setGlobalSessionTimeout(60 * 60 * 1000);//30 * 60 *1000 1800000L 30分钟
-        // 去掉shiro登录时url里的JSESSIONID
-        sManager.setSessionIdUrlRewritingEnabled(false);
-        return sManager;
-
-    }
-
-
-
-    /**
-     * 创建Realm
-     */
-    @Bean(name = "userRealm")
-    public UserRealm getRealm() {
-        return new UserRealm();
-    }
-
-    /**
-     * 配置shiroDialect，用于thymeleaf和shiro标签配合使用
-     *
-     * @return
-     */
-    @Bean
-    public ShiroDialect shiroDialect() {
-        return new ShiroDialect();
-    }
-
-
-    /**
-     * 创建DefaultWebSecurityManager
-     */
-    @Bean(name = "securityManager")
-    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm, @Qualifier("sessionManager") SessionManager sessionManager) {
-        DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
-        defaultWebSecurityManager.setRealm(userRealm);
-        defaultWebSecurityManager.setSessionManager(sessionManager);
-        return defaultWebSecurityManager;
-    }
-
 
     /**
      * 创建shiroFilterFactoryBean
+     *
      */
     @Bean
-    public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager manager) {
- /*       ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+    public ShiroFilterFactoryBean getShiroFilterFactoryBean(@Qualifier("securityManager") DefaultWebSecurityManager manager){
+/*       ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
         // 设置安全管理器
         shiroFilterFactoryBean.setSecurityManager(manager);
@@ -107,6 +69,7 @@ public class ShrioConfig {
         return shiroFilterFactoryBean;*/
 
 
+
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         // Shiro的核心安全接口,这个属性是必须的
         shiroFilterFactoryBean.setSecurityManager(manager);
@@ -122,7 +85,7 @@ public class ShrioConfig {
         filterChainDefinitionMap.put("/front/**", "anon");
         filterChainDefinitionMap.put("/demo/**", "anon");
 
-        filterChainDefinitionMap.put("/hong.png**", "anon");
+        filterChainDefinitionMap.put("/ruoyi.png**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
         filterChainDefinitionMap.put("/docs/**", "anon");
         filterChainDefinitionMap.put("/fonts/**", "anon");
@@ -133,9 +96,8 @@ public class ShrioConfig {
         filterChainDefinitionMap.put("/ruoyi/**", "anon");
         filterChainDefinitionMap.put("/captcha/captchaImage**", "anon");
         filterChainDefinitionMap.put("/user/**", "anon");
-        filterChainDefinitionMap.put("/admin/user/check**", "anon");
+        filterChainDefinitionMap.put("/system/user/check**", "anon");
         filterChainDefinitionMap.put("/weixinpay/pay", "anon");
-
         // 退出 logout地址，shiro去清除session
         filterChainDefinitionMap.put("/logout", "logout");
         // 不需要拦截的访问
@@ -158,8 +120,47 @@ public class ShrioConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 
         return shiroFilterFactoryBean;
+
     }
 
+
+
+    @Bean(name = "sessionManager")
+    public SessionManager sessionManager() {
+        DefaultWebSessionManager sManager = new DefaultWebSessionManager();
+        sManager.setGlobalSessionTimeout(60*60*1000);//30 * 60 *1000 1800000L 30分钟
+        // 去掉shiro登录时url里的JSESSIONID
+        sManager.setSessionIdUrlRewritingEnabled(false);
+        return sManager;
+
+    }
+    /**
+     * 创建DefaultWebSecurityManager
+     */
+    @Bean(name = "securityManager")
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(@Qualifier("userRealm") UserRealm userRealm, @Qualifier("sessionManager") SessionManager sessionManager){
+        DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
+        defaultWebSecurityManager.setRealm(userRealm);
+        defaultWebSecurityManager.setSessionManager(sessionManager);
+        return defaultWebSecurityManager;
+    }
+
+    /**
+     * 创建Realm
+     */
+    @Bean(name = "userRealm")
+    public UserRealm getRealm(){
+        return new UserRealm();
+    }
+
+    /**
+     * 配置shiroDialect，用于thymeleaf和shiro标签配合使用
+     * @return
+     */
+    @Bean
+    public ShiroDialect shiroDialect(){
+        return  new ShiroDialect();
+    }
 
 
 }

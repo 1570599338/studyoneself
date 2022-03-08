@@ -1,4 +1,4 @@
-package com.zxj.config.shiro;
+package com.zxj.shiro;
 
 import com.zxj.common.shiro.ShiroUtils;
 import com.zxj.domain.User;
