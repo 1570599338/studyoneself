@@ -84,6 +84,7 @@ public class ShrioConfig {
         // 前端请求
         filterChainDefinitionMap.put("/front/**", "anon");
         filterChainDefinitionMap.put("/demo/**", "anon");
+        filterChainDefinitionMap.put("/alipay/**", "anon");
 
         filterChainDefinitionMap.put("/ruoyi.png**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");
