@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * @program: springs
@@ -85,6 +83,8 @@ public class ShrioConfig {
         filterChainDefinitionMap.put("/front/**", "anon");
         filterChainDefinitionMap.put("/demo/**", "anon");
         filterChainDefinitionMap.put("/alipay/**", "anon");
+        filterChainDefinitionMap.put("/reception/**", "anon");
+        filterChainDefinitionMap.put("/home/**", "anon");
 
         filterChainDefinitionMap.put("/ruoyi.png**", "anon");
         filterChainDefinitionMap.put("/css/**", "anon");

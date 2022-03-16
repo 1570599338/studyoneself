@@ -182,3 +182,38 @@
 	<script th:src="@{/ajax/libs/bootstrap-table/extensions/editable/bootstrap-editable.min.js}"></script>
     <script th:src="@{/ajax/libs/bootstrap-table/extensions/editable/bootstrap-table-editable.js}"></script>
 </div>
+
+
+
+
+
+<!-- 前端公用css和js -->
+<head th:fragment=front_header(title)>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="wpoceans">
+	<title th:text="${title}"></title>
+	<link th:href="@{/reception/css/themify-icons.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/font-awesome.min.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/flaticon.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/animate.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/owl.carousel.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/owl.theme.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/slick.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/slick-theme.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/swiper.min.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/owl.transitions.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/jquery.fancybox.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/odometer-theme-default.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/nice-select.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/style.css}" rel="stylesheet">
+	<link th:href="@{/reception/css/light.css}" rel="stylesheet">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+    <script th:src="@{/reception/js/html5shiv.min.js}"></script>
+    <script th:src="@{/reception/js/respond.min.js}"></script>
+	<![endif]-->
+</head>
