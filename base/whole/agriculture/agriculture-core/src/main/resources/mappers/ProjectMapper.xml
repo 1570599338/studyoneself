@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxj.mapper.ProjectMapper">
+    
+    <resultMap type="com.zxj.domain.Project" id="ProjectResult">
+        <result property="id"    column="id"    />
+        <result property="title"    column="title"    />
+        <result property="imgurl"    column="imgUrl"    />
+        <result property="projectShort"    column="project_short"    />
+        <result property="projectInfo"    column="project_info"    />
+        <result property="projectType"    column="project_type"    />
+        <result property="projectFund"    column="project_fund"    />
+        <result property="ispublish"    column="isPublish"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="projectPost"    column="project_post"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userId"    column="user_id"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="auditId"    column="audit_id"    />
+    </resultMap>
+
+    <sql id="selectProjectVo">
+        select id, title, imgUrl, project_short, project_info, project_type, project_fund, isPublish, del_flag, project_post, create_by, create_time, update_by, update_time, remark, user_id, audit_status, audit_id from t_project
+    </sql>
+
+    <select id="selectProjectList" parameterType="com.zxj.domain.Project" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        <where>  
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="projectType != null "> and project_type = #{projectType}</if>
+            <if test="projectFund != null "> and project_fund = #{projectFund}</if>
+            <if test="ispublish != null "> and isPublish = #{ispublish}</if>
+            <if test="projectPost != null "> and project_post = #{projectPost}</if>
+        </where>
+    </select>
+    
+    <select id="selectProjectById" parameterType="java.lang.Integer" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertProject" parameterType="com.zxj.domain.Project" useGeneratedKeys="true" keyProperty="id">
+        insert into t_project
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">title,</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl,</if>
+            <if test="projectShort != null  and projectShort != ''">project_short,</if>
+            <if test="projectInfo != null  and projectInfo != ''">project_info,</if>
+            <if test="projectType != null ">project_type,</if>
+            <if test="projectFund != null ">project_fund,</if>
+            <if test="ispublish != null ">isPublish,</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag,</if>
+            <if test="projectPost != null ">project_post,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="userId != null ">user_id,</if>
+            <if test="auditStatus != null ">audit_status,</if>
+            <if test="auditId != null ">audit_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="title != null  and title != ''">#{title},</if>
+            <if test="imgurl != null  and imgurl != ''">#{imgurl},</if>
+            <if test="projectShort != null  and projectShort != ''">#{projectShort},</if>
+            <if test="projectInfo != null  and projectInfo != ''">#{projectInfo},</if>
+            <if test="projectType != null ">#{projectType},</if>
+            <if test="projectFund != null ">#{projectFund},</if>
+            <if test="ispublish != null ">#{ispublish},</if>
+            <if test="delFlag != null  and delFlag != ''">#{delFlag},</if>
+            <if test="projectPost != null ">#{projectPost},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="userId != null ">#{userId},</if>
+            <if test="auditStatus != null ">#{auditStatus},</if>
+            <if test="auditId != null ">#{auditId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateProject" parameterType="com.zxj.domain.Project">
+        update t_project
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="title != null  and title != ''">title = #{title},</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl = #{imgurl},</if>
+            <if test="projectShort != null  and projectShort != ''">project_short = #{projectShort},</if>
+            <if test="projectInfo != null  and projectInfo != ''">project_info = #{projectInfo},</if>
+            <if test="projectType != null ">project_type = #{projectType},</if>
+            <if test="projectFund != null ">project_fund = #{projectFund},</if>
+            <if test="ispublish != null ">isPublish = #{ispublish},</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="projectPost != null ">project_post = #{projectPost},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="auditStatus != null ">audit_status = #{auditStatus},</if>
+            <if test="auditId != null ">audit_id = #{auditId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteProjectById" parameterType="java.lang.Integer">
+        delete from t_project where id = #{id}
+    </delete>
+
+    <delete id="deleteProjectByIds" parameterType="java.lang.String">
+        delete from t_project where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
