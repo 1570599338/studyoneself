@@ -28,6 +28,13 @@ public interface IProjectService
     public List<Project> selectProjectList(Project project);
 
     /**
+     * 查询扶贫项目列表
+     *
+     * @param project 扶贫项目
+     * @return 扶贫项目集合
+     */
+    public List<Project> selectProjectHomeList(Project project);
+    /**
      * 新增扶贫项目
      * 
      * @param project 扶贫项目

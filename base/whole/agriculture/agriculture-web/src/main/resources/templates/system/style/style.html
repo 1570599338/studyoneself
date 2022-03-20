@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: systemheader('扶贫项目列表')" />
+    <th:block th:include="include :: systemheader('志愿者风采列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -12,30 +12,16 @@
                         <ul>
                             <li>
                                 <p>名称：</p>
-                                <input type="text" name="title"/>
+                                <input type="text" name="name"/>
                             </li>
                             <li>
-                                <p>扶贫类型：</p>
-                                <select name="projectType" th:with="type=${@dict.getType('project-type')}">
-                                    <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
-                                </select>
+                                <p>图片：</p>
+                                <input type="text" name="imgurl"/>
                             </li>
-
                             <li>
-                                <p>发布状态：</p>
-                                <select name="ispublish" th:with="type=${@dict.getType('isPublish')}">
-                                    <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
-                                </select>
+                                <p>内容：</p>
+                                <input type="text" name="content"/>
                             </li>
-                        <!--    <li>
-                                <p>展位：</p>
-                                <select name="projectPost" th:with="type=${@dict.getType('project_post')}">
-                                    <option value="">所有</option>
-                                    <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
-                                </select>
-                            </li>-->
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
@@ -46,16 +32,16 @@
             </div>
 
             <div class="btn-group-sm" id="toolbar" role="group">
-                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:project:add">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="system:style:add">
                     <i class="fa fa-plus"></i> 添加
                 </a>
-                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:project:edit">
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="system:style:edit">
                     <i class="fa fa-edit"></i> 修改
                 </a>
-                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:project:remove">
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="system:style:remove">
                     <i class="fa fa-remove"></i> 删除
                 </a>
-                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:project:export">
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="system:style:export">
                     <i class="fa fa-download"></i> 导出
                  </a>
             </div>
@@ -66,13 +52,10 @@
     </div>
     <th:block th:include="include :: footer" />
     <script th:inline="javascript">
-        var editFlag = [[${@permission.hasPermi('system:project:edit')}]];
-        var removeFlag = [[${@permission.hasPermi('system:project:remove')}]];
-        var projectTypeDatas = [[${@dict.getType('project-type')}]];
+        var editFlag = [[${@permission.hasPermi('system:style:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('system:style:remove')}]];
         var ispublishDatas = [[${@dict.getType('isPublish')}]];
-        var projectAuditDatas = [[${@dict.getType('system_project_audit')}]];
-        var projectPostDatas = [[${@dict.getType('project_post')}]];
-        var prefix = ctx + "system/project";
+        var prefix = ctx + "system/style";
 
         $(function() {
             var options = {
@@ -81,7 +64,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "扶贫项目",
+                modalName: "志愿者风采",
                 columns: [{
                     checkbox: true
                 },
@@ -91,19 +74,12 @@
                     visible: false
                 },
                 {
-                    field : 'title', 
+                    field : 'name', 
                     title : '名称'
                 },
                 {
-                    field : 'projectType', 
-                    title : '扶贫类型' ,
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(projectTypeDatas, value);
-                    }
-                },
-                {
-                    field : 'projectFund', 
-                    title : '扶贫资金'
+                    field : 'imgurl', 
+                    title : '图片'
                 },
                /* {
                     field : 'ispublish', 
@@ -121,21 +97,9 @@
                         }
                     },
                 {
-                    field : 'projectPost', 
-                    title : '展示位置',
-                    formatter: function(value, row, index) {
-                       return $.table.selectDictLabel(projectPostDatas, value);
-                    }
+                    field : 'content', 
+                    title : '内容'
                 },
-
-
-                    {
-                        field : 'auditStatus',
-                        title : '审核状态',
-                        formatter: function(value, row, index) {
-                            return $.table.selectDictLabel(projectAuditDatas, value);
-                        }
-                    },
                 {
                     title: '操作',
                     align: 'center',
@@ -150,6 +114,7 @@
             $.table.init(options);
         });
 
+
         /* 用户状态显示 */
         function statusTools(row) {
             debugger;
@@ -160,19 +125,21 @@
             }
         }
 
+
         /* 用户管理-停用 */
-        function disable(userId) {
+        function disable(id) {
             $.modal.confirm("确认要撤销发布吗？", function() {
-                $.operate.post(prefix + "/changeStatus", { "id": userId, "ispublish": 0 });
+                $.operate.post(prefix + "/changeStatus", { "id": id, "ispublish": 0 });
             })
         }
 
         /* 用户管理启用 */
-        function enable(userId) {
-            $.modal.confirm("确认要发布该项目吗？", function() {
-                $.operate.post(prefix + "/changeStatus", { "id": userId, "ispublish": 1 });
+        function enable(id) {
+            $.modal.confirm("确认要发布该吗？", function() {
+                $.operate.post(prefix + "/changeStatus", { "id": id, "ispublish": 1 });
             })
         }
+
     </script>
 </body>
 </html>

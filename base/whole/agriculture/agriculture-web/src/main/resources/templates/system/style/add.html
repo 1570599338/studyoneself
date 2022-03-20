@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include ::systemheader('修改扶贫项目')" />
+    <th:block th:include="include :: systemheader('新增志愿者风采')" />
     <th:block th:include="include :: summernote-css" />
     <th:block th:include="include :: jasny-bootstrap-css" />
     <th:block th:include="include :: bootstrap-fileinput-css" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
-        <form class="form-horizontal m" id="form-project-edit" th:object="${project}">
-            <input name="id" th:field="*{id}" type="hidden">
+        <form class="form-horizontal m" id="form-style-add">
             <div class="form-group">    
                 <label class="col-sm-3 control-label">名称：</label>
                 <div class="col-sm-8">
-                    <input name="title" th:field="*{title}" class="form-control" type="text">
+                    <input name="name" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">图片地址：</label>
+                <label class="col-sm-3 control-label">图片：</label>
                 <div class="col-sm-8">
-                   <!-- <input name="imgurl" th:field="*{imgurl}" class="form-control" type="text">-->
-
-
+                    <!--<input name="imgurl" class="form-control" type="text">-->
                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                         <div class="form-control" data-trigger="fileinput">
                             <i class="glyphicon glyphicon-file fileinput-exists"></i>
-                            <span class="fileinput-filename">[[*{imgurl}]]</span>
-                            <input name="imgurl"  id="imgurl" type="hidden"  th:field="*{imgurl}">
+                            <span class="fileinput-filename"></span>
+                            <input name="imgurl"  id="imgurl" type="hidden">
                         </div>
                         <span class="input-group-addon btn btn-white btn-file">
                             <span class="fileinput-new">选择文件</span>
@@ -36,56 +33,21 @@
                         <a href="#" class="input-group-addon btn btn-white fileinput-exists" data-dismiss="fileinput">清除</a>
 
                     </div>
+                </div>
+            </div>
 
-
-
+            <div class="form-group">    
+                <label class="col-sm-3 control-label">内容：</label>
+                <div class="col-sm-8">
+                    <!--<input name="content" class="form-control" type="text">-->
+                    <input id="content" name="content" type="hidden">
+                    <div class="summernote"></div>
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">项目简介：</label>
+                <label class="col-sm-3 control-label">删除标志：</label>
                 <div class="col-sm-8">
-                   <!-- <input name="projectShort" th:field="*{projectShort}" class="form-control" type="text">-->
-                    <textarea name="projectShort" class="form-control" th:field="*{projectShort}"  ></textarea>
-
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">项目简介：</label>
-                <div class="col-sm-8">
-                   <!-- <input name="projectInfo" th:field="*{projectInfo}" class="form-control" type="text">-->
-                    <input name="projectInfo" th:field="*{projectInfo}" class="form-control" type="hidden">
-                    <div id="editor" class="summernote">
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">扶贫类型：</label>
-                <div class="col-sm-8">
-                    <select name="projectType" class="form-control m-b" th:with="type=${@dict.getType('project-type')}">
-                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{projectType}"></option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">申请金额：</label>
-                <div class="col-sm-8">
-                    <input name="projectFund" th:field="*{projectFund}" class="form-control" type="text">
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">发布状态 0:未发布：</label>
-                <div class="col-sm-8">
-                    <select name="ispublish" class="form-control m-b" th:with="type=${@dict.getType('isPublish')}">
-                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{ispublish}"></option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">    
-                <label class="col-sm-3 control-label">展示位置：</label>
-                <div class="col-sm-8">
-                    <!--<input name="projectPost" th:field="*{projectPost}" class="form-control" type="text">-->
-                    <select name="ispublish" class="form-control m-b" th:with="type=${@dict.getType('project_post')}">
-                        <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}" th:field="*{projectPost}"></option>
-                    </select>
+                    <input name="delFlag" class="form-control" type="text">
                 </div>
             </div>
         </form>
@@ -94,27 +56,18 @@
     <th:block th:include="include :: summernote-js" />
     <th:block th:include="include :: jasny-bootstrap-js" />
     <script type="text/javascript">
-        var prefix = ctx + "system/project";
-        $("#form-project-edit").validate({
-            focusCleanup: true
-        });
+        var prefix = ctx + "system/style"
 
-
-        $(function() {
-            $('.summernote').summernote({
-                placeholder: '请输入公告内容',
-                height : 192,
-                lang : 'zh-CN',
-                followingToolbar: false,
-                callbacks: {
-                    onImageUpload: function (files) {
-                        sendFile(files[0], this);
-                    }
+        $('.summernote').summernote({
+            placeholder: '请输入关于我们内容',
+            height : 192,
+            lang : 'zh-CN',
+            followingToolbar: false,
+            callbacks: {
+                onImageUpload: function (files) {
+                    sendFile(files[0], this);
                 }
-            });
-            debugger;
-            var projectInfo = $("#projectInfo").val();
-            $('#editor').summernote('code', projectInfo);
+            }
         });
 
         // 上传文件
@@ -143,20 +96,18 @@
         }
 
 
-        $("#form-wish-edit").validate({
+        $("#form-style-add").validate({
             focusCleanup: true
         });
-
-
-
 
         function submitHandler() {
             if ($.validate.form()) {
                 var sHTML = $('.summernote').summernote('code');
-                $("#projectInfo").val(sHTML);
-                $.operate.save(prefix + "/edit", $('#form-project-edit').serialize());
+                $("#content").val(sHTML);
+                $.operate.save(prefix + "/add", $('#form-style-add').serialize());
             }
         }
+
 
         // 上传文件
         function sendFileimgurl(file, obj) {

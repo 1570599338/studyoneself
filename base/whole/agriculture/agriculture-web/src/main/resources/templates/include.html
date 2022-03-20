@@ -310,14 +310,17 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand"  th:href="@{index}"><img src="/reception/picture/logo.png" alt="logo"></a>
+					<a class="navbar-brand nav navbar-nav"  th:href="@{/home/index}">
+						<h2 style="color:white" >扶助惠农</h2>
+						<!--<img src="/reception/picture/logo.png" alt="logo">-->
+					</a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right navigation-holder">
 					<button class="close-navbar"><i class="ti-close"></i></button>
 					<ul class="nav navbar-nav">
-						<li> <a  th:href="@{index}">首页</a></li>
-						<li> <a  th:href="@{volunteer}">志愿者</a></li>
-						<li><a  th:href="@{about}">关于我们</a></li>
+						<li> <a  th:href="@{/home/index}">首页</a></li>
+						<li> <a  th:href="@{/home/volunteer}">志愿者</a></li>
+						<li><a  th:href="@{/home/about}">关于我们</a></li>
 
 						<li class="menu-item-has-children">
 							<a  th:href="@{#}">Event</a>

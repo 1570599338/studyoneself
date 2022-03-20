@@ -10,7 +10,7 @@ package com.zxj.config;
 public class AlipayConfig {
     //这里用natapp内外网穿透
     //public static final String natUrl = "http://gca8w8.natappfree.cc";
-    public static final String natUrl = "http://localhost:8082/tmall";
+    public static final String natUrl = "http://localhost:8082";
 
     // 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
     public static String app_id = "2016102700769715";//在后台获取（必须配置）

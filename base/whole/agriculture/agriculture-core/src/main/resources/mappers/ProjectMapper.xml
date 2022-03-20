@@ -36,6 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="projectType != null "> and project_type = #{projectType}</if>
             <if test="projectFund != null "> and project_fund = #{projectFund}</if>
             <if test="ispublish != null "> and isPublish = #{ispublish}</if>
+            <if test="auditStatus != null "> and audit_status = #{auditStatus}</if>
             <if test="projectPost != null "> and project_post = #{projectPost}</if>
         </where>
     </select>
@@ -121,5 +122,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
-    
+
+
+
+
+    <select id="selectProjectHomeList" parameterType="com.zxj.domain.Project" resultMap="ProjectResult">
+        <include refid="selectProjectVo"/>
+        <where>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="projectType != null "> and project_type = #{projectType}</if>
+            <if test="projectFund != null "> and project_fund = #{projectFund}</if>
+            <if test="ispublish != null "> and isPublish = #{ispublish}</if>
+            <if test="projectPost != null "> and project_post = #{projectPost}</if>
+             and audit_status=1 AND isPublish=1
+             limit 3
+        </where>
+    </select>
+
+
 </mapper>

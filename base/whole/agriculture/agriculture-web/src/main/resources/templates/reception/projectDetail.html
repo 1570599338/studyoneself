@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <th:block th:include="include :: front_header('详细')" />
+</head>
+
+<body>
+<!-- start page-wrapper -->
+<div class="page-wrapper">
+    <th:block th:include="include :: front_logo2" />
+
+        <!-- start tp-blog-single-section -->
+        <section class="tp-blog-single-section section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-10 col-md-offset-1 ">
+                        <div class="tp-tp-blog-content clearfix">
+                            <div class="post">
+                                <div class="entry-media">
+                                    <img th:src="@{'/headImage/upload/'+${project.imgurl}}" alt="">
+                                </div>
+                           <!--     <h2>Help the helpless who need you.</h2>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now.</p>
+                                <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now.</p>
+                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </blockquote>
+                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now.</p>
+                                <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now.</p>
+                           -->
+                                [(${project.projectInfo})]
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </section>
+        <!-- end tp-blog-single-section -->
+
+        <!-- news-letter-section end-->
+        <th:block th:include="include :: front_foot" />
+
+    </div>
+    <th:block th:include="include :: frontJS" />
+</body>
+
+</html>

@@ -60,4 +60,14 @@ public interface ProjectMapper {
      * @return 结果
      */
     public int deleteProjectByIds(String[] ids);
+
+
+
+    /**
+     * 查询扶贫项目列表
+     *
+     * @param project 扶贫项目
+     * @return 扶贫项目集合
+     */
+    public List<Project> selectProjectHomeList(Project project);
 }

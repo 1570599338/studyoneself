@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zxj.mapper.ApplyMapper">
+    
+    <resultMap type="com.zxj.domain.Apply" id="ApplyResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="tel"    column="tel"    />
+        <result property="nationalId"    column="national_ID"    />
+        <result property="email"    column="email"    />
+        <result property="adress"    column="adress"    />
+        <result property="imgurl"    column="imgUrl"    />
+        <result property="applyShort"    column="apply_short"    />
+        <result property="applyInfo"    column="apply_info"    />
+        <result property="applyAmount"    column="apply_amount"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+        <result property="userId"    column="user_id"    />
+        <result property="projectId"    column="project_id"    />
+        <result property="auditStatus"    column="audit_status"    />
+        <result property="auditId"    column="audit_id"    />
+    </resultMap>
+
+    <sql id="selectApplyVo">
+        select id, name, tel, national_ID, email, adress, imgUrl, apply_short, apply_info, apply_amount, del_flag, create_by, create_time, update_by, update_time, remark, user_id,project_id, audit_status, audit_id from t_apply
+    </sql>
+
+    <select id="selectApplyList" parameterType="com.zxj.domain.Apply" resultMap="ApplyResult">
+        select p.title projectName,a.id, a.name, a.tel, a.national_ID, a.email, a.adress, a.imgUrl, a.apply_short, a.apply_info, a.apply_amount, a.del_flag, a.create_by, a.create_time, a.update_by, a.update_time, a.remark, a.user_id,a.project_id, a.audit_status, a.audit_id
+        from t_apply a LEFT JOIN t_project p on p.id=a.project_id
+        <where>  
+            <if test="name != null  and name != ''"> and a.name like concat('%', #{name}, '%')</if>
+            <if test="tel != null  and tel != ''"> and a.tel like concat('%', #{tel}, '%')</if>
+            <if test="nationalId != null  and nationalId != ''"> and a.national_ID like concat('%', #{nationalId}, '%')</if>
+            <if test="email != null  and email != ''"> and a.email like concat('%', #{email}, '%')</if>
+            <if test="adress != null  and adress != ''"> and a.adress like concat('%', #{adress}, '%')</if>
+            <if test="auditStatus != null "> and a.audit_status = #{auditStatus}</if>
+            <if test="projectName != null "> and p.title  like concat('%', #{projectName}, '%')</if>
+            <if test="userId != null "> and a.user_id = #{userId}</if>
+            <if test="auditId != null "> and a.audit_id = #{auditId}</if>
+        </where>
+    </select>
+    
+    <select id="selectApplyById" parameterType="java.lang.Integer" resultMap="ApplyResult">
+        <include refid="selectApplyVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertApply" parameterType="com.zxj.domain.Apply" useGeneratedKeys="true" keyProperty="id">
+        insert into t_apply
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''">name,</if>
+            <if test="tel != null  and tel != ''">tel,</if>
+            <if test="nationalId != null  and nationalId != ''">national_ID,</if>
+            <if test="email != null  and email != ''">email,</if>
+            <if test="adress != null  and adress != ''">adress,</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl,</if>
+            <if test="applyShort != null  and applyShort != ''">apply_short,</if>
+            <if test="applyInfo != null  and applyInfo != ''">apply_info,</if>
+            <if test="applyAmount != null  and applyAmount != ''">apply_amount,</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateBy != null  and updateBy != ''">update_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="remark != null  and remark != ''">remark,</if>
+            <if test="userId != null ">user_id,</if>
+            <if test="projectId != null ">project_id,</if>
+            <if test="auditStatus != null ">audit_status,</if>
+            <if test="auditId != null ">audit_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null  and name != ''">#{name},</if>
+            <if test="tel != null  and tel != ''">#{tel},</if>
+            <if test="nationalId != null  and nationalId != ''">#{nationalId},</if>
+            <if test="email != null  and email != ''">#{email},</if>
+            <if test="adress != null  and adress != ''">#{adress},</if>
+            <if test="imgurl != null  and imgurl != ''">#{imgurl},</if>
+            <if test="applyShort != null  and applyShort != ''">#{applyShort},</if>
+            <if test="applyInfo != null  and applyInfo != ''">#{applyInfo},</if>
+            <if test="applyAmount != null  and applyAmount != ''">#{applyAmount},</if>
+            <if test="delFlag != null  and delFlag != ''">#{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="remark != null  and remark != ''">#{remark},</if>
+            <if test="userId != null ">#{userId},</if>
+            <if test="projectId != null ">#{projectId},</if>
+            <if test="auditStatus != null ">#{auditStatus},</if>
+            <if test="auditId != null ">#{auditId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateApply" parameterType="com.zxj.domain.Apply">
+        update t_apply
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null  and name != ''">name = #{name},</if>
+            <if test="tel != null  and tel != ''">tel = #{tel},</if>
+            <if test="nationalId != null  and nationalId != ''">national_ID = #{nationalId},</if>
+            <if test="email != null  and email != ''">email = #{email},</if>
+            <if test="adress != null  and adress != ''">adress = #{adress},</if>
+            <if test="imgurl != null  and imgurl != ''">imgUrl = #{imgurl},</if>
+            <if test="applyShort != null  and applyShort != ''">apply_short = #{applyShort},</if>
+            <if test="applyInfo != null  and applyInfo != ''">apply_info = #{applyInfo},</if>
+            <if test="applyAmount != null  and applyAmount != ''">apply_amount = #{applyAmount},</if>
+            <if test="delFlag != null  and delFlag != ''">del_flag = #{delFlag},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateBy != null  and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="remark != null  and remark != ''">remark = #{remark},</if>
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="projectId != null ">project_id = #{projectId},</if>
+            <if test="auditStatus != null ">audit_status = #{auditStatus},</if>
+            <if test="auditId != null ">audit_id = #{auditId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteApplyById" parameterType="java.lang.Integer">
+        delete from t_apply where id = #{id}
+    </delete>
+
+    <delete id="deleteApplyByIds" parameterType="java.lang.String">
+        delete from t_apply where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

@@ -2,7 +2,7 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 
 <head>
-    <th:block th:include="include :: front_header('关于我们')" />
+    <th:block th:include="include :: front_header('志愿者')" />
 </head>
 
 <body>
@@ -17,9 +17,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-12 col-12">
-                        <div class="about-img" th:if="${about}">
+                        <div class="about-img" th:if="${volunteer}">
 
-                            <img th:src="@{'/headImage/upload/'+${about.imgurl}}" alt="${project.title}" class="slider-bg">
+                            <img th:src="@{'/headImage/upload/'+${volunteer.imgurl}}" alt="${project.name}" class="slider-bg">
                             <div class="video-btn">
                                 <ul>
                                     <li><a href="javascript:;" class="video-btn" data-type="iframe">
@@ -29,7 +29,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="about-img" th:unless="${about}">
+                        <div class="about-img" th:unless="${volunteer}">
                             <img src="/reception/picture/Volunteers.jpg" alt="">
                             <div class="video-btn">
                                 <ul>
@@ -42,15 +42,15 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 col-12">
-                        <div class="about-content"  th:if="${about}">
+                        <div class="about-content"  th:if="${volunteer}">
                             <div class="section-title">
-                                <h2>[(${about.title})]</h2>
+                                <h2>志愿者:[(${volunteer.name})]</h2>
                             </div>
-                            [(${about.content})]
+                            [(${volunteer.content})]
                         </div>
-                        <div class="about-content"  th:unless="${about}">
+                        <div class="about-content"  th:unless="${volunteer}">
                             <div class="section-title">
-                                <h2>关于我们</h2>
+                                <h2>志愿者</h2>
                             </div>
                             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at ,sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum</p> 
                             <p> and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum,Contrary to popular belief, Lorem Ipsum is not simply random text.</p>

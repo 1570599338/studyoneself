@@ -13,21 +13,23 @@
         <section class="hero hero-style-2">
             <div class="hero-slider">
 
-                <div class="slide">
+                <div class="slide"  th:each="project:${projects}" >
                     <div class="container">
-                        <img src="/headImage/upload/c485a6ec5bd5c7c730dbdbda6d092f9a.png" alt="" class="slider-bg">
+                        <img th:src="@{'/headImage/upload/'+${project.imgurl}}" alt="${project.title}" class="slider-bg">
+                       <!-- <img th:src="@{'/headImage/upload/'+${project.imgurl}}" th:alt="${project.title}"   style="height: 174px;"/>-->
                         <div class="row">
                             <div class="col col-md-6 slide-caption">
                                 <div class="slide-title">
-                                    <h2>Let’s be Kind for <span>Children</span></h2>
+                                    <h2>[(${project.title})]</h2>
                                 </div>
                                 <div class="slide-subtitle">
-                                    <p>High Quality Charity Theme in Envato Market.</p>
-                                    <p>You Can Satisfied Yourself By Helping.</p>
+                                   <!-- <p>High Quality Charity Theme in Envato Market.</p>
+                                    <p>You Can Satisfied Yourself By Helping.</p>-->
+                                    [(${project.projectShort})]
                                 </div>
                                 <div class="btns">
-                                    <a href="donate" class="theme-btn">捐款</a>
-                                    <a href="about" class="theme-btn-s2">更多</a>
+                                    <a href="/home/donate" class="theme-btn">捐款</a>
+                                    <a th:href="@{'/home/projectDetail/'+${project.id}}" class="theme-btn-s2">更多</a>
                                 </div>
                             </div>
                         </div>
@@ -79,150 +81,6 @@
         <!-- end of hero slider -->
 
 
-        <!--Start project area-->  
-        <section id="protfolio" class="gallery-section section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-xs-12 sortable-gallery">
-                        <div class="gallery-filters">
-                            <div class="section-title">
-                                <h2>Our Gallery</h2>
-                            </div>
-                            <ul>
-                                <li><a data-filter="*" href="#" class="current">全部</a></li>
-                                <li><a data-filter=".Child" href="#">孩子</a></li>
-                                <li><a data-filter=".Charity" href="#">捐助活动</a></li>
-                                <li><a data-filter=".Volunteering" href="#">志愿服务</a></li>               
-                                <li><a data-filter=".Sponsorship" href="#">赞助</a></li> 
-                            </ul>
-                        </div>
-                        <div class="gallery-container gallery-fancybox masonry-gallery">
-                            <div class="grid Charity Volunteering Sponsorship">
-                                <a href="/reception/picture/img-11.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-11.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid Child Charity Volunteering">
-                                <a href="/reception/picture/img-22.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-22.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid Charity Sponsorship">
-                                <a href="/reception/picture/img-31.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-31.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid Child Volunteering">
-                                <a href="/reception/picture/img-41.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-41.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="grid Charity Sponsorship">
-                                <a href="/reception/picture/img-51.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-51.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                
-                            </div>
-                            <div class="grid Child Charity Sponsorship Volunteering">
-                                <a href="/reception/picture/img-61.jpg" class="fancybox" data-fancybox-group="gall-1">
-                                    <img src="/reception/picture/img-61.jpg" alt="" class="img img-responsive">
-                                    <div class="icon">
-                                        <div class="parallax-wrap">
-                                            <div class="parallax-element">
-                                                <i class="ti-plus"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!-- end row -->
-            </div>
-        </section>
-        <!--End project area-->
-        <!-- start team-section -->
-        <section class="team-section section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-lg-6 col-lg-offset-3">
-                        <div class="section-title text-center">
-                            <span>Meet Our Team</span>
-                            <h2>我们的专家志愿者</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col col-xs-12">
-                        <div class="team-grids clearfix">
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="/reception/picture/team-1.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer">Devin Robertson</a></h3>
-                                    <p>CEO & Founder</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="/reception/picture/team-2.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer">Rickey Goodman</a></h3>
-                                    <p>Volunteer</p>
-                                </div>
-                            </div>
-                            <div class="grid">
-                                <div class="img-holder">
-                                    <img src="/reception/picture/team-3.jpg" alt="">
-                                </div>
-                                <div class="details">
-                                    <h3><a href="volunteer">Jean Washington</a></h3>
-                                    <p>Volunteer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- end container -->
-        </section>
-        <!-- end team-section -->
 
 
         <!-- tp-cta-area start -->

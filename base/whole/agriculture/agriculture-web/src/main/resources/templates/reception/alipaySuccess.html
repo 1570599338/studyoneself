@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <th:block th:include="include :: front_header('捐款')" />
+</head>
+
+<body>
+    <!-- start page-wrapper -->
+    <div class="page-wrapper">
+        <th:block th:include="include :: front_logo2" />
+
+
+        <!-- tp-event-area start -->
+        <div class="tp-donation-page-area section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div  th:if="${total_amount}" class="section-title text-center">
+                            <div  class="thumb-text">
+                                <span>捐赠:[(${total_amount})] (元)</span>
+                            </div>
+                            <h2>捐赠成功！谢谢您的善举！</h2>
+                        </div>
+
+                        <div  th:unless="${total_amount}" class="section-title text-center">
+                            <div  class="thumb-text">
+                                <span>捐赠</span>
+                            </div>
+                            <h2>谢谢您的善举,稍后将会有工作人员和您确认相关捐赠事宜！</h2>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- tp-event-area end -->
+
+
+        <th:block th:include="include :: front_foot" />
+
+    </div>
+    <th:block th:include="include :: frontJS" />
+</body>
+
+</html>

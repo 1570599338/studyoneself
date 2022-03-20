@@ -1,22 +1,18 @@
 package com.zxj.controller;
 
-import java.util.List;
-
 import com.zxj.bean.Resp.AjaxResult;
 import com.zxj.common.page.TableDataInfo;
 import com.zxj.common.poi.ExcelUtil;
+import com.zxj.common.shiro.ShiroUtils;
 import com.zxj.domain.Project;
-import com.zxj.domain.User;
+import com.zxj.service.IProjectService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.zxj.service.IProjectService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 扶贫项目Controller
@@ -25,27 +21,28 @@ import com.zxj.service.IProjectService;
  * @date 2022-03-19
  */
 @Controller
-@RequestMapping("/system/project")
-public class ProjectController extends BaseController {
+@RequestMapping("/system/projectaduit")
+public class ProjectAuditController extends BaseController {
     private String prefix = "system/project";
 
     @Autowired
     private IProjectService projectService;
 
-    @RequiresPermissions("system:project:view")
+    @RequiresPermissions("system:project:auditview")
     @GetMapping()
     public String project() {
-        return prefix + "/project";
+        return prefix + "/projectAudit";
     }
 
     /**
      * 查询扶贫项目列表
      */
-    @RequiresPermissions("system:project:list")
+    @RequiresPermissions("system:project:auditlist")
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Project project) {
         startPage();
+        project.setAuditStatus(0);
         List<Project> list = projectService.selectProjectList(project);
         return getDataTable(list);
     }
@@ -114,11 +111,12 @@ public class ProjectController extends BaseController {
     /**
      * 用户状态修改
      */
-    @RequiresPermissions("system:project:edit")
+    @RequiresPermissions("system:project:auditpass")
     @PostMapping("/changeStatus")
     @ResponseBody
     public AjaxResult changeStatus(Project project) {
-
+        project.setUpdateBy(ShiroUtils.getLoginName());
+        project.setAuditId(ShiroUtils.getUserId().intValue());
         return toAjax(projectService.updateProject(project));
     }
 }

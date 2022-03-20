@@ -2,6 +2,7 @@ package com.zxj.service.impl;
 
 import java.util.List;
 
+import com.zxj.common.shiro.ShiroUtils;
 import com.zxj.common.text.Convert;
 import com.zxj.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,19 @@ public class ProjectServiceImpl implements IProjectService
         return projectMapper.selectProjectList(project);
     }
 
+
+    /**
+     * 查询扶贫项目列表
+     *
+     * @param project 扶贫项目
+     * @return 扶贫项目
+     */
+    @Override
+    public List<Project> selectProjectHomeList(Project project)
+    {
+        return projectMapper.selectProjectHomeList(project);
+    }
+
     /**
      * 新增扶贫项目
      * 
@@ -72,6 +86,9 @@ public class ProjectServiceImpl implements IProjectService
     public int updateProject(Project project)
     {
         project.setUpdateTime(DateUtils.getNowDate());
+        project.setUpdateBy(ShiroUtils.getLoginName());
+
+
         return projectMapper.updateProject(project);
     }
 
