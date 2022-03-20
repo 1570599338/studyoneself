@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2022-03-08 21:44:37
+Date: 2022-03-20 21:42:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -114,7 +114,7 @@ CREATE TABLE `sys_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COMMENT='字典数据表';
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -178,6 +178,19 @@ INSERT INTO `sys_dict_data` VALUES ('56', '2', '计算机软件', '2', 'job_ente
 INSERT INTO `sys_dict_data` VALUES ('57', '3', '汽车及零配件', '3', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:26', '', null, null);
 INSERT INTO `sys_dict_data` VALUES ('58', '4', '房地产/汽车', '4', 'job_enterprise_category', null, null, 'Y', '0', 'admin', '2020-02-10 13:12:40', '', null, null);
 INSERT INTO `sys_dict_data` VALUES ('59', '5', '快速消费品(食品、饮料、化妆品) 批发/零售', '5', 'job_enterprise_category', '', 'primary', 'Y', '0', 'admin', '2020-02-10 14:15:16', 'admin', '2022-02-11 16:53:06', '123');
+INSERT INTO `sys_dict_data` VALUES ('60', '1', '未发布', '0', 'isPublish', null, null, 'Y', '0', 'admin', '2022-03-19 18:20:42', '', null, '未发布');
+INSERT INTO `sys_dict_data` VALUES ('61', '2', '已发布', '1', 'isPublish', null, null, 'Y', '0', 'admin', '2022-03-19 18:21:02', '', null, '已发布');
+INSERT INTO `sys_dict_data` VALUES ('62', '1', '首页轮播', '0', 'project_post', null, null, 'Y', '0', 'admin', '2022-03-19 18:22:07', '', null, '首页轮播');
+INSERT INTO `sys_dict_data` VALUES ('63', '1', '其他位置', '1', 'project_post', null, null, 'Y', '0', 'admin', '2022-03-19 18:22:20', '', null, '其他位置');
+INSERT INTO `sys_dict_data` VALUES ('64', '1', '资金类型', '0', 'project-type', null, null, 'Y', '0', 'admin', '2022-03-19 18:24:18', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('65', '2', '人力物力', '1', 'project-type', null, null, 'Y', '0', 'admin', '2022-03-19 18:24:34', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('66', '1', '线上捐款', '0', 'donate_type', null, null, 'Y', '0', 'admin', '2022-03-20 01:20:31', '', null, '线上捐款');
+INSERT INTO `sys_dict_data` VALUES ('67', '2', '线下捐款', '1', 'donate_type', null, null, 'Y', '0', 'admin', '2022-03-20 01:20:49', '', null, '线下捐款');
+INSERT INTO `sys_dict_data` VALUES ('68', '1', '支付宝', '0', 'pay_type', null, null, 'Y', '0', 'admin', '2022-03-20 01:21:46', '', null, '支付宝方式支付');
+INSERT INTO `sys_dict_data` VALUES ('69', '2', '微信支付', '1', 'pay_type', null, null, 'Y', '0', 'admin', '2022-03-20 01:21:59', '', null, '微信支付');
+INSERT INTO `sys_dict_data` VALUES ('70', '1', '初始状态', '0', 'system_project_audit', null, null, 'Y', '0', 'admin', '2022-03-20 03:55:53', '', null, '初始状态');
+INSERT INTO `sys_dict_data` VALUES ('71', '2', '审核成功', '1', 'system_project_audit', null, null, 'Y', '0', 'admin', '2022-03-20 03:56:11', '', null, null);
+INSERT INTO `sys_dict_data` VALUES ('72', '3', '审核失败', '2', 'system_project_audit', null, null, 'Y', '0', 'admin', '2022-03-20 03:56:46', '', null, '审核失败');
 
 -- ----------------------------
 -- Table structure for sys_dict_type
@@ -195,7 +208,7 @@ CREATE TABLE `sys_dict_type` (
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`),
   UNIQUE KEY `dict_type` (`dict_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COMMENT='字典类型表';
 
 -- ----------------------------
 -- Records of sys_dict_type
@@ -219,6 +232,12 @@ INSERT INTO `sys_dict_type` VALUES ('16', '处理结果', 'job_operate_result', 
 INSERT INTO `sys_dict_type` VALUES ('17', 'VIP等级', 'job_vip_level', '0', 'admin', '2020-02-07 13:27:08', '', null, null);
 INSERT INTO `sys_dict_type` VALUES ('18', '企业规模', 'job_enterprise_scale', '0', 'admin', '2020-02-10 13:08:24', '', null, null);
 INSERT INTO `sys_dict_type` VALUES ('19', '企业性质', 'job_enterprise_category', '0', 'admin', '2020-02-10 13:10:54', '', null, null);
+INSERT INTO `sys_dict_type` VALUES ('20', '发布状态', 'isPublish', '0', 'admin', '2022-03-19 18:19:51', '', null, '发布状态');
+INSERT INTO `sys_dict_type` VALUES ('21', '项目位置', 'project_post', '0', 'admin', '2022-03-19 18:21:42', '', null, '项目位置');
+INSERT INTO `sys_dict_type` VALUES ('22', '项目扶贫类型', 'project-type', '0', 'admin', '2022-03-19 18:23:40', '', null, '项目扶贫类型');
+INSERT INTO `sys_dict_type` VALUES ('23', '捐款形式', 'donate_type', '0', 'admin', '2022-03-20 01:20:09', '', null, '捐款形式');
+INSERT INTO `sys_dict_type` VALUES ('24', '支付方式', 'pay_type', '0', 'admin', '2022-03-20 01:21:23', '', null, '支付方式');
+INSERT INTO `sys_dict_type` VALUES ('25', '审核状态', 'system_project_audit', '0', 'admin', '2022-03-20 03:55:09', '', null, null);
 
 -- ----------------------------
 -- Table structure for sys_logininfor
@@ -301,14 +320,16 @@ CREATE TABLE `sys_menu` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1086 DEFAULT CHARSET=utf8 COMMENT='菜单权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=1126 DEFAULT CHARSET=utf8 COMMENT='菜单权限表';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
 INSERT INTO `sys_menu` VALUES ('1', '系统管理', '0', '1', '#', '', 'M', '0', '', 'fa fa-gear', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统管理目录');
 INSERT INTO `sys_menu` VALUES ('2', '系统监控', '0', '2', '#', 'menuItem', 'M', '0', '', 'fa fa-video-camera', 'admin', '2018-03-16 11:33:00', 'admin', '2022-01-13 13:48:55', '系统监控目录');
-INSERT INTO `sys_menu` VALUES ('3', '系统工具', '0', '3', '#', 'menuItem', 'M', '0', '', 'fa fa-bars', 'admin', '2018-03-16 11:33:00', 'admin', '2022-01-13 13:49:04', '系统工具目录');
+INSERT INTO `sys_menu` VALUES ('3', '扶贫项目', '0', '3', '#', 'menuItem', 'M', '0', '', 'fa fa-bars', 'admin', '2018-03-16 11:33:00', 'admin', '2022-01-13 13:49:04', '系统工具目录');
+INSERT INTO `sys_menu` VALUES ('4', '扶贫项目申请', '0', '4', '#', 'menuItem', 'M', '0', '', 'fa fa-book', 'admin', '2018-03-16 11:33:00', 'admin', '2022-03-20 02:07:57', '系统工具目录');
+INSERT INTO `sys_menu` VALUES ('5', '关于我们', '0', '1', '#', 'menuItem', 'M', '0', null, 'fa fa-area-chart', 'admin', '2022-02-21 11:04:44', 'admin', '2022-02-21 14:45:21', '');
 INSERT INTO `sys_menu` VALUES ('100', '用户管理', '1', '1', '/system/user', '', 'C', '0', 'system:user:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '用户管理菜单');
 INSERT INTO `sys_menu` VALUES ('101', '角色管理', '1', '2', '/system/role', '', 'C', '0', 'system:role:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '角色管理菜单');
 INSERT INTO `sys_menu` VALUES ('102', '菜单管理', '1', '3', '/system/menu', '', 'C', '0', 'system:menu:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '菜单管理菜单');
@@ -317,16 +338,10 @@ INSERT INTO `sys_menu` VALUES ('104', '岗位管理', '1', '5', '/system/post', 
 INSERT INTO `sys_menu` VALUES ('105', '字典管理', '1', '6', '/system/dict', '', 'C', '0', 'system:dict:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '字典管理菜单');
 INSERT INTO `sys_menu` VALUES ('106', '参数设置', '1', '7', '/system/config', 'menuItem', 'C', '1', 'system:config:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:43', '参数设置菜单');
 INSERT INTO `sys_menu` VALUES ('107', '通知公告', '1', '8', '/system/notice', 'menuItem', 'C', '0', 'system:notice:view', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2022-02-21 12:40:32', '通知公告菜单');
-INSERT INTO `sys_menu` VALUES ('108', '日志管理', '1', '9', '#', 'menuItem', 'M', '1', '', '#', 'admin', '2018-03-16 11:33:00', 'admin', '2020-02-11 09:57:59', '日志管理菜单');
 INSERT INTO `sys_menu` VALUES ('109', '在线用户', '2', '1', '/monitor/online', '', 'C', '0', 'monitor:online:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '在线用户菜单');
 INSERT INTO `sys_menu` VALUES ('110', '定时任务', '2', '2', '/monitor/job', '', 'C', '0', 'monitor:job:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '定时任务菜单');
 INSERT INTO `sys_menu` VALUES ('111', '数据监控', '2', '3', '/monitor/data', '', 'C', '0', 'monitor:data:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '数据监控菜单');
 INSERT INTO `sys_menu` VALUES ('112', '服务监控', '2', '3', '/monitor/server', '', 'C', '0', 'monitor:server:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '服务监控菜单');
-INSERT INTO `sys_menu` VALUES ('113', '表单构建', '3', '1', '/tool/build', '', 'C', '0', 'tool:build:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '表单构建菜单');
-INSERT INTO `sys_menu` VALUES ('114', '代码生成', '3', '2', '/tool/gen', '', 'C', '0', 'tool:gen:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '代码生成菜单');
-INSERT INTO `sys_menu` VALUES ('115', '系统接口', '3', '3', '/tool/swagger', '', 'C', '0', 'tool:swagger:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '系统接口菜单');
-INSERT INTO `sys_menu` VALUES ('500', '操作日志', '108', '1', '/monitor/operlog', '', 'C', '0', 'monitor:operlog:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '操作日志菜单');
-INSERT INTO `sys_menu` VALUES ('501', '登录日志', '108', '2', '/monitor/logininfor', '', 'C', '0', 'monitor:logininfor:view', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '登录日志菜单');
 INSERT INTO `sys_menu` VALUES ('1000', '用户查询', '100', '1', '#', '', 'F', '0', 'system:user:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
 INSERT INTO `sys_menu` VALUES ('1001', '用户新增', '100', '2', '#', '', 'F', '0', 'system:user:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
 INSERT INTO `sys_menu` VALUES ('1002', '用户修改', '100', '3', '#', '', 'F', '0', 'system:user:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
@@ -366,40 +381,46 @@ INSERT INTO `sys_menu` VALUES ('1035', '公告查询', '107', '1', '#', '', 'F',
 INSERT INTO `sys_menu` VALUES ('1036', '公告新增', '107', '2', '#', '', 'F', '0', 'system:notice:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
 INSERT INTO `sys_menu` VALUES ('1037', '公告修改', '107', '3', '#', '', 'F', '0', 'system:notice:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
 INSERT INTO `sys_menu` VALUES ('1038', '公告删除', '107', '4', '#', '', 'F', '0', 'system:notice:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1039', '操作查询', '500', '1', '#', '', 'F', '0', 'monitor:operlog:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1040', '操作删除', '500', '2', '#', '', 'F', '0', 'monitor:operlog:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1041', '详细信息', '500', '3', '#', '', 'F', '0', 'monitor:operlog:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1042', '日志导出', '500', '4', '#', '', 'F', '0', 'monitor:operlog:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1043', '登录查询', '501', '1', '#', '', 'F', '0', 'monitor:logininfor:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1044', '登录删除', '501', '2', '#', '', 'F', '0', 'monitor:logininfor:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1045', '日志导出', '501', '3', '#', '', 'F', '0', 'monitor:logininfor:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1046', '账户解锁', '501', '4', '#', '', 'F', '0', 'monitor:logininfor:unlock', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1047', '在线查询', '109', '1', '#', '', 'F', '0', 'monitor:online:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1048', '批量强退', '109', '2', '#', '', 'F', '0', 'monitor:online:batchForceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1049', '单条强退', '109', '3', '#', '', 'F', '0', 'monitor:online:forceLogout', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1050', '任务查询', '110', '1', '#', '', 'F', '0', 'monitor:job:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1051', '任务新增', '110', '2', '#', '', 'F', '0', 'monitor:job:add', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1052', '任务修改', '110', '3', '#', '', 'F', '0', 'monitor:job:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1053', '任务删除', '110', '4', '#', '', 'F', '0', 'monitor:job:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1054', '状态修改', '110', '5', '#', '', 'F', '0', 'monitor:job:changeStatus', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1055', '任务详细', '110', '6', '#', '', 'F', '0', 'monitor:job:detail', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1056', '任务导出', '110', '7', '#', '', 'F', '0', 'monitor:job:export', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1057', '生成查询', '114', '1', '#', '', 'F', '0', 'tool:gen:list', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1058', '生成修改', '114', '2', '#', '', 'F', '0', 'tool:gen:edit', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1059', '生成删除', '114', '3', '#', '', 'F', '0', 'tool:gen:remove', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1060', '预览代码', '114', '4', '#', '', 'F', '0', 'tool:gen:preview', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1061', '生成代码', '114', '5', '#', '', 'F', '0', 'tool:gen:code', '#', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '');
-INSERT INTO `sys_menu` VALUES ('1062', '兼职系统', '0', '4', '#', 'menuItem', 'M', '0', null, 'fa fa-handshake-o', 'admin', '2020-02-05 11:52:26', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1063', '简历管理', '1062', '1', '/job/resume', 'menuItem', 'C', '0', 'job:resume:view', '#', 'admin', '2020-02-05 11:53:07', 'admin', '2020-02-06 13:51:55', '');
-INSERT INTO `sys_menu` VALUES ('1064', '职位管理', '1062', '2', '/job/position', 'menuItem', 'C', '0', 'job:position:view', '#', 'admin', '2020-02-05 12:03:54', 'admin', '2020-02-05 15:47:51', '');
-INSERT INTO `sys_menu` VALUES ('1065', '新增', '1063', '1', '#', 'menuItem', 'F', '0', 'job:position:add', '#', 'admin', '2020-02-05 12:04:48', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1066', '编辑', '1063', '2', '#', 'menuItem', 'F', '0', 'job:position:edit', '#', 'admin', '2020-02-05 12:05:12', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1067', '删除', '1063', '3', '#', 'menuItem', 'F', '0', 'job:position:remove', '#', 'admin', '2020-02-05 12:05:31', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1068', '查看列表', '1063', '4', '#', 'menuItem', 'F', '0', 'job:resume:list', '#', 'admin', '2020-02-05 12:45:44', 'admin', '2020-02-05 12:48:58', '');
-INSERT INTO `sys_menu` VALUES ('1069', '人才资源库', '1062', '1', '/job/resumeLib', 'menuItem', 'C', '0', 'job:resumeLib:view', '#', 'admin', '2020-02-05 13:19:13', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1070', '职位资源库', '1062', '4', '/job/positionCenter', 'menuItem', 'C', '0', '', '#', 'admin', '2020-02-05 15:48:12', 'admin', '2020-02-10 12:54:26', '');
-INSERT INTO `sys_menu` VALUES ('1083', 'vip用户管理', '1062', '5', '/job/vip', 'menuItem', 'C', '0', null, '#', 'admin', '2020-02-07 12:12:47', '', null, '');
-INSERT INTO `sys_menu` VALUES ('1085', '企业管理', '1062', '6', '/job/enterprise', 'menuItem', 'C', '0', null, '#', 'admin', '2020-02-10 13:54:33', '', null, '');
+INSERT INTO `sys_menu` VALUES ('1086', '扶贫项目', '3', '1', '/system/project', '', 'C', '0', 'system:project:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '扶贫项目菜单');
+INSERT INTO `sys_menu` VALUES ('1087', '扶贫项目查询', '1086', '1', '#', '', 'F', '0', 'system:project:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1088', '扶贫项目新增', '1086', '2', '#', '', 'F', '0', 'system:project:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1089', '扶贫项目修改', '1086', '3', '#', '', 'F', '0', 'system:project:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1090', '扶贫项目删除', '1086', '4', '#', '', 'F', '0', 'system:project:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1091', '扶贫项目导出', '1086', '5', '#', '', 'F', '0', 'system:project:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1092', '捐款', '3', '1', '/system/donate', '', 'C', '0', 'system:donate:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '捐款菜单');
+INSERT INTO `sys_menu` VALUES ('1093', '捐款查询', '1092', '1', '#', '', 'F', '0', 'system:donate:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1094', '捐款新增', '1092', '2', '#', '', 'F', '0', 'system:donate:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1095', '捐款修改', '1092', '3', '#', '', 'F', '0', 'system:donate:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1096', '捐款删除', '1092', '4', '#', '', 'F', '0', 'system:donate:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1097', '捐款导出', '1092', '5', '#', '', 'F', '0', 'system:donate:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1098', '扶贫项目审核', '3', '1', '/system/projectaduit', '', 'C', '0', 'system:project:auditview', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '扶贫项目菜单');
+INSERT INTO `sys_menu` VALUES ('1099', '扶贫项目查询', '1098', '1', '#', '', 'F', '0', 'system:project:auditlist', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1100', '审核', '1098', '2', '#', '', 'F', '0', 'system:project:auditpass', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1101', '失败', '1098', '3', '#', '', 'F', '0', 'system:project:auditfailed', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1102', '扶贫申请', '4', '1', '/system/projectApply', '', 'C', '0', 'system:project:applyview', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1103', '扶贫项目查询', '1102', '1', '#', '', 'F', '0', 'system:project:applylist', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1104', '申请', '1102', '2', '#', '', 'F', '0', 'system:project:applyedit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1105', '申请', '4', '1', '/system/apply', '', 'C', '0', 'system:apply:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '申请菜单');
+INSERT INTO `sys_menu` VALUES ('1106', '申请查询', '1105', '1', '#', '', 'F', '0', 'system:apply:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1107', '申请新增', '1105', '2', '#', '', 'F', '0', 'system:apply:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1108', '申请修改', '1105', '3', '#', '', 'F', '0', 'system:apply:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1109', '申请删除', '1105', '4', '#', '', 'F', '0', 'system:apply:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1110', '申请导出', '1105', '5', '#', '', 'F', '0', 'system:apply:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1111', '审核申请', '4', '1', '/system/applyaudit', '', 'C', '0', 'system:apply:auditview', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '申请菜单');
+INSERT INTO `sys_menu` VALUES ('1112', '申请查询', '1111', '1', '#', '', 'F', '0', 'system:apply:auditlist', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1113', '审核', '1111', '2', '#', '', 'F', '0', 'system:apply:auditedit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1114', '申请导出', '1111', '3', '#', '', 'F', '0', 'system:apply:auditexport', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1115', '关于我们', '5', '1', '/system/about', '', 'C', '0', 'system:about:view', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '关于我们菜单');
+INSERT INTO `sys_menu` VALUES ('1116', '查询', '1115', '1', '#', '', 'F', '0', 'system:about:list', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1117', '新增', '1115', '2', '#', '', 'F', '0', 'system:about:add', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1118', '修改', '1115', '3', '#', '', 'F', '0', 'system:about:edit', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1119', '删除', '1115', '4', '#', '', 'F', '0', 'system:about:remove', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1120', '志愿者风采', '3', '1', '/system/style', '', 'C', '0', 'system:style:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '志愿者风采菜单');
+INSERT INTO `sys_menu` VALUES ('1121', '志愿者风采查询', '1120', '1', '#', '', 'F', '0', 'system:style:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1122', '志愿者风采新增', '1120', '2', '#', '', 'F', '0', 'system:style:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1123', '志愿者风采修改', '1120', '3', '#', '', 'F', '0', 'system:style:edit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1124', '志愿者风采删除', '1120', '4', '#', '', 'F', '0', 'system:style:remove', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1125', '志愿者风采导出', '1120', '5', '#', '', 'F', '0', 'system:style:export', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
 
 -- ----------------------------
 -- Table structure for sys_notice
@@ -723,3 +744,152 @@ INSERT INTO `sys_user_role` VALUES ('12', '5');
 INSERT INTO `sys_user_role` VALUES ('13', '5');
 INSERT INTO `sys_user_role` VALUES ('14', '5');
 INSERT INTO `sys_user_role` VALUES ('15', '5');
+
+-- ----------------------------
+-- Table structure for t_about
+-- ----------------------------
+DROP TABLE IF EXISTS `t_about`;
+CREATE TABLE `t_about` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `title` varchar(100) DEFAULT '' COMMENT '名称',
+  `imgUrl` varchar(200) DEFAULT '' COMMENT '图片地址',
+  `content` longtext COMMENT '内容',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='关于我们';
+
+-- ----------------------------
+-- Records of t_about
+-- ----------------------------
+INSERT INTO `t_about` VALUES ('1', '关于我们', '71ce7172c71eba55bb51bf70cb81da1f.jpg', '关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们', '0', 'zxj', '2022-03-20 20:08:00', 'admin', '2022-03-20 20:13:03', null);
+
+-- ----------------------------
+-- Table structure for t_apply
+-- ----------------------------
+DROP TABLE IF EXISTS `t_apply`;
+CREATE TABLE `t_apply` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(100) DEFAULT '' COMMENT '姓名',
+  `tel` varchar(100) DEFAULT '' COMMENT '联系方式',
+  `national_ID` varchar(100) DEFAULT '' COMMENT '身份证号',
+  `email` varchar(100) DEFAULT '' COMMENT '邮箱',
+  `adress` varchar(200) DEFAULT NULL COMMENT '地址',
+  `imgUrl` varchar(200) DEFAULT '' COMMENT '图片地址',
+  `apply_short` varchar(200) DEFAULT '' COMMENT '受灾简述',
+  `apply_info` longtext COMMENT '受灾情况简介',
+  `apply_amount` varchar(100) DEFAULT NULL COMMENT '受灾申请金额',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `project_id` int(5) DEFAULT NULL,
+  `user_id` int(5) DEFAULT NULL COMMENT '用户id',
+  `audit_status` int(2) DEFAULT '0' COMMENT '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望',
+  `audit_id` int(5) DEFAULT NULL COMMENT '审核人员id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='申请';
+
+-- ----------------------------
+-- Records of t_apply
+-- ----------------------------
+INSERT INTO `t_apply` VALUES ('1', '张三', '1581096', '54462123123', '12331', '北京', 'a4b0002bfefb021f7f9b440e5d0cc958.jpg', '五千二无群群无', null, '1000', '0', '', '2022-03-20 12:07:52', '', null, null, '2', null, '0', null);
+INSERT INTO `t_apply` VALUES ('2', 'a120', '1581096', '245324523', '110@qq.com', '23吧发过火', '44e28c8941afbe7b9c611e9dff28c583.jpg', '234124', '事发地点国防生的轨道跌的上', '1000', '0', '', '2022-03-20 12:09:32', '', '2022-03-20 17:39:53', null, '1', null, '1', null);
+INSERT INTO `t_apply` VALUES ('3', 'admin', '1581096', '1234', '110@qq.com', '电饭锅', '2ced260c475d63885cd08270f652aada.jpg', '卫生服务', '第三方哈根达斯股份的所得税', '111', '0', '', '2022-03-20 12:14:53', '', '2022-03-20 12:23:17', null, '2', null, '0', null);
+
+-- ----------------------------
+-- Table structure for t_donate
+-- ----------------------------
+DROP TABLE IF EXISTS `t_donate`;
+CREATE TABLE `t_donate` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(100) DEFAULT '' COMMENT '姓名',
+  `tel` varchar(100) DEFAULT '' COMMENT '联系方式',
+  `email` varchar(100) DEFAULT '' COMMENT '邮箱',
+  `adress` varchar(200) DEFAULT NULL COMMENT '地址',
+  `note` varchar(200) DEFAULT NULL COMMENT '留言',
+  `type` int(2) DEFAULT NULL COMMENT '捐款形式 0线上捐款 1线下捐款',
+  `pay_Type` int(2) DEFAULT NULL COMMENT '付款方式 0支付宝 1是微信',
+  `pay_amount` varchar(100) DEFAULT NULL COMMENT '金额',
+  `order_no` varchar(200) DEFAULT NULL COMMENT '订单号',
+  `trade_no` varchar(200) DEFAULT NULL COMMENT '交易号',
+  `project_id` int(5) DEFAULT NULL COMMENT '审核人员id',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `user_id` int(5) DEFAULT NULL COMMENT '用户id',
+  `audit_status` int(2) DEFAULT '0' COMMENT '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望',
+  `audit_id` int(5) DEFAULT NULL COMMENT '审核人员id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='捐款';
+
+-- ----------------------------
+-- Records of t_donate
+-- ----------------------------
+INSERT INTO `t_donate` VALUES ('1', 'admin', '1581096', '110@qq.com', '北京', 'qwerqwre', '0', '0', '11', '202203200157435', '2022032022001484830503616138', null, '0', '', '2022-03-20 01:57:46', '', null, '0', null);
+INSERT INTO `t_donate` VALUES ('2', 'tom', '1581096', '110@qq.com', '北京', 'dfgdfdggfdhfdg', '1', null, null, null, null, null, '0', '', '2022-03-20 01:59:22', '', null, '0', null);
+INSERT INTO `t_donate` VALUES ('3', 'admin', '1581096', '110@qq.com', '北京', '123', '0', null, '111', '202203202128232', null, null, '0', '', '2022-03-20 21:28:20', '', null, '0', null);
+
+-- ----------------------------
+-- Table structure for t_project
+-- ----------------------------
+DROP TABLE IF EXISTS `t_project`;
+CREATE TABLE `t_project` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `title` varchar(100) DEFAULT '' COMMENT '名称',
+  `imgUrl` varchar(200) DEFAULT '' COMMENT '图片地址',
+  `project_short` varchar(200) DEFAULT '' COMMENT '扶贫项目简介',
+  `project_info` longtext COMMENT '扶贫项目简介',
+  `project_type` int(2) DEFAULT NULL COMMENT '扶贫类型 0:代表金钱；1：人力物力',
+  `project_fund` int(9) DEFAULT NULL COMMENT '扶贫资金',
+  `isPublish` int(1) DEFAULT NULL COMMENT '发布状态 0:未发布；1：发布',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `project_post` int(5) DEFAULT NULL COMMENT '展示位置0：轮播图，1:其他位置',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  `user_id` int(5) DEFAULT NULL COMMENT '用户id',
+  `audit_status` int(2) DEFAULT '0' COMMENT '审核状态 0：待审核  1：审核通过  2：审核失败  3: 实现愿望',
+  `audit_id` int(5) DEFAULT NULL COMMENT '审核人员id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='扶贫项目';
+
+-- ----------------------------
+-- Records of t_project
+-- ----------------------------
+INSERT INTO `t_project` VALUES ('1', '项目1', '124333', 'sdfgsdgs', 'gsdgfdsg<b>dsgdf</b>', '0', '1111113', '0', '0', '0', '', '2022-03-19 19:33:21', 'admin', '2022-03-20 04:06:59', null, null, '1', '1');
+INSERT INTO `t_project` VALUES ('2', '项目2', '8c32cb6199855ad888813ff7d2d98141.jpg', '<p>High Quality Charity Theme in Envato Market.</p>\r\n<p>You Can Satisfied Yourself By Helping.</p>', ' <h2>Help the helpless who need you.</h2>\r\n                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now.</p>\r\n                                <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now.</p>\r\n                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </blockquote>\r\n                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now.</p>\r\n                                <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now.</p>\r\n                          ', '0', '111111', '1', '0', '0', '', '2022-03-19 20:49:34', 'admin', '2022-03-20 19:27:52', null, null, '1', null);
+
+-- ----------------------------
+-- Table structure for t_volunteer_style
+-- ----------------------------
+DROP TABLE IF EXISTS `t_volunteer_style`;
+CREATE TABLE `t_volunteer_style` (
+  `id` int(5) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `name` varchar(100) DEFAULT '' COMMENT '名称',
+  `imgUrl` varchar(200) DEFAULT '' COMMENT '图片',
+  `isPublish` int(1) DEFAULT NULL COMMENT '发布状态 0:未发布；1：发布',
+  `content` longtext COMMENT '内容',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志（0代表存在 1代表删除）',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='志愿者风采';
+
+-- ----------------------------
+-- Records of t_volunteer_style
+-- ----------------------------
+INSERT INTO `t_volunteer_style` VALUES ('1', '张三', '4327bed29535ef65d3c81bdb53bca422.jpg', '1', '潜伏期威锋网全方位废弃物为其发放额问问', '0', '', '2022-03-20 21:12:02', '', '2022-03-20 21:23:50', null);
+INSERT INTO `t_volunteer_style` VALUES ('2', '李四', '8d367de54547b5b4e0063d89e4c9c7a2.jpg', '1', '<p>大黑胡子大黑胡子大黑胡子大黑胡子大黑胡子大黑胡子大黑胡子大黑胡子<br></p>', '0', '', '2022-03-20 21:25:21', '', '2022-03-20 21:26:35', null);
