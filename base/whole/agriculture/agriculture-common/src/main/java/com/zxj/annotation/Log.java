@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 /**
  * 自定义操作日志记录注解
  * 
- * @author hong
+ * @author zxj
  *
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })

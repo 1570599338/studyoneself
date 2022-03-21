@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 部门管理 数据层
  *
- * @author lquan
+ * @author zxj
  */
 @Mapper
 public interface DeptMapper {

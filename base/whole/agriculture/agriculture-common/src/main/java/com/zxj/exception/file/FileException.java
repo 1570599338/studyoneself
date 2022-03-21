@@ -6,7 +6,7 @@ import com.zxj.exception.BaseException;
 /**
  * 文件信息异常类
  *
- * @author hong
+ * @author zxj
  */
 public class FileException extends BaseException {
     private static final long serialVersionUID = 1L;

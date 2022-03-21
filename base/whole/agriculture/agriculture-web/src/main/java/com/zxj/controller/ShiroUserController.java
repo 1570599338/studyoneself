@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 /**
  * (ShiroUser)表控制层
  *
- * @author lquan
+ * @author zxj
  * @since 2022-03-08 19:38:31
  */
 @RestController

@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @program: springs
  * @description: 上传文件
- * @author: hong
+ * @author: zxj
  * @create: 2022-02-14 17:51
  **/
 @Configuration

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Excel相关处理
  *
- * @author hong
+ * @author zxj
  */
 
 public class ExcelUtil<T> {

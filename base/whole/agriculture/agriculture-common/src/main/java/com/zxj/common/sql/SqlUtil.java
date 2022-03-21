@@ -6,7 +6,7 @@ import com.zxj.common.utils.StringUtils;
 /**
  * sql操作工具类
  *
- * @author hong
+ * @author zxj
  */
 public class SqlUtil {
     /**

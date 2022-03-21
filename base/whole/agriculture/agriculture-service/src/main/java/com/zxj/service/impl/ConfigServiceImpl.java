@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 参数配置 服务层实现
  * 
- * @author ruoyi
+ * @author zxj
  */
 @Service
 public class ConfigServiceImpl implements IConfigService

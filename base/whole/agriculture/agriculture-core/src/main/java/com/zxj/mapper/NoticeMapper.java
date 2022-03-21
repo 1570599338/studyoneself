@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 公告 数据层
  *
- * @author lquan
+ * @author zxj
  */
 @Mapper
 public interface NoticeMapper {

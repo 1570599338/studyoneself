@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * @program: springs
  * @description: index的controller
- * @author: lquan
+ * @author: zxj
  * @create: 2022-01-30 15:47
  **/
 @Controller

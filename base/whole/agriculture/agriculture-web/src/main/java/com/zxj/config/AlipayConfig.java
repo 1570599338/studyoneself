@@ -4,7 +4,7 @@ package com.zxj.config;
  * 支付宝相关并配置信息
  *
  * notify_url 和 return_url 需要外网可以访问，建议natapp 内网穿透
- * @author lquan
+ * @author zxj
  * @date 2021-03-04 11:37
  */
 public class AlipayConfig {

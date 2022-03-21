@@ -7,7 +7,7 @@ import com.zxj.common.utils.ServletUtils;
 /**
  * 表格数据处理
  * 
- * @author hong
+ * @author zxj
  */
 public class TableSupport
 {

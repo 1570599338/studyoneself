@@ -7,7 +7,7 @@ import org.springframework.data.domain.PageRequest;
 /**
  * (ShiroUser)表服务接口
  *
- * @author lquan
+ * @author zxj
  * @since 2022-03-08 19:38:19
  */
 public interface ShiroUserService {

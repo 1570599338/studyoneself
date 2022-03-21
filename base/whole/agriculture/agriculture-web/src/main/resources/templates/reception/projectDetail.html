@@ -2,13 +2,13 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 
 <head>
-    <th:block th:include="include :: front_header('详细')" />
+    <th:block th:include="front_inc :: front_header('详细')" />
 </head>
 
 <body>
 <!-- start page-wrapper -->
 <div class="page-wrapper">
-    <th:block th:include="include :: front_logo2" />
+    <th:block th:include="front_inc :: front_logo2" />
 
         <!-- start tp-blog-single-section -->
         <section class="tp-blog-single-section section-padding">
@@ -40,10 +40,10 @@
         <!-- end tp-blog-single-section -->
 
         <!-- news-letter-section end-->
-        <th:block th:include="include :: front_foot" />
+        <th:block th:include="front_inc :: front_foot" />
 
     </div>
-    <th:block th:include="include :: frontJS" />
+    <th:block th:include="front_inc :: frontJS" />
 </body>
 
 </html>

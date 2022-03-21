@@ -3,7 +3,7 @@ package com.zxj.enums;
 /**
  * 操作人类别
  * 
- * @author hong
+ * @author zxj
  *
  */
 public enum OperatorType

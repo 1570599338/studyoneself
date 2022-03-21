@@ -1,9 +1,11 @@
 package com.zxj.controller;
 
 import com.zxj.domain.About;
+import com.zxj.domain.Activity;
 import com.zxj.domain.Project;
 import com.zxj.domain.VolunteerStyle;
 import com.zxj.service.IAboutService;
+import com.zxj.service.IActivityService;
 import com.zxj.service.IProjectService;
 import com.zxj.service.IVolunteerStyleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +26,32 @@ public class HomeController {
     @Autowired
     private IProjectService projectService;
 
+
+    @Autowired
+    private IActivityService activityService;
+
+
+    @Autowired
+    private IVolunteerStyleService volunteerStyleService;
+
+
     @GetMapping("/index")
     public String home(Model model) {
         Project project=new Project();
+        project.setIspublish(1);
         List<Project> list = projectService.selectProjectHomeList(project);
         model.addAttribute("projects", list);
+
+        // 志愿者
+        VolunteerStyle volunteerStyle = new VolunteerStyle();
+        volunteerStyle.setIspublish(1);
+        List<VolunteerStyle> listV = volunteerStyleService.selectVolunteerStyleList(volunteerStyle);
+
+        if(listV!=null && listV.size()>0){
+            model.addAttribute("volunteers", listV);
+        }else {
+            model.addAttribute("volunteers", null);
+        }
         return prefix + "/index";
     }
 
@@ -63,18 +86,44 @@ public class HomeController {
     }
 
 
-    @GetMapping("/event")
-    public String event() {
-        return prefix + "/event";
+    /**
+     * 惠农风采
+     * @return
+     */
+    @GetMapping("/activity")
+    public String activity(Model model) {
+        Activity activity = new Activity();
+        activity.setIsPublish(1);
+       List<Activity> list = activityService.selectActivityList(activity);
+        if(list!=null && list.size()>0){
+            model.addAttribute("activities", list);
+        }else{
+            model.addAttribute("activities", null);
+        }
+
+        return prefix + "/activity";
     }
 
-    @GetMapping("/event-single")
-    public String eventSingle() {
-        return prefix + "/event-single";
+    /**
+     * 惠农风采
+     * @return
+     */
+    @GetMapping("/activityHistory/{id}")
+    public String activityHistory(Model model, @PathVariable("id") Integer id) {
+        Activity activity = activityService.selectActivityById(id);
+        model.addAttribute("activity", activity);
+        return prefix + "/activityHistory";
     }
 
-    @Autowired
-    private IVolunteerStyleService volunteerStyleService;
+    /**
+     * 惠农风采
+     * @return
+     */
+    @GetMapping("/activityHistory")
+    public String activityHistory() {
+        return prefix + "/activityHistory";
+    }
+
     @GetMapping("/volunteer")
     public String volunteer(Model model) {
         VolunteerStyle volunteerStyle = new VolunteerStyle();
@@ -99,43 +148,6 @@ public class HomeController {
     }
 
 
-
-    @GetMapping("/error")
-    public String error() {
-        return prefix + "/error";
-    }
-
-    @GetMapping("/blog")
-    public String blog() {
-        return prefix + "/blog";
-    }
-
-
-    @GetMapping("/blog-left")
-    public String blogLeft() {
-        return prefix + "/blog-left";
-    }
-
-    @GetMapping("/blog-fulwidth")
-    public String blogFulwidth() {
-        return prefix + "/blog-fulwidth";
-    }
-
-    @GetMapping("/blog-single")
-    public String blogSingle() {
-        return prefix + "/blog-single";
-    }
-
-    @GetMapping("/blog-single-left")
-    public String blogSingleLeft() {
-        return prefix + "/blog-single-left";
-    }
-
-
-    @GetMapping("/blog-single-fluid")
-    public String blogSingleFluid() {
-        return prefix + "/blog-single-fluid";
-    }
 
 
     @GetMapping("/contact")

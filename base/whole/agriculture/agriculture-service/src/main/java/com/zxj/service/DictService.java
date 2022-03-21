@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * RuoYi首创 html调用 thymeleaf 实现字典读取
+ * 首创 html调用 thymeleaf 实现字典读取
  *
- * @author lquan
+ * @author zxj
  */
 @Service("dict")
 public class DictService {

@@ -3,7 +3,7 @@ package com.zxj.exception;
 /**
  * 业务异常
  *
- * @author ruoyi
+ * @author zxj
  */
 public class BusinessException extends RuntimeException {
     private static final long serialVersionUID = 1L;

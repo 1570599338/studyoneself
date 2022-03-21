@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html><!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <th:block th:include="front_inc :: front_header('惠农风采')" />
+</head>
+<body>
+<!-- start page-wrapper -->
+<div class="page-wrapper">
+    <th:block th:include="front_inc :: front_logo2" />
+    <!-- end of header -->
+    <!-- .tp-breadcumb-area end -->
+    <!-- tp-event-details-area start -->
+    <div class="tp-case-details-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col col-md-12">
+                    <div class="tp-case-details-wrap">
+                        <div class="tp-case-details-text">
+                            <div id="Description">
+                                <div class="tp-case-details-img">
+                                    <img th:src="@{'/headImage/upload/'+${activity.imgurl}}" alt="${activity.title}">
+                                </div>
+                                <div class="tp-case-content">
+                                    <div class="tp-case-text-top">
+                                        <h2>[(${activity.title})]</h2>
+                                        <div class="case-b-text">
+                                            [(${activity.activityInfo})]
+                                           <!-- <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.</p>
+                                            <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided.</p>
+                                            <p>But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures.</p>
+                                       -->
+                                        </div>
+                                       <!-- <div class="case-bb-text">
+                                            <h3>Event Mission</h3>
+                                            <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure.</p>
+                                            <ul>
+                                                <li>Save The Children’s Role In Fight Against Malnutrition Hailed</li>
+                                                <li>Charity Can Help Make Smile Of Poor People</li>
+                                                <li>Else he endures pains to avoid worse pains.</li>
+                                                <li>We denounce with righteous indignation and dislike men. </li>
+                                                <li>Financial Help For Poor Families</li>
+                                            </ul>
+                                        </div>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- tp-event-details-area end -->
+
+
+
+
+    <th:block th:include="front_inc :: front_foot" />
+</div>
+<th:block th:include="front_inc :: frontJS" />
+</body>
+
+</html>

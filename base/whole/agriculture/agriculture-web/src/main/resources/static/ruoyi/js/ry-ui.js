@@ -1,6 +1,6 @@
 /**
  * 通用js方法封装处理
- * Copyright (c) 2019 lquan
+ * Copyright (c) 2019 zxj
  */
 
 // 当前table相关信息

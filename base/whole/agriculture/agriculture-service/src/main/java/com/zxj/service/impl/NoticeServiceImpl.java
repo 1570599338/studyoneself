@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * 公告 服务层实现
  * 
- * @author ruoyi
+ * @author zxj
  * @date 2018-06-25
  */
 @Service

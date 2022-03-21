@@ -5,7 +5,7 @@ import lombok.ToString;
 /**
  * @program: agriculture
  * @description: 捐赠类
- * @author: lquan
+ * @author: zxj
  * @create: 2022-03-19 22:11
  **/
 @ToString

@@ -3,7 +3,7 @@ package com.zxj.common;
 /**
  * 用户常量信息
  * 
- * @author hong
+ * @author zxj
  */
 public class UserConstants
 {

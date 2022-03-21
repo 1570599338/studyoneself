@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 /**
  * 部门表 sys_dept
  *
- * @author lquan
+ * @author zxj
  */
 public class Dept extends BaseEntity {
     private static final long serialVersionUID = 1L;

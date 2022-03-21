@@ -3,7 +3,7 @@ package com.zxj.enums;
 /**
  * 业务操作类型
  * 
- * @author hong
+ * @author zxj
  *
  */
 public enum BusinessType

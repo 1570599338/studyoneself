@@ -15,7 +15,7 @@ import org.springframework.beans.BeanUtils;
 /**
  * shiro 工具类
  *
- * @author ruoyi
+ * @author zxj
  */
 public class ShiroUtils {
     public static Subject getSubject() {

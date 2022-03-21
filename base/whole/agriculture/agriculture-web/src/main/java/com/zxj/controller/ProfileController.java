@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * 个人信息 业务处理
  *
- * @author lquan
+ * @author zxj
  */
 @Controller
 @RequestMapping("/system/user/profile")

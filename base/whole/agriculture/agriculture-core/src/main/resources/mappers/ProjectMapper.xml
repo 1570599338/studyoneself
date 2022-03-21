@@ -135,7 +135,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="ispublish != null "> and isPublish = #{ispublish}</if>
             <if test="projectPost != null "> and project_post = #{projectPost}</if>
              and audit_status=1 AND isPublish=1
-             limit 3
+
         </where>
     </select>
 

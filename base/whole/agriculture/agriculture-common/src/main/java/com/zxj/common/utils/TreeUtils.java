@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 权限数据处理
  *
- * @author lquan
+ * @author zxj
  */
 public class TreeUtils {
     /**

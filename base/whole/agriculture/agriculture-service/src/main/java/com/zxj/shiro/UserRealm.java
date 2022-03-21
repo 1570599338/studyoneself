@@ -19,7 +19,7 @@ import java.util.Set;
 /**
  * @program: springs
  * @description: 自定义Ream
- * @author: hong
+ * @author: zxj
  * @create: 2022-01-30 16:02
  **/
 public class UserRealm extends AuthorizingRealm {
@@ -99,7 +99,7 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.printf("执行认证逻辑");
 //        // 假设数据库的用户数据和密码
-//        //  String name ="hong";
+//        //  String name ="zxj";
 //        // String password = "123456";
 //
 //        // 编写shiro判断的逻辑，判断用户名和密码

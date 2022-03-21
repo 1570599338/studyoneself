@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 /**
  * (ShiroUser)表服务实现类
  *
- * @author lquan
+ * @author zxj
  * @since 2022-03-08 19:38:20
  */
 @Service

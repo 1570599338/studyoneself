@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * @program: agriculture
  * @description: 生成订单号
- * @author: lquan
+ * @author: zxj
  * @create: 2022-03-19 22:01
  **/
 public class OrderNoUtil {

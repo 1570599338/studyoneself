@@ -2,13 +2,13 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 
 <head>
-    <th:block th:include="include :: front_header('捐款')" />
+    <th:block th:include="front_inc :: front_header('捐款')" />
 </head>
 
 <body>
     <!-- start page-wrapper -->
     <div class="page-wrapper">
-        <th:block th:include="include :: front_logo2" />
+        <th:block th:include="front_inc :: front_logo2" />
 
 
         <!-- tp-event-area start -->
@@ -36,10 +36,10 @@
         <!-- tp-event-area end -->
 
 
-        <th:block th:include="include :: front_foot" />
+        <th:block th:include="front_inc :: front_foot" />
 
     </div>
-    <th:block th:include="include :: frontJS" />
+    <th:block th:include="front_inc :: frontJS" />
 </body>
 
 </html>

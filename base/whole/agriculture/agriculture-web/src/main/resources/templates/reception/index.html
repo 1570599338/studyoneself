@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: front_header('home')" />
+    <th:block th:include="front_inc :: front_header('home')" />
 </head>
 
 <body>
     <!-- start page-wrapper -->
     <div class="page-wrapper">
 
-        <th:block th:include="include :: front_logo2" />
+        <th:block th:include="front_inc :: front_logo2" />
         <!-- start of hero -->
         <section class="hero hero-style-2">
             <div class="hero-slider">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="slide">
+               <!-- <div class="slide">
                     <div class="container">
                         <img src="/reception/picture/slide-7.jpg" alt="" class="slider-bg">
                         <div class="row">
@@ -76,12 +76,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </section>
         <!-- end of hero slider -->
 
 
 
+
+
+
+        <!-- volunteer-area-end -->
+        <!-- start team-section -->
+        <section class="team-section v2 section-padding ">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-lg-6 col-lg-offset-3">
+                        <div class="section-title text-center">
+                          <!--  <span>志愿者团队</span>-->
+                            <h2>志愿者团队</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-xs-12">
+                        <div class="team-grids clearfix">
+
+                            <div class="grid" th:if="${volunteers}"  th:each="volunteer:${volunteers}">
+                                <div class="img-holder">
+                                    <img th:src="@{'/headImage/upload/'+${volunteer.imgurl}}" alt="${volunteer.name}">
+                                </div>
+                                <div class="details">
+                                    <a th:href="@{'/home/volunteerDetail/'+${volunteer.id}}" >[(${volunteer.name})]</a></h3>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end container -->
+        </section>
+        <!-- end team-section -->
 
         <!-- tp-cta-area start -->
         <div class="tp-cta-area">
@@ -93,18 +127,19 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse </p>
                             <div class="btns">
                                 <a href="donate" class="theme-btn">捐款</a>
-                                <a href="volunteer" class="theme-btn-s2">Join Us Now</a>
-                            </div>                        </div>
+                                <a href="volunteer" class="theme-btn-s2">加入我们</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- tp-cta-area end -->
 
-        <th:block th:include="include :: front_foot" />
+        <th:block th:include="front_inc :: front_foot" />
 
     </div>
-    <th:block th:include="include :: frontJS" />
+    <th:block th:include="front_inc :: frontJS" />
 </body>
 
 </html>

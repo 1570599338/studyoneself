@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 /**
  * 角色表 sys_role
  *
- * @author ruoyi
+ * @author zxj
  */
 public class Role extends BaseEntity {
     private static final long serialVersionUID = 1L;

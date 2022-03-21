@@ -2,7 +2,7 @@
  * Super simple wysiwyg editor v0.8.12
  * https://summernote.org
  *
- * Copyright 2013- Alan Hong. and other contributors
+ * Copyright 2013- Alan zxj. and other contributors
  * summernote may be freely distributed under the MIT license.
  *
  * Date: 2019-05-16T08:16Z

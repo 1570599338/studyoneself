@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 登录验证
  *
- * @author ruoyi
+ * @author zxj
  */
 @Controller
 public class LoginController extends BaseController {

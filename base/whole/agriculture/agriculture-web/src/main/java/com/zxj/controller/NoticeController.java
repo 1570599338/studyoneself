@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 公告 信息操作处理
  *
- * @author lquan
+ * @author zxj
  */
 @Controller
 @RequestMapping("/system/notice")

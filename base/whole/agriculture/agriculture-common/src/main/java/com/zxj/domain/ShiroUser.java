@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * (ShiroUser)实体类
  *
- * @author lquan
+ * @author zxj
  * @since 2022-03-08 19:38:04
  */
 @ToString

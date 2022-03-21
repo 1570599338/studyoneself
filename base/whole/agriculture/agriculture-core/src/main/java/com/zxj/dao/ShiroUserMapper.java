@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * (ShiroUser)表数据库访问层
  *
- * @author lquan
+ * @author zxj
  * @since 2022-03-08 19:37:52
  */
 @Mapper 

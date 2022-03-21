@@ -6,7 +6,7 @@ import com.zxj.common.utils.StringUtils;
 /**
  * 字符串格式化
  * 
- * @author hong
+ * @author zxj
  */
 public class StrFormatter
 {

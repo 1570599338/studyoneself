@@ -410,11 +410,11 @@ INSERT INTO `sys_menu` VALUES ('1111', '审核申请', '4', '1', '/system/applya
 INSERT INTO `sys_menu` VALUES ('1112', '申请查询', '1111', '1', '#', '', 'F', '0', 'system:apply:auditlist', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
 INSERT INTO `sys_menu` VALUES ('1113', '审核', '1111', '2', '#', '', 'F', '0', 'system:apply:auditedit', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
 INSERT INTO `sys_menu` VALUES ('1114', '申请导出', '1111', '3', '#', '', 'F', '0', 'system:apply:auditexport', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
-INSERT INTO `sys_menu` VALUES ('1115', '关于我们', '5', '1', '/system/about', '', 'C', '0', 'system:about:view', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '关于我们菜单');
-INSERT INTO `sys_menu` VALUES ('1116', '查询', '1115', '1', '#', '', 'F', '0', 'system:about:list', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `sys_menu` VALUES ('1117', '新增', '1115', '2', '#', '', 'F', '0', 'system:about:add', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `sys_menu` VALUES ('1118', '修改', '1115', '3', '#', '', 'F', '0', 'system:about:edit', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
-INSERT INTO `sys_menu` VALUES ('1119', '删除', '1115', '4', '#', '', 'F', '0', 'system:about:remove', '#', 'admin', '2018-03-01 00:00:00', 'lquan', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1115', '关于我们', '5', '1', '/system/about', '', 'C', '0', 'system:about:view', '#', 'admin', '2018-03-01 00:00:00', 'zxj', '2018-03-01 00:00:00', '关于我们菜单');
+INSERT INTO `sys_menu` VALUES ('1116', '查询', '1115', '1', '#', '', 'F', '0', 'system:about:list', '#', 'admin', '2018-03-01 00:00:00', 'zxj', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1117', '新增', '1115', '2', '#', '', 'F', '0', 'system:about:add', '#', 'admin', '2018-03-01 00:00:00', 'zxj', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1118', '修改', '1115', '3', '#', '', 'F', '0', 'system:about:edit', '#', 'admin', '2018-03-01 00:00:00', 'zxj', '2018-03-01 00:00:00', '');
+INSERT INTO `sys_menu` VALUES ('1119', '删除', '1115', '4', '#', '', 'F', '0', 'system:about:remove', '#', 'admin', '2018-03-01 00:00:00', 'zxj', '2018-03-01 00:00:00', '');
 INSERT INTO `sys_menu` VALUES ('1120', '志愿者风采', '3', '1', '/system/style', '', 'C', '0', 'system:style:view', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '志愿者风采菜单');
 INSERT INTO `sys_menu` VALUES ('1121', '志愿者风采查询', '1120', '1', '#', '', 'F', '0', 'system:style:list', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');
 INSERT INTO `sys_menu` VALUES ('1122', '志愿者风采新增', '1120', '2', '#', '', 'F', '0', 'system:style:add', '#', 'admin', '2018-03-01 00:00:00', 'ry', '2018-03-01 00:00:00', '');

@@ -3,7 +3,7 @@ package com.zxj.enums;
 /**
  * 数据源
  * 
- * @author hong
+ * @author zxj
  */
 public enum DataSourceType
 {

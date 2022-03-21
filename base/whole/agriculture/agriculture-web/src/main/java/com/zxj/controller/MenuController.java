@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 菜单信息
  * 
- * @author ruoyi
+ * @author zxj
  */
 @Controller
 @RequestMapping("/system/menu")

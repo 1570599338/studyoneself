@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 /**
  * @program: springs
  * @description: ShiroConfig
- * @author: lquan
+ * @author: zxj
  * @create: 2022-01-30 16:06
  **/
 @Configuration

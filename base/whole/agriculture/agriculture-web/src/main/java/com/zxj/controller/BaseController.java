@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * web层通用数据处理
  *
- * @author ruoyi
+ * @author zxj
  */
 public class BaseController {
     /**
@@ -127,14 +127,14 @@ public class BaseController {
 
     public User getSysUser() {
         User user = new User();
-        user.setUserName("lquan也不知道怎么改");
+        user.setUserName("zxj");
         return user;
         // return ShiroUtils.getSysUser();
     }
 
     public void setSysUser(User user) {
 
-        //"lquan也不知道怎么改"
+        //"zxj也不知道怎么改"
         // ShiroUtils.setSysUser(user);
     }
 

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+    <th:block th:include="front_inc :: front_header('惠农风采')" />
+</head>
+<body>
+<!-- start page-wrapper -->
+<div class="page-wrapper">
+    <th:block th:include="front_inc :: front_logo2" />
+    <!-- end of header -->
+
+
+    <!-- start event-section -->
+    <section class="event-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>故事背后的故事</h2>
+<!--                <span>Our Events</span>-->
+
+            </div>
+            <div class="row">
+                <div class="col col-xs-12">
+
+
+                    <div class="event-grids clearfix">
+
+
+                        <div class="grid"  th:if="${activities}"  th:each="activity:${activities}">
+                            <div class="img-holder">
+                                <img th:src="@{'/headImage/upload/'+${activity.imgurl}}" alt="${activity.title}">
+                            </div>
+                            <div class="details">
+                               <!-- <ul class="entry-meta">
+                                    <li><a href="#"><i class="ti-calendar"></i> 20 sep 2018</a></li>
+                                    <li><a href="#"><i class="ti-folder"></i> Education</a></li>
+                                </ul>-->
+                                <h3><a th:href="@{'/home/activityHistory/'+${activity.id}}">[(${activity.title})]</a></h3>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="grid">
+                            <div class="img-holder">
+                                <img src="/reception/picture/img-12.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <ul class="entry-meta">
+                                    <li><a href="#"><i class="ti-calendar"></i> 20 sep 2018</a></li>
+                                    <li><a href="#"><i class="ti-folder"></i> Education</a></li>
+                                </ul>
+                                <h3><a th:href="@{'/home/activityHistory'}">Education for All Children</a></h3>
+                            </div>
+                        </div>
+
+
+                        <div class="grid">
+                            <div class="img-holder">
+                                <img src="/reception/picture/img-23.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <ul class="entry-meta">
+                                    <li><a href="#"><i class="ti-calendar"></i> 20 sep 2018</a></li>
+                                    <li><a href="#"><i class="ti-folder"></i> Food</a></li>
+                                </ul>
+                                <h3><a  th:href="@{'/home/activityHistory'}">Food for All Everyone</a></h3>
+                            </div>
+                        </div>
+                        <div class="grid">
+                            <div class="img-holder">
+                                <img src="/reception/picture/img-32.jpg" alt="">
+                            </div>
+                            <div class="details">
+                                <ul class="entry-meta">
+                                    <li><a href="#"><i class="ti-calendar"></i> 20 sep 2018</a></li>
+                                    <li><a href="#"><i class="ti-folder"></i> Treatment</a></li>
+                                </ul>
+                                <h3><a th:href="@{'/home/activityHistory'}">Free Treatment</a></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end container -->
+    </section>
+
+
+
+
+    <th:block th:include="front_inc :: front_foot" />
+</div>
+<th:block th:include="front_inc :: frontJS" />
+</body>
+
+</html>

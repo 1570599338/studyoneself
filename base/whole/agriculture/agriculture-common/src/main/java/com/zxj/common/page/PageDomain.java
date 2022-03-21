@@ -6,7 +6,7 @@ import com.zxj.common.utils.StringUtils;
 /**
  * 分页数据
  * 
- * @author hong
+ * @author zxj
  */
 public class PageDomain
 {

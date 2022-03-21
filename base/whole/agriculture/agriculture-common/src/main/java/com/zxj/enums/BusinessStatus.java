@@ -3,7 +3,7 @@ package com.zxj.enums;
 /**
  * 操作状态
  * 
- * @author hong
+ * @author zxj
  *
  */
 public enum BusinessStatus

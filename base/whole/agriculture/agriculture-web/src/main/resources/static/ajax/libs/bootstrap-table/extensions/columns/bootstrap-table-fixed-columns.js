@@ -1,7 +1,7 @@
 /**
  * 基于bootstrap-table-fixed-columns修改
  * 支持左右列冻结、支持固定高度
- * Copyright (c) 2019 lquan
+ * Copyright (c) 2019 zxj
  */
 (function ($) {
     'use strict';
