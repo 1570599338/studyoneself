@@ -103,13 +103,46 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">用户类型：</label>
+                        <div class="col-xs-10">
+                            <label class="radio-box"> <input type="radio" name="userType" value="01" /> 志愿者 </label>
+                            <label class="radio-box"> <input type="radio" name="userType" value="02" /> 求助人员 </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="row">
             	<div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-xs-2 control-label">角色：</label>
                         <div class="col-xs-10">
                             <label th:each="role:${roles}" class="check-box">
-								<input name="role" type="checkbox" th:value="${role.roleId}" th:text="${role.roleName}" th:disabled="${role.status == '1'}">
+								<input name="role" type="checkbox" th:value="${role.id}" th:text="${role.roleName}" th:disabled="${role.status == '1'}">
 							</label>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">监护人姓名：</label>
+                        <div class="col-sm-8">
+                            <input id="guarderName" name="guarderName" placeholder="请输入监护人姓名" class="form-control" type="text" maxlength="11" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">监护人号码：</label>
+                        <div class="col-sm-8">
+                            <input id="guarderPhone" name="guarderPhone" placeholder="请输入监护人手机号码" class="form-control" type="text" maxlength="11" required>
                         </div>
                     </div>
                 </div>
@@ -237,6 +270,35 @@
             $('#post').select2({
                 placeholder: "请选择岗位",
                 allowClear: true
+            });
+
+
+            $('input').on('ifChecked', function(event){
+                var menuType = $(event.target).val();
+                if (menuType == "00") {
+                    $("#guarderName").parents(".row").hide();
+                    $("#guarderPhone").parents(".row").hide();
+                    //  $("input[name='role']").parents(".form-group").show();
+
+                } else if (menuType == "01") {
+                    /* $("#url").parents(".form-group").show();
+                     $("#perms").parents(".form-group").show();
+                     $("#icon").parents(".form-group").show();
+                     $("#target").parents(".form-group").show();
+                     $("input[name='visible']").parents(".form-group").show();*/
+                    $("#guarderName").parents(".row").hide();
+                    $("#guarderPhone").parents(".row").hide();
+                    //   $("input[name='role']").parents(".form-group").hide();
+                } else if (menuType == "02") {
+                    /* $("#url").parents(".form-group").hide();
+                     $("#perms").parents(".form-group").show();
+                     $("#icon").parents(".form-group").hide();
+                     $("#target").parents(".form-group").hide();
+                     $("input[name='visible']").parents(".form-group").hide();*/
+                    $("#guarderName").parents(".row").show();
+                    $("#guarderPhone").parents(".row").show();
+                    //  $("input[name='role']").parents(".form-group").hide();
+                }
             });
         })
     </script>

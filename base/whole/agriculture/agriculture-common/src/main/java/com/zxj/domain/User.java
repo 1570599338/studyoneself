@@ -59,7 +59,10 @@ public class User extends BaseEntity {
      */
     @Excel(name = "用户名称")
     private String userName;
-
+    /**
+     * 用户类型（00系统用户）
+     */
+    private String userType;
     /**
      * 用户邮箱
      */
@@ -115,6 +118,14 @@ public class User extends BaseEntity {
      */
     @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
+
+    /** 地址 */
+    @Excel(name = "地址")
+    private String address;
+
+    /** 审核状态 0：待审核 1：已审核 2：审核未通过 */
+    @Excel(name = "审核状态 0：待审核 1：已审核 2：审核未通过")
+    private Integer audit;
 
     /**
      * 部门对象
@@ -340,29 +351,27 @@ public class User extends BaseEntity {
         this.vip = vip;
     }
 
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
-                .append("userId", getUserId())
-                .append("deptId", getDeptId())
-                .append("loginName", getLoginName())
-                .append("userName", getUserName())
-                .append("email", getEmail())
-                .append("phonenumber", getPhonenumber())
-                .append("sex", getSex())
-                .append("avatar", getAvatar())
-                .append("password", getPassword())
-                .append("salt", getSalt())
-                .append("status", getStatus())
-                .append("delFlag", getDelFlag())
-                .append("loginIp", getLoginIp())
-                .append("loginDate", getLoginDate())
-                .append("createBy", getCreateBy())
-                .append("createTime", getCreateTime())
-                .append("updateBy", getUpdateBy())
-                .append("updateTime", getUpdateTime())
-                .append("remark", getRemark())
-                .append("dept", getDept())
-                .toString();
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getAudit() {
+        return audit;
+    }
+
+    public void setAudit(Integer audit) {
+        this.audit = audit;
     }
 }
