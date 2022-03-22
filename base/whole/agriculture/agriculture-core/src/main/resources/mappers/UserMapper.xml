@@ -189,7 +189,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="identificationCard != null and identificationCard != ''">identification_card= #{identificationCard},</if>
 			<if test="registeredResidence != null and registeredResidence != ''">registered_residence=#{registeredResidence},</if>
 			<if test="content != null and content != ''">content= #{content},</if>
-			<if test="audit != null and audit != ''">audit=#{audit},</if>
+			<if test="audit != null">audit=#{audit},</if>
 			<if test="address != null and address != ''">address=#{address},</if>
  			update_time = sysdate()
  		</set>
@@ -217,7 +217,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="identificationCard != null and identificationCard != ''">identification_card,</if>
 			<if test="registeredResidence != null and registeredResidence != ''">registered_residence,</if>
 			<if test="content != null and content != ''">content,</if>
-			<if test="audit != null and audit != ''">audit,</if>
+			<if test="audit != null">audit,</if>
 			<if test="address != null and address != ''">address,</if>
  			create_time
  		)values(
@@ -239,7 +239,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<if test="identificationCard != null and identificationCard != ''">#{identificationCard},</if>
 			<if test="registeredResidence != null and registeredResidence != ''">#{registeredResidence},</if>
 			<if test="content != null and content != ''">#{content},</if>
-			<if test="audit != null and audit != ''">#{audit},</if>
+			<if test="audit != null ">#{audit},</if>
 			<if test="address != null and address != ''">#{address},</if>
  			sysdate()
  		)

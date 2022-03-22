@@ -104,6 +104,7 @@ public class UserController extends BaseController {
         } else if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkEmailUnique(user))) {
             return error("新增用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
         }
+        user.setAudit(0);
         return toAjax(userService.insertUser(user));
     }
 
