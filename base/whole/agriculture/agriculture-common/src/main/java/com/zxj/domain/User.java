@@ -35,7 +35,7 @@ public class User extends BaseEntity {
     /**
      * 部门ID
      */
-    @Excel(name = "部门编号", type = Type.IMPORT)
+   // @Excel(name = "部门编号", type = Type.IMPORT)
     private Long deptId;
 
     /**
@@ -116,24 +116,35 @@ public class User extends BaseEntity {
     /**
      * 最后登陆时间
      */
-    @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
+  //  @Excel(name = "最后登陆时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
 
     /** 地址 */
     @Excel(name = "地址")
     private String address;
 
-    /** 审核状态 0：待审核 1：已审核 2：审核未通过 */
-    @Excel(name = "审核状态 0：待审核 1：已审核 2：审核未通过")
+    /** 审核状态 0：待审核 1：已审核 2：审核未通过 3：脱贫 */
+    @Excel(name = "审核状态 0：待审核 1：已审核 2：审核未通过 3：脱贫")
     private Integer audit;
 
+    /** 身份证号 */
+    @Excel(name = "身份证号")
+    private String identificationCard;
+
+    /** 户籍地址 */
+    @Excel(name = "户籍地址")
+    private String registeredResidence;
+
+    /** 情况说明 */
+    @Excel(name = "情况说明")
+    private String content;
     /**
      * 部门对象
      */
-    @Excels({
+  /*  @Excels({
             @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
             @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
-    })
+    })*/
     private Dept dept;
 
     private List<Role> roles;
@@ -373,5 +384,29 @@ public class User extends BaseEntity {
 
     public void setAudit(Integer audit) {
         this.audit = audit;
+    }
+
+    public String getIdentificationCard() {
+        return identificationCard;
+    }
+
+    public void setIdentificationCard(String identificationCard) {
+        this.identificationCard = identificationCard;
+    }
+
+    public String getRegisteredResidence() {
+        return registeredResidence;
+    }
+
+    public void setRegisteredResidence(String registeredResidence) {
+        this.registeredResidence = registeredResidence;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

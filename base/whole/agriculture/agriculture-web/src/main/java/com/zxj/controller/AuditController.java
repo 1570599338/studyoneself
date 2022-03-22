@@ -22,9 +22,9 @@ import java.util.List;
  * @create: 2022-02-21 19:21
  **/
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/system")
 public class AuditController extends BaseController{
-    private String prefix = "admin/audit";
+    private String prefix = "system/audit";
     /**
      * 服务对象
      */
