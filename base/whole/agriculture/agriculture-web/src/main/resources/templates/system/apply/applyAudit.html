@@ -67,7 +67,7 @@
     </div>
     <th:block th:include="include :: footer" />
     <script th:inline="javascript">
-        var editFlag = [[${@permission.hasPermi('system:apply:edit')}]];
+        var editFlag = [[${@permission.hasPermi('system:apply:auditedit')}]];
 
         var auditStatusDatas = [[${@dict.getType('system_project_audit')}]];
         var prefix = ctx + "system/applyaudit";

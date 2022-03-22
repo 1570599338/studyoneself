@@ -2,7 +2,6 @@ package com.zxj.controller;
 
 
 import com.zxj.bean.Resp.AjaxResult;
-import com.zxj.common.utils.Constants;
 import com.zxj.common.utils.ServletUtils;
 import com.zxj.common.utils.StringUtils;
 import com.zxj.domain.User;
@@ -48,17 +47,27 @@ public class LoginController extends BaseController {
     @PostMapping("/login")
     @ResponseBody
     public AjaxResult ajaxLogin(String username, String password, Boolean tourist) {
-        UsernamePasswordToken token;
-        User userlogin = null;
-        if (tourist) {
-            User user = getRandSysUser();
-            token = new UsernamePasswordToken(user.getLoginName(), Constants.PASSWORD);
-        } else {
-            if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
-                return AjaxResult.error("用户名或者密码不能为空！");
-            }
-            token = new UsernamePasswordToken(username, password);
+        User user = userService.login(username,null);
+
+
+        if(user==null){
+            return AjaxResult.error("该用户不存在");
         }
+
+        if(!user.isAdmin()){
+            if(user.getAudit()==null){
+                user.setAudit(0);
+            }
+            if(user.getAudit()==0){
+                return AjaxResult.error("请联系管理员进行审核后在登陆！");
+            }
+            if(user.getAudit()==2){
+                return AjaxResult.error("审核不通过，无权限登陆！");
+            }
+        }
+
+        UsernamePasswordToken token  = new UsernamePasswordToken(username, password);
+
 
         Subject subject = SecurityUtils.getSubject();
         try {

@@ -1,21 +1,19 @@
 package com.zxj.controller;
 
-import java.util.List;
-
 import com.zxj.bean.Resp.AjaxResult;
 import com.zxj.common.page.TableDataInfo;
 import com.zxj.common.poi.ExcelUtil;
+import com.zxj.common.shiro.ShiroUtils;
+import com.zxj.domain.Apply;
+import com.zxj.domain.User;
+import com.zxj.service.IApplyService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.zxj.domain.Apply;
-import com.zxj.service.IApplyService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * 申请Controller
@@ -44,6 +42,10 @@ public class ApplyController extends BaseController {
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Apply apply) {
+        User user = ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            apply.setUserId(user.getUserId().intValue());
+        }
         startPage();
         List<Apply> list = applyService.selectApplyList(apply);
         return getDataTable(list);
@@ -56,6 +58,10 @@ public class ApplyController extends BaseController {
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(Apply apply) {
+        User user = ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            apply.setUserId(user.getUserId().intValue());
+        }
         List<Apply> list = applyService.selectApplyList(apply);
         ExcelUtil<Apply> util = new ExcelUtil<Apply>(Apply.class);
         return util.exportExcel(list, "apply");
@@ -76,6 +82,8 @@ public class ApplyController extends BaseController {
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(Apply apply) {
+        apply.setUserId(ShiroUtils.getUserId().intValue());
+        apply.setCreateBy(ShiroUtils.getLoginName());
         return toAjax(applyService.insertApply(apply));
     }
 

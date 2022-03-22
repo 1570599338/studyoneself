@@ -3,7 +3,10 @@ package com.zxj.controller;
 import com.zxj.bean.Resp.AjaxResult;
 import com.zxj.common.page.TableDataInfo;
 import com.zxj.common.poi.ExcelUtil;
+import com.zxj.common.shiro.ShiroUtils;
+import com.zxj.common.utils.Constants;
 import com.zxj.domain.Apply;
+import com.zxj.domain.User;
 import com.zxj.service.IApplyService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +43,7 @@ public class ApplyAuditController extends BaseController {
     @PostMapping("/list")
     @ResponseBody
     public TableDataInfo list(Apply apply) {
+        apply.setAuditStatus(Constants.audit_init);
         startPage();
         List<Apply> list = applyService.selectApplyList(apply);
         return getDataTable(list);
@@ -76,6 +80,12 @@ public class ApplyAuditController extends BaseController {
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(Apply apply) {
+
+        User user =ShiroUtils.getSysUser();
+        if(!user.isAdmin()){
+            apply.setAuditId(user.getUserId().intValue());
+        }
+
         return toAjax(applyService.updateApply(apply));
     }
 

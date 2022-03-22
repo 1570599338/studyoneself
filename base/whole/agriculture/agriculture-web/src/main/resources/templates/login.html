@@ -23,21 +23,21 @@
 
 <body class="signin">
 
-    <div class="signinpanel">
+    <div class="signinpanel" style="padding-top: 332px;">
         <div class="row">
             <div class="col-sm-7">
                 <div class="signin-info">
-                    <!--<div class="logopanel m-b">-->
-                        <!--<h1><img alt="[ ]" src="../static/ruoyi.png" th:src="@{/ruoyi.png}"></h1>-->
-                    <!--</div>-->
+                    <!--<div class="logopanel m-b">
+                        <h1><img alt="[ ]" src="../static/ruoyi.png" th:src="@{/ruoyi.png}"></h1>
+                    </div>-->
                     <div class="m-b"></div>
-                    <h4>欢迎使用 </h4>
+                    <h4>欢迎使用助农惠农系统</h4>
                     <ul class="m-b">
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> SpringBoot</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Mybatis</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Shiro</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Thymeleaf</li>
-                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Bootstrap</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 关注农业</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 支持农业</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 帮助农业</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 主力农业</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> 普惠农业</li>
                     </ul>
                     <strong>还没有账号？ <a href="#" id="register">立即注册&raquo;</a></strong>
                 </div>
@@ -45,10 +45,10 @@
             <div class="col-sm-5">
                 <form id="signupForm">
                     <div class="checkbox-custom">
-                        <input type="checkbox" id="tourist" name="tourist" > <label for="tourist"><h3 class="box">游客登录</h3></label>
+                        <!--<input type="checkbox" id="tourist" name="tourist" > <label for="tourist"><h3 class="box">游客登录</h3></label>-->
                     </div>
-                    <input type="text"     name="username" class="form-control uname"     placeholder="用户名" value="admin"    />
-                    <input type="password" name="password" class="form-control pword"     placeholder="密码"   value="admin123" />
+                    <input type="text" name="username" class="form-control uname"  placeholder="用户名" value="admin"    />
+                    <input type="password" name="password" class="form-control pword"   placeholder="密码"   value="admin123" />
 
                     <button class="btn btn-success btn-block" id="btnSubmit" data-loading="正在验证登录，请稍后...">登录</button>
                 </form>

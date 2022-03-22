@@ -49,6 +49,15 @@ public class RegisterController extends BaseController {
         } else if (UserConstants.USER_EMAIL_NOT_UNIQUE.equals(userService.checkEmailUnique(user))) {
             return error("新增用户'" + user.getLoginName() + "'失败，邮箱账号已存在");
         }
+        if("01".equals(user.getUserType())){// 志愿者love_volunteer
+            Long[] roleids={8l};
+            user.setRoleIds(roleids);
+        }
+        if("02".equals(user.getUserType())){// 求助者need_helpKid
+            Long[] roleids={7l};
+            user.setRoleIds(roleids);
+        }
+        user.setAudit(0);
         return toAjax(userService.insertUser(user));
     }
 }
