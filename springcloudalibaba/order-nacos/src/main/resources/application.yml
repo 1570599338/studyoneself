@@ -1,0 +1,21 @@
+server:
+  port: 8020
+
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public    # 相同特征的服务进行归类分组管理
+        enabled: false  #  默认=true（临时实例）实例的类型：false：永久实例   true：临时实例   永久实例即便是宕机了，也不会剔除服务实例
+
+        #service: 默认取${spring.application.name},也可以通过该选项配置
+        #group:   默认DEFAULT_GROUP 更细的相同特征的服务进行归类分组管理
+        #weight:  值范围（1~100） 需要通过结合 安装  权重的负载策略均衡策略，权重越高分配的流量越大
+        #metadata:  version=1  可以结合元数据做扩展
+
+
+  application:
+    name: order-server # 应用的名称（nacos会将该名称当做服务名称）

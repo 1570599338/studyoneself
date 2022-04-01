@@ -5,6 +5,8 @@
     <modules>
         <module>order</module>
         <module>stock</module>
+        <module>order-nacos</module>
+        <module>stock-nacos</module>
     </modules>
 <!--springboot 的版本管理器，以后公司中开啊就可以使用parent去集成公司自定义的父maven项目-->
 
