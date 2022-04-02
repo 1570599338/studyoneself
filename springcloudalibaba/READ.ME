@@ -30,6 +30,33 @@ RestTemplate的负载均衡器策略是轮训策略
     使用的是：rabbon
 
 
+ ### 单机模式nacos
+    方法一：
+        直接在启动脚本startup.cmd的MODE改成standalone
+
+    方法二：
+        启动命令加上参数：startup.sh  -m  standalone
+
+
+
+ ### 集群模式nacos
+        第一步：
+            下载解压文件，修改conf/application.properties的数据库配置放开
+            并且端口号改成自定义的端口
+
+        第二步：讲conf/cluster.example改成cluster.conf讲ip改成集群的ip
+
+
+        第三步：
+            配置ngix的作为负载均衡
+
+
+
+## 负载均衡Ribbon
+
+    ribbon的负载均衡策略：1、轮询方式   2、随机方式   3、nacos权重
+
+
 
 
 
