@@ -80,6 +80,8 @@ public class ShrioConfig {
         // 对静态资源设置匿名访问
         filterChainDefinitionMap.put("/favicon.ico**", "anon");
         // 前端请求
+
+        filterChainDefinitionMap.put("/checkCode/**", "anon");
         filterChainDefinitionMap.put("/front/**", "anon");
         filterChainDefinitionMap.put("/demo/**", "anon");
         filterChainDefinitionMap.put("/alipay/**", "anon");

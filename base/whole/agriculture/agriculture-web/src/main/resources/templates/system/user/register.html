@@ -41,17 +41,7 @@
                     <!--</div>-->
                 <!--</div>-->
             </div>
-            <div class="row">
 
-                <!--<div class="col-sm-6">-->
-                    <!--<div class="form-group">-->
-                        <!--<label class="col-sm-4 control-label is-required">邮箱：</label>-->
-                        <!--<div class="col-sm-8">-->
-                            <!--<input id="email" name="email" class="form-control email" type="text" maxlength="20" placeholder="请输入邮箱" required>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            </div>
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -61,14 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="col-sm-6">-->
-                    <!--<div class="form-group">-->
-                        <!--<label class="col-sm-4 control-label is-required">登录密码：</label>-->
-                        <!--<div class="col-sm-8">-->
-                            <!--<input name="password" placeholder="请输入登录密码" class="form-control" type="password" th:value="${@config.getKey('sys.user.initPassword')}" required>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
+
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-sm-4 control-label is-required">住址：</label>
@@ -89,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <!--<div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-sm-4 control-label">用户状态：</label>
                         <div class="col-sm-8">
@@ -97,6 +80,14 @@
 	                            <input type="checkbox" id="status" checked>
 	                            <span></span>
 	                        </label>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">登录密码：</label>
+                        <div class="col-sm-8">
+                            <input name="password" placeholder="请输入登录密码" id="fpassword" class="form-control" type="password"  required>
                         </div>
                     </div>
                 </div>
@@ -114,6 +105,28 @@
                 <!--</div>-->
             <!--</div>-->
             <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">邮箱：</label>
+                        <div class="col-sm-8">
+                            <input id="email" name="email" class="form-control email" type="text" maxlength="20" placeholder="请输入邮箱" required>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label is-required">确认密码：</label>
+                        <div class="col-sm-8">
+                            <input name="password" placeholder="请输入登录密码"  id="spassword"  class="form-control" type="password"  required>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-xs-2 control-label">用户类型：</label>
@@ -123,6 +136,18 @@
                         </div>
                     </div>
                 </div>
+
+               <!-- <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">用户类型：</label>
+                        <div class="col-xs-8">
+                            <label class="radio-box"> <input type="radio" name="userType" value="01" /> 志愿者 </label>
+                            <label class="radio-box"> <input type="radio" name="userType" value="02" /> 贫困户 </label>
+                        </div>
+                    </div>
+                </div>-->
+
+
             </div>
 
 <!--            <div class="row">
@@ -144,7 +169,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label is-required">身份证：</label>
                         <div class="col-sm-8">
-                            <input id="identificationCard" name="identificationCard" placeholder="身份证" class="form-control" type="text" maxlength="18" required>
+                            <input id="identificationCard" name="identificationCard" placeholder="身份证" class="form-control" type="text"  minlength="18" maxlength="18" required>
                         </div>
                     </div>
                 </div>
@@ -288,6 +313,18 @@
 	        if ($.validate.form()) {
                 var sHTML = $('.summernote').summernote('code');
                 $("#content").val(sHTML);
+                var fpassword =  $("#fpassword").val();
+                var spassword =  $("#spassword").val();
+               if(fpassword!=spassword){
+                   $.modal.alertWarning("密码不一致！请重新输入");
+                   return false;
+               }
+
+               var userType = $("input[name='userType']:checked").val();
+                if(!userType){
+                    $.modal.alertWarning("请选择用户类型！");
+                    return false;
+                }
 	        	var data = $("#form-user-add").serializeArray();
 	        	var status = $("input[id='status']").is(':checked') == true ? 0 : 1;
 	        	var roleIds = $.form.selectCheckeds("role");

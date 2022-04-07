@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * 登录验证
@@ -46,7 +47,15 @@ public class LoginController extends BaseController {
 
     @PostMapping("/login")
     @ResponseBody
-    public AjaxResult ajaxLogin(String username, String password, Boolean tourist) {
+    public AjaxResult ajaxLogin(String username, String password,String validateCode, Boolean tourist, HttpServletRequest request) {
+        if(validateCode==null){
+            return AjaxResult.error("请输入验证码！");
+        }
+        HttpSession session = request.getSession(true);
+
+        if (!session.getAttribute("randCheckCode").toString().equalsIgnoreCase(validateCode)) {
+            return AjaxResult.error("验证码错误！");
+        }
         User user = userService.login(username,null);
 
 
