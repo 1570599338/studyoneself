@@ -12,7 +12,7 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">名称：</label>
                 <div class="col-sm-8">
-                    <input name="title" class="form-control" type="text">
+                    <input name="title"  id="title" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">
@@ -57,7 +57,7 @@
                 <label class="col-sm-3 control-label">愿望简介：</label>
                 <div class="col-sm-8">
                     <!--<input name="wishShort" class="form-control" type="text">-->
-                    <textarea name="wishShort" class="form-control"  ></textarea>
+                    <textarea name="wishShort"  id="wishShort" class="form-control"  ></textarea>
                 </div>
             </div>
             <div class="form-group">    
@@ -125,6 +125,29 @@
             if ($.validate.form()) {
                 var sHTML = $('.summernote').summernote('code');
                 $("#wishInfo").val(sHTML);
+
+
+                var title = $('#title').val();
+                if(!title){
+                    $.modal.alertWarning("名称不能为空");
+                    return false;
+                }
+
+                var wishShort = $('#wishShort').val();
+                if(!wishShort){
+                    $.modal.alertWarning("愿望简介不能为空");
+                    return false;
+                }
+
+
+                var wishInfo = $('#wishInfo').val();
+                if(!wishInfo){
+                    $.modal.alertWarning("愿望简介不能为空");
+                    return false;
+                }
+
+
+
                 $.operate.save(prefix + "/add", $('#form-wish-add').serialize());
             }
         }

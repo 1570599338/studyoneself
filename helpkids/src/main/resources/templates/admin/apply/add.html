@@ -9,25 +9,25 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">姓名：</label>
                 <div class="col-sm-8">
-                    <input name="name" class="form-control" type="text">
+                    <input name="name"  id="name" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">电话：</label>
                 <div class="col-sm-8">
-                    <input name="tel" class="form-control" type="text">
+                    <input name="tel"  id="tel"  class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">地址：</label>
                 <div class="col-sm-8">
-                    <input name="adress" class="form-control" type="text">
+                    <input name="adress" id="adress"   class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">申请理由：</label>
                 <div class="col-sm-8">
-                    <input name="reason" class="form-control" type="text">
+                    <input name="reason" id="reason" class="form-control" type="text">
                 </div>
             </div>
 
@@ -43,6 +43,30 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                var name = $('#name').val();
+                if(!name){
+                    $.modal.alertWarning("姓名不能为空");
+                    return false;
+                }
+
+                var tel = $('#tel').val();
+                if(!tel){
+                    $.modal.alertWarning("电话不能为空");
+                    return false;
+                }
+
+                var adress = $('#adress').val();
+                if(!adress){
+                    $.modal.alertWarning("地址不能为空");
+                    return false;
+                }
+
+                var reason = $('#reason').val();
+                if(!reason){
+                    $.modal.alertWarning("申请理由不能为空");
+                    return false;
+                }
+
                 $.operate.save(prefix + "/add", $('#form-apply-add').serialize());
             }
         }

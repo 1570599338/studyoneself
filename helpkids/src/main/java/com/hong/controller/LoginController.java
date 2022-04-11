@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
@@ -70,13 +72,28 @@ public class LoginController {
 
 
             return AjaxResult.success();
-        } catch (AuthenticationException e) {
+       /** } catch (AuthenticationException e) {
             String msg = "用户或密码错误";
             if (StringUtils.isNotEmpty(e.getMessage())) {
                 msg = e.getMessage();
             }
             return AjaxResult.error(msg);
+        }**/
+        }catch (UnknownAccountException e) { //UnknownAccountException 未知的账号异常
+
+            return AjaxResult.error("用户名不存在");
+
+        }catch (IncorrectCredentialsException e) { //IncorrectCredentialsException 不正确的凭证异常
+
+            return AjaxResult.error("密码错误");
+
+        }catch (AuthenticationException e) { //AuthenticationException 认证异常
+
+            return AjaxResult.error("未知错误");
+
         }
+
+
     }
 
     @GetMapping("/unauth")

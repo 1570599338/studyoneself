@@ -92,8 +92,21 @@
 		
 		function submitHandler() {
 	        if ($.validate.form()) {
+                var noticeTitle = $('#noticeTitle').val();
+                if(!noticeTitle){
+                    $.modal.alertWarning("公告标题不能为空");
+                    return false;
+                }
+
 	        	var sHTML = $('.summernote').summernote('code');
 				$("#noticeContent").val(sHTML);
+
+                var noticeContent = $('#noticeContent').val();
+                if(!noticeContent){
+                    $.modal.alertWarning("公告内容不能为空");
+                    return false;
+                }
+
 				$.operate.save(prefix + "/edit", $('#form-notice-edit').serialize());
 	        }
 	    }

@@ -77,7 +77,9 @@
                 <div class="col-sm-8">
                    <!-- <input name="wishInfo" th:field="*{wishInfo}" class="form-control" type="text">-->
                     <input name="wishInfo" th:field="*{wishInfo}" class="form-control" type="hidden">
-                    <div id="editor" class="summernote"></div>
+                    <div id="editor" class="summernote">
+
+                    </div>
                 </div>
             </div>
     <!--
@@ -151,6 +153,26 @@
             if ($.validate.form()) {
                 var sHTML = $('.summernote').summernote('code');
                 $("#wishInfo").val(sHTML);
+
+                var title = $('#title').val();
+                if(!title){
+                    $.modal.alertWarning("名称不能为空");
+                    return false;
+                }
+
+                var wishShort = $('#wishShort').val();
+                if(!wishShort){
+                    $.modal.alertWarning("愿望简介不能为空");
+                    return false;
+                }
+
+
+                var wishInfo = $('#wishInfo').val();
+                if(!wishInfo){
+                    $.modal.alertWarning("愿望简介不能为空");
+                    return false;
+                }
+
                 $.operate.save(prefix + "/edit", $('#form-wish-edit').serialize());
             }
         }

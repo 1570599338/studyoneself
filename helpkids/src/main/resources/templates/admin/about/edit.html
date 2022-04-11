@@ -87,8 +87,21 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                var title = $('#title').val();
+                if(!title){
+                    $.modal.alertWarning("名称不能为空");
+                    return false;
+                }
+
                 var sHTML = $('.summernote').summernote('code');
                 $("#content").val(sHTML);
+
+                var content = $('#content').val();
+                if(!content){
+                    $.modal.alertWarning("内容不能为空");
+                    return false;
+                }
+
                 $.operate.save(prefix + "/edit", $('#form-about-edit').serialize());
             }
         }

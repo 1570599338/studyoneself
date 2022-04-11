@@ -10,7 +10,7 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">名称：</label>
                 <div class="col-sm-8">
-                    <input name="title" class="form-control" type="text">
+                    <input name="title" id="title" class="form-control" type="text">
                 </div>
             </div>
             <div class="form-group">
@@ -90,8 +90,21 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                var title = $('#title').val();
+                if(!title){
+                    $.modal.alertWarning("名称不能为空");
+                    return false;
+                }
                 var sHTML = $('.summernote').summernote('code');
                 $("#content").val(sHTML);
+
+                var content = $('#content').val();
+                if(!content){
+                    $.modal.alertWarning("内容不能为空");
+                    return false;
+                }
+
+
                 $.operate.save(prefix + "/add", $('#form-about-add').serialize());
             }
         }

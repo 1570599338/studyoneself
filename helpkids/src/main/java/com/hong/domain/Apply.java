@@ -99,6 +99,27 @@ public class Apply {
      */
     private String remark;
 
+    @Excel(name = "用户名")
+    private String useName;
+
+    @Excel(name = "审核人员id")
+    private String auditName;
+
+    public String getUseName() {
+        return useName;
+    }
+
+    public void setUseName(String useName) {
+        this.useName = useName;
+    }
+
+    public String getAuditName() {
+        return auditName;
+    }
+
+    public void setAuditName(String auditName) {
+        this.auditName = auditName;
+    }
 
     public void setId(Integer id) {
         this.id = id;

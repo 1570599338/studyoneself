@@ -91,8 +91,28 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                var title = $('#title').val();
+                if(!title){
+                    $.modal.alertWarning("名称不能为空");
+                    return false;
+                }
                 var sHTML = $('.summernote').summernote('code');
                 $("#storyInfo").val(sHTML);
+
+                var storyShort = $('#storyShort').val();
+                if(!storyShort){
+                    $.modal.alertWarning("圆梦简介不能为空");
+                    return false;
+                }
+
+
+                var storyInfo = $('#storyInfo').val();
+                if(!storyInfo){
+                    $.modal.alertWarning("圆梦故事内容不能为空");
+                    return false;
+                }
+
+
                 $.operate.save(prefix + "/edit", $('#form-story-edit').serialize());
             }
         }

@@ -51,6 +51,29 @@
 
         function submitHandler() {
             if ($.validate.form()) {
+                var name = $('#name').val();
+                if(!name){
+                    $.modal.alertWarning("姓名不能为空");
+                    return false;
+                }
+
+                var tel = $('#tel').val();
+                if(!tel){
+                    $.modal.alertWarning("电话不能为空");
+                    return false;
+                }
+
+                var adress = $('#adress').val();
+                if(!adress){
+                    $.modal.alertWarning("地址不能为空");
+                    return false;
+                }
+
+                var reason = $('#reason').val();
+                if(!reason){
+                    $.modal.alertWarning("申请理由不能为空");
+                    return false;
+                }
                 $.operate.save(prefix + "/edit", $('#form-apply-edit').serialize());
             }
         }

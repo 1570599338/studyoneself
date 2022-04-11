@@ -125,6 +125,19 @@
                 // { field: 'dept.deptName',  title: '部门' },
                 {field: 'email', title: '邮箱', visible: false},
                 {field: 'phonenumber', title: '手机'},
+                {field: 'userType', title: '人员类型',
+					formatter: function (value, row, index) {
+						if (row.userType == '00') {
+							return '系统用户';
+						}
+						if (row.userType == '01') {
+							return '社区志愿者';
+						}
+						if (row.userType == '02') {
+							return '求助人员';
+						}
+					}
+				},
                 {
                     visible: editFlag == 'hidden' ? false : true, title: '用户状态', align: 'center',
                     formatter: function (value, row, index) {

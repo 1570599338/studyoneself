@@ -20,6 +20,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateBy"    column="update_by"    />
         <result property="updateTime"    column="update_time"    />
         <result property="remark"    column="remark"    />
+        <result property="useName"    column="useName"    />
+        <result property="auditName"    column="auditName"    />
     </resultMap>
 
     <sql id="selectApplyVo">
@@ -27,11 +29,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </sql>
 
     <select id="selectApplyList" parameterType="com.hong.domain.Apply" resultMap="ApplyResult">
-        <include refid="selectApplyVo"/>
+        select ta.id, ta.name, ta.tel, ta.adress, ta.reason, ta.wish_id,tu.user_name useName,  ta.use_id, ta.audit_status, c.title auditName, ta.audit_id, ta.del_flag, ta.create_by, ta.create_time, ta.update_by, ta.update_time, ta.remark
+        from t_apply ta
+        left join  t_user tu on ta.use_id=tu.id
+        left join  t_user b on ta.audit_id=b.id
+        left join  t_wish c on ta.wish_id=c.id
+
         <where>  
-            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="tel != null  and tel != ''"> and tel like concat('%', #{tel}, '%')</if>
-            <if test="wishId != null"> and wish_id  = #{wishId}</if>
+            <if test="name != null  and name != ''"> and ta.name like concat('%', #{name}, '%')</if>
+            <if test="tel != null  and tel != ''"> and ta.tel like concat('%', #{tel}, '%')</if>
+            <if test="wishId != null"> and ta.wish_id  = #{wishId}</if>
         </where>
     </select>
     
