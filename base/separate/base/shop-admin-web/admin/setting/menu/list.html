@@ -243,8 +243,12 @@
 					  ,"url": data.url
 					  ,"perms": data.perms
 					  ,"orderNum": data.orderNum
+					 
+						,"permCode":data.permCode
+					  
 					  ,"target": data.target
 				  });
+				 
 				  $("input[name='icon']").attr("value","fa "+ data.icon)
 				  iconPicker.checkIcon('iconPickerFa', "fa "+ data.icon);
 				  if ($("#reset_icon").length === 0){

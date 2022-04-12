@@ -31,14 +31,22 @@ public class AuthRealm extends AuthorizingRealm {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Autowired
+    private RoleService roleService;
+
+    @Autowired
+    private PermissionService permissionService;
+
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        User user = new User();
+      //  User user = new User();
 
-        BeanUtils.copyProperties(principals.getPrimaryPrincipal(),user);
+      //  BeanUtils.copyProperties(principals.getPrimaryPrincipal(),user);
 
-        RoleService roleService = applicationContext.getBean(RoleService.class);
-        PermissionService permissionService = applicationContext.getBean(PermissionService.class);;
+       // RoleService roleService = applicationContext.getBean(RoleService.class);
+       // PermissionService permissionService = applicationContext.getBean(PermissionService.class);;
+        User user = (User)principals.getPrimaryPrincipal();
         List<Role> roles = roleService.getUserRoles(user.getId().toString());
         List<Integer> rolesIds = roles.stream().map(Role::getId).collect(Collectors.toList());
         List<String>  rolesName = roles.stream().map(Role::getName).collect(Collectors.toList());
@@ -50,7 +58,9 @@ public class AuthRealm extends AuthorizingRealm {
             permissions.addAll(permission.stream().map(Permission::getPermCode).collect(Collectors.toList()));
         });
         // 为当前用户设置角色和权限
+
         SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
+
         simpleAuthorInfo.addRoles(rolesName);
         simpleAuthorInfo.addStringPermissions(permissions);
         return simpleAuthorInfo;
