@@ -168,7 +168,11 @@ public class UserServiceImpl implements IUserService {
     public int insertUser(User user) {
         user.randomSalt();
        // user.setPassword(passwordService.encryptPassword(user.getLoginName(), Constants.PASSWORD, user.getSalt()));
-        user.setPassword(Constants.PASSWORD);
+        if(user==null || StringUtils.isEmpty(user.getPassword())){
+
+            user.setPassword(Constants.PASSWORD);
+        }
+
 
         if (ShiroUtils.getSysUser() != null) {
             user.setCreateBy(ShiroUtils.getLoginName());
