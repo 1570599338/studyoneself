@@ -7,6 +7,7 @@ import com.zxj.bean.Resp.AjaxResult.Type;
 import com.zxj.common.page.PageDomain;
 import com.zxj.common.page.TableDataInfo;
 import com.zxj.common.page.TableSupport;
+import com.zxj.common.shiro.ShiroUtils;
 import com.zxj.common.sql.SqlUtil;
 import com.zxj.common.utils.DateUtils;
 import com.zxj.common.utils.StringUtils;
@@ -128,14 +129,14 @@ public class BaseController {
     public User getSysUser() {
         User user = new User();
         user.setUserName("zxj");
-        return user;
-        // return ShiroUtils.getSysUser();
+       // return user;
+         return ShiroUtils.getSysUser();
     }
 
     public void setSysUser(User user) {
 
         //"zxj也不知道怎么改"
-        // ShiroUtils.setSysUser(user);
+         ShiroUtils.setSysUser(user);
     }
 
     public Long getUserId() {

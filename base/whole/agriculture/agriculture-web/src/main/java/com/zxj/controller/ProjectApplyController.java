@@ -5,10 +5,12 @@ import com.zxj.common.page.TableDataInfo;
 import com.zxj.common.poi.ExcelUtil;
 import com.zxj.common.shiro.ShiroUtils;
 import com.zxj.domain.Project;
+import com.zxj.domain.VolunteerStyle;
 import com.zxj.service.IProjectService;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,5 +61,14 @@ public class ProjectApplyController extends BaseController {
         project.setUpdateBy(ShiroUtils.getLoginName());
         project.setAuditId(ShiroUtils.getUserId().intValue());
         return toAjax(projectService.updateProject(project));
+    }
+
+
+    // 项目详情
+    @RequestMapping("/detail/{applyId}")
+    public String volunteerDetail(Model model, @PathVariable("applyId") Integer applyId) {
+
+        model.addAttribute("applyId", applyId);
+        return prefix + "/applysq";
     }
 }
