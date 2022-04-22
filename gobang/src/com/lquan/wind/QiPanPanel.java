@@ -108,6 +108,11 @@ public class QiPanPanel extends JPanel {
             g2d.drawString(String.valueOf(str1[i]), 40 * (i + 1) - width / 2, 40 / 2 + 600);
         }
 
+        //  画棋子
+        // 画圆
+        g2d.setColor(Color.BLACK);
+        g2d.fillOval(x-15, y-15, 30, 30);
+
     }
 
 }
