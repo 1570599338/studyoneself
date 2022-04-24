@@ -29,11 +29,19 @@ public class MouseMotionListener extends MouseMotionAdapter {
 		int y=e.getY();			
 		cx=(x- Constant.GoBangWWW_offset/2)/Constant.GoBangWWW_width+1;
 		cy=(y-Constant.GoBangWWW_offset/2)/Constant.GoBangWWW_width+1;
+		qipan.setCx(cx);
+		qipan.setCy(cy);
+
 		if(cx>=0&&cx<=Constant.GoBangGitNumber&&cy>=0&&cy<=Constant.GoBangGitNumber){
 			qipan.repaint();
 		}
+		System.out.println("cx:"+cx+"---cy:"+cy);
 		
-		
+	}
+
+
+	public QiPanPanel getQipan() {
+		return qipan;
 	}
 
 

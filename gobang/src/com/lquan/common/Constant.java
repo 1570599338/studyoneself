@@ -32,6 +32,9 @@ public class Constant {
     public static final int GoBang_centpoint_y=GoBangWWW_offset*GoBangGitNumber_center;
 
 
+
+
+
     //游戏模式
     public static boolean Game=true;
 }
